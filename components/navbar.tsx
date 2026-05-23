@@ -54,7 +54,7 @@ export default function Navbar({
   const progressPercent = ((activeIndex) / (SECTIONS.length - 1)) * 100
 
   return (
-    <nav className="sticky top-0 z-50 bg-foreground text-primary-foreground shadow-lg">
+    <nav className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-lg">
       {/* Barra de progreso superior */}
       <div className="h-1 w-full bg-white/10" aria-hidden="true">
         <div
@@ -150,7 +150,7 @@ export default function Navbar({
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="lg:hidden bg-foreground border-t border-white/10 px-6 pb-4">
+        <div className="lg:hidden bg-primary border-t border-white/10 px-6 pb-4">
           <ul className="flex flex-col gap-1 pt-2" role="list">
             {SECTIONS.map((s) => {
               const Icon = s.icon
