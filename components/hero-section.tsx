@@ -1,11 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
-import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight } from "lucide-react"
+import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight, ChevronLeft } from "lucide-react"
 
-const CARDS = [
-  {
+const CARDS = [  {
     id: "paises",
     icon: Globe,
     titulo: "Paises y Culturas",
@@ -52,6 +51,39 @@ const CARDS = [
   },
 ]
 
+const PAISAJES = [
+  {
+    src: "/images/cordon-plata.jpg",
+    titulo: "Cordon del Plata",
+    lugar: "Mendoza",
+  },
+  {
+    src: "/images/valle-luna.jpg",
+    titulo: "Valle de la Luna",
+    lugar: "San Juan",
+  },
+  {
+    src: "/images/lago-cholila.jpg",
+    titulo: "Lago Cholila",
+    lugar: "Chubut",
+  },
+  {
+    src: "/images/perito-moreno.jpg",
+    titulo: "Glaciar Perito Moreno",
+    lugar: "Santa Cruz",
+  },
+  {
+    src: "/images/iguazu.jpg",
+    titulo: "Cataratas del Iguazu",
+    lugar: "Misiones",
+  },
+  {
+    src: "/images/hornocal.jpg",
+    titulo: "Cerro Hornocal",
+    lugar: "Jujuy",
+  },
+]
+
 // Fecha de inicio del Mundial 2026: 11 de junio de 2026
 const MUNDIAL_DATE = new Date("2026-06-11T00:00:00")
 
@@ -74,6 +106,77 @@ function useCountdown(target: Date) {
   return time
 }
 
+function Carrusel() {
+  const [actual, setActual] = useState(0)
+  const total = PAISAJES.length
+
+  const anterior = useCallback(() => setActual((p) => (p - 1 + total) % total), [total])
+  const siguiente = useCallback(() => setActual((p) => (p + 1) % total), [total])
+
+  useEffect(() => {
+    const id = setInterval(siguiente, 5000)
+    return () => clearInterval(id)
+  }, [siguiente])
+
+  const paisaje = PAISAJES[actual]
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl" style={{ aspectRatio: "16/7" }}>
+      {PAISAJES.map((p, i) => (
+        <div
+          key={p.src}
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: i === actual ? 1 : 0 }}
+        >
+          <Image
+            src={p.src}
+            alt={`${p.titulo}, ${p.lugar}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 80vw"
+            priority={i === 0}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute bottom-5 left-5">
+            <p className="text-xl font-black text-white drop-shadow-md">{p.titulo}</p>
+            <p className="text-sm font-semibold text-white/70">{p.lugar}, Argentina</p>
+          </div>
+        </div>
+      ))}
+
+      {/* Botones navegacion */}
+      <button
+        onClick={anterior}
+        aria-label="Imagen anterior"
+        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-2.5 text-white backdrop-blur-sm hover:bg-black/60 transition-colors"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        onClick={siguiente}
+        aria-label="Imagen siguiente"
+        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-2.5 text-white backdrop-blur-sm hover:bg-black/60 transition-colors"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      {/* Indicadores */}
+      <div className="absolute bottom-4 right-5 flex gap-1.5">
+        {PAISAJES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActual(i)}
+            aria-label={`Ir a imagen ${i + 1}`}
+            className={`rounded-full transition-all duration-300 ${
+              i === actual ? "bg-white w-5 h-2" : "bg-white/40 w-2 h-2"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function CountdownUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center rounded-2xl bg-white/10 px-5 py-4 backdrop-blur-sm min-w-[72px]">
@@ -90,24 +193,21 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
 
   return (
     <section className="min-h-screen section-enter">
-      {/* Hero */}
-      <div className="relative overflow-hidden bg-foreground px-6 py-14 md:py-20 text-center">
-        {/* Decoracion de fondo: circulos de color solido con baja opacidad */}
-        <div
-          className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full opacity-[0.08]"
-          style={{ background: "oklch(0.82 0.18 85)" }}
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full opacity-[0.08]"
-          style={{ background: "oklch(0.52 0.18 240)" }}
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full opacity-[0.04]"
-          style={{ background: "oklch(0.6 0.18 145)" }}
-          aria-hidden="true"
-        />
+      {/* Hero con fondo Messi + copa */}
+      <div className="relative overflow-hidden px-6 py-14 md:py-20 text-center">
+        {/* Imagen de fondo: Messi besando la copa */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/images/messi-copa.jpg"
+            alt="Messi besando la Copa del Mundo 2022"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          {/* Overlay oscuro para legibilidad del texto */}
+          <div className="absolute inset-0 bg-black/65" />
+        </div>
 
         <div className="relative mx-auto max-w-4xl">
           {/* Logo + identificacion del instituto */}
@@ -201,8 +301,21 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
         </div>
       </div>
 
+      {/* Carrusel de paisajes argentinos */}
+      <div className="bg-muted px-6 py-10">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
+            Argentina, nuestra tierra
+          </p>
+          <p className="mb-6 text-center text-2xl font-black text-foreground text-balance">
+            Los paisajes que nos inspiran
+          </p>
+          <Carrusel />
+        </div>
+      </div>
+
       {/* Cards de secciones */}
-      <div className="bg-muted px-6 py-12">
+      <div className="bg-background px-6 py-12">
         <div className="mx-auto max-w-7xl">
           <p className="mb-2 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
             Exploramos juntos
