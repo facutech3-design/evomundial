@@ -796,16 +796,21 @@ export default function PaisesSection() {
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">Comidas tipicas</p>
-                    <a
-                      href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(paisActual.comida.split(",")[0].trim() + " receta tipica")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 font-semibold text-foreground text-base hover:text-primary underline underline-offset-2 transition-colors"
-                      aria-label={`Ver imagen de ${paisActual.comida} en Google`}
-                    >
-                      {paisActual.comida}
-                      <ExternalLink size={13} className="shrink-0 opacity-50" />
-                    </a>
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 mt-0.5">
+                      {paisActual.comida.split(",").map((plato) => (
+                        <a
+                          key={plato.trim()}
+                          href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(plato.trim())}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 font-semibold text-foreground text-base hover:text-primary underline underline-offset-2 transition-colors"
+                          aria-label={`Ver imagen de ${plato.trim()} en Google`}
+                        >
+                          {plato.trim()}
+                          <ExternalLink size={12} className="shrink-0 opacity-40" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 <div className="flex gap-3">
