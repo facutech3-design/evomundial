@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${nunito.variable} bg-background`}>
+    <html lang="es" className={`${nunito.variable} bg-background`} suppressHydrationWarning>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
