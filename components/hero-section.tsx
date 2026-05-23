@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight } from "lucide-react"
 
 const CARDS = [
@@ -109,10 +110,21 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
         />
 
         <div className="relative mx-auto max-w-4xl">
-          {/* Pill de ubicacion */}
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm font-bold text-accent-foreground uppercase tracking-widest">
-            <span className="h-2 w-2 rounded-full bg-accent-foreground/60 pulse-soft" aria-hidden="true" />
-            Centro Dia — Mendoza, Argentina
+          {/* Logo + identificacion del instituto */}
+          <div className="mb-6 flex flex-col items-center gap-3">
+            <div className="rounded-2xl bg-white p-3 shadow-lg">
+              <Image
+                src="/evolutiva.jpeg"
+                alt="Logo Instituto Evolutiva"
+                width={80}
+                height={80}
+                className="object-contain"
+              />
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm font-bold text-accent-foreground uppercase tracking-widest">
+              <span className="h-2 w-2 rounded-full bg-accent-foreground/60 pulse-soft" aria-hidden="true" />
+              Centro Dia Evolutiva — Mendoza, Argentina
+            </div>
           </div>
 
           <h1 className="mb-5 text-5xl font-black text-white md:text-7xl lg:text-8xl text-balance leading-none tracking-tight">

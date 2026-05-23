@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X } from "lucide-react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const SECTIONS = [
@@ -48,12 +49,24 @@ export default function Navbar({
         {/* Logo */}
         <button
           onClick={() => onNavigate("inicio")}
-          className="flex items-center gap-2"
+          className="flex items-center gap-3"
           aria-label="Ir al inicio"
         >
-          <span className="text-2xl font-black tracking-tight text-white leading-none">
-            EVO<span className="text-accent">MUNDIAL</span>
-          </span>
+          <Image
+            src="/evolutiva.jpeg"
+            alt="Logo Evolutiva"
+            width={40}
+            height={40}
+            className="rounded-lg object-contain bg-white p-0.5"
+          />
+          <div className="flex flex-col items-start leading-none">
+            <span className="text-xl font-black tracking-tight text-white">
+              EVO<span className="text-accent">MUNDIAL</span>
+            </span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/50 mt-0.5">
+              Centro Dia Evolutiva
+            </span>
+          </div>
           <span className="hidden md:block rounded-full bg-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
             2026
           </span>

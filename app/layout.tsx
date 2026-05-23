@@ -9,10 +9,10 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-  title: 'EvoMundial 2026 — Centro Dia Mendoza',
+  title: 'EvoMundial 2026 — Centro Dia Evolutiva, Mendoza',
   description:
-    'Proyecto educativo e inclusivo sobre el Mundial 2026 para adolescentes y adultos jovenes con discapacidad en un centro dia de Mendoza, Argentina. Culturas, valores, arte, deporte adaptado y mucho mas.',
-  keywords: ['mundial 2026', 'inclusion', 'discapacidad', 'centro dia', 'Mendoza', 'educacion'],
+    'Proyecto educativo e inclusivo sobre el Mundial 2026 para adolescentes y adultos jovenes con discapacidad en el Centro Dia Evolutiva de Mendoza, Argentina. Culturas, valores, arte, deporte adaptado y mucho mas.',
+  keywords: ['mundial 2026', 'inclusion', 'discapacidad', 'centro dia', 'Evolutiva', 'Mendoza', 'educacion'],
 }
 
 export default function RootLayout({
