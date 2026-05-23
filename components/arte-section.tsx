@@ -91,7 +91,7 @@ export default function ArteSection() {
   const actividad = ACTIVIDADES_ARTE.find((a) => a.id === actividadActiva)
 
   return (
-    <section className="min-h-screen bg-background px-6 py-12">
+    <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
@@ -135,8 +135,18 @@ export default function ArteSection() {
 
         {/* Detalle de actividad expandida */}
         {actividad && (
-          <div className="mb-10 rounded-3xl border border-border bg-card p-8 shadow-lg">
-            <h3 className="mb-6 text-2xl font-black text-foreground">{actividad.titulo}</h3>
+          <div className="mb-10 rounded-3xl border-2 border-foreground bg-card p-8 shadow-xl section-enter">
+            <div className="flex items-start justify-between mb-6">
+              <h3 className="text-2xl font-black text-foreground">{actividad.titulo}</h3>
+              <button
+                onClick={() => setActividadActiva(null)}
+                className="rounded-full bg-muted p-2 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all ml-4 shrink-0"
+                aria-label="Cerrar detalle"
+              >
+                <span className="sr-only">Cerrar</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {/* Materiales */}
               <div>

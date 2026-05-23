@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import Navbar, { SECTIONS } from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import PaisesSection from "@/components/paises-section"
@@ -12,7 +12,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const SECTION_IDS = SECTIONS.map((s) => s.id)
 
-function renderSection(id: string, onNavigate: (id: string) => void) {
+function SectionContent({
+  id,
+  onNavigate,
+}: {
+  id: string
+  onNavigate: (id: string) => void
+}) {
   switch (id) {
     case "inicio":
       return <HeroSection onNavigate={onNavigate} />
@@ -33,6 +39,13 @@ function renderSection(id: string, onNavigate: (id: string) => void) {
 
 export default function Home() {
   const [sectionActiva, setSectionActiva] = useState("inicio")
+  const [renderKey, setRenderKey] = useState(0)
+
+  const handleNavigate = useCallback((id: string) => {
+    setSectionActiva(id)
+    setRenderKey((k) => k + 1)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [])
 
   const currentIndex = SECTION_IDS.indexOf(sectionActiva)
   const prevSection = currentIndex > 0 ? SECTION_IDS[currentIndex - 1] : null
@@ -43,10 +56,13 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar active={sectionActiva} onNavigate={setSectionActiva} />
+      <Navbar active={sectionActiva} onNavigate={handleNavigate} />
 
       <main className="flex-1" id="main-content">
-        {renderSection(sectionActiva, setSectionActiva)}
+        {/* key fuerza re-mount y dispara la animacion section-enter en globals.css */}
+        <div key={renderKey}>
+          <SectionContent id={sectionActiva} onNavigate={handleNavigate} />
+        </div>
       </main>
 
       {/* Footer navegacion entre secciones */}
@@ -55,7 +71,7 @@ export default function Home() {
           {/* Boton anterior */}
           {prevSection ? (
             <button
-              onClick={() => setSectionActiva(prevSection)}
+              onClick={() => handleNavigate(prevSection)}
               className="flex items-center gap-2 rounded-2xl bg-secondary px-5 py-3 text-sm font-bold text-secondary-foreground transition-all hover:bg-foreground hover:text-primary-foreground active:scale-95"
             >
               <ChevronLeft size={16} />
@@ -66,14 +82,17 @@ export default function Home() {
             <div />
           )}
 
-          {/* Indicador de progreso */}
-          <div className="flex items-center gap-2">
+          {/* Indicador de progreso con puntos */}
+          <div className="flex items-center gap-2" role="tablist" aria-label="Secciones">
             {SECTION_IDS.map((id, i) => (
               <button
                 key={id}
-                onClick={() => setSectionActiva(id)}
+                onClick={() => handleNavigate(id)}
+                role="tab"
+                aria-selected={id === sectionActiva}
                 aria-label={`Ir a ${SECTIONS[i].label}`}
-                className={`rounded-full transition-all ${
+                title={SECTIONS[i].label}
+                className={`rounded-full transition-all duration-300 ${
                   id === sectionActiva
                     ? "h-3 w-8 bg-primary"
                     : "h-3 w-3 bg-border hover:bg-muted-foreground"
@@ -82,10 +101,10 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Boton siguiente */}
+          {/* Boton siguiente o volver al inicio */}
           {nextSection ? (
             <button
-              onClick={() => setSectionActiva(nextSection)}
+              onClick={() => handleNavigate(nextSection)}
               className="flex items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 active:scale-95"
             >
               <span className="hidden sm:inline">{nextLabel}</span>
@@ -94,7 +113,7 @@ export default function Home() {
             </button>
           ) : (
             <button
-              onClick={() => setSectionActiva("inicio")}
+              onClick={() => handleNavigate("inicio")}
               className="flex items-center gap-2 rounded-2xl bg-accent px-5 py-3 text-sm font-bold text-accent-foreground transition-all hover:opacity-90 active:scale-95"
             >
               Volver al inicio
@@ -104,9 +123,9 @@ export default function Home() {
         </div>
 
         {/* Creditos */}
-        <div className="mt-4 text-center text-xs text-muted-foreground">
+        <p className="mt-4 text-center text-sm text-muted-foreground font-semibold">
           EvoMundial 2026 — Proyecto educativo e inclusivo — Centro Dia, Mendoza, Argentina
-        </div>
+        </p>
       </footer>
     </div>
   )

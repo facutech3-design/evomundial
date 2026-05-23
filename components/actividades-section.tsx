@@ -108,7 +108,7 @@ export default function ActividadesSection() {
     filtro === "Todos" ? ACTIVIDADES : ACTIVIDADES.filter((a) => a.nivel === filtro)
 
   return (
-    <section className="min-h-screen bg-background px-6 py-12">
+    <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
@@ -133,22 +133,30 @@ export default function ActividadesSection() {
           <p className="mt-2 text-sm opacity-80 font-semibold">— Principio del proyecto EvoMundial</p>
         </div>
 
-        {/* Filtros */}
+        {/* Filtros de posicion */}
         <div className="mb-8 flex flex-wrap items-center gap-2">
-          <span className="text-sm font-bold text-muted-foreground mr-2">Posicion:</span>
-          {NIVELES.map((n) => (
-            <button
-              key={n}
-              onClick={() => setFiltro(n)}
-              className={`rounded-full px-4 py-2 text-sm font-bold transition-all ${
-                filtro === n
-                  ? "bg-foreground text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-foreground/20"
-              }`}
-            >
-              {n}
-            </button>
-          ))}
+          <span className="text-sm font-bold text-muted-foreground mr-1">Posicion:</span>
+          {NIVELES.map((n) => {
+            const iconMap: Record<string, string> = {
+              Todos: "Todos",
+              Sentado: "Sentado (silla)",
+              "De pie": "De pie",
+              Mixto: "Mixto",
+            }
+            return (
+              <button
+                key={n}
+                onClick={() => setFiltro(n)}
+                className={`rounded-full px-4 py-2 text-sm font-bold transition-all ${
+                  filtro === n
+                    ? "bg-foreground text-primary-foreground shadow-md scale-105"
+                    : "bg-secondary text-secondary-foreground hover:bg-foreground/20"
+                }`}
+              >
+                {iconMap[n] ?? n}
+              </button>
+            )
+          })}
         </div>
 
         {/* Lista de actividades */}

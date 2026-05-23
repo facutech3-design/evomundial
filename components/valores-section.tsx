@@ -93,7 +93,7 @@ export default function ValoresSection() {
   const [expandido, setExpandido] = useState<number | null>(null)
 
   return (
-    <section className="min-h-screen bg-background px-6 py-12">
+    <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
@@ -169,26 +169,27 @@ export default function ValoresSection() {
 
         {/* Historias inspiradoras */}
         <div className="mb-8">
-          <h3 className="mb-2 text-2xl font-black text-foreground">Historias que inspiran</h3>
-          <p className="mb-6 text-muted-foreground">
+          <h3 className="mb-1 text-2xl font-black text-foreground">Historias que inspiran</h3>
+          <p className="mb-6 text-muted-foreground leading-relaxed">
             Personas que usaron el deporte para cambiar algo mas grande que un partido.
           </p>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {HISTORIAS.map((h) => (
               <div
                 key={h.nombre}
-                className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+                className="flex flex-col rounded-3xl border-2 border-border bg-card p-7 shadow-sm transition-all hover:border-primary hover:shadow-md"
               >
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="text-4xl">{h.bandera}</span>
+                <div className="mb-5 flex items-center gap-4">
+                  <span className="text-5xl leading-none" role="img" aria-label={`Bandera de ${h.pais}`}>{h.bandera}</span>
                   <div>
-                    <div className="font-black text-foreground">{h.nombre}</div>
-                    <div className="text-sm text-muted-foreground">{h.pais}</div>
+                    <div className="text-lg font-black text-foreground leading-tight">{h.nombre}</div>
+                    <div className="text-sm text-muted-foreground font-semibold">{h.pais}</div>
                   </div>
                 </div>
-                <p className="mb-4 text-sm leading-relaxed text-foreground">{h.historia}</p>
-                <div className="inline-block rounded-full bg-success/15 px-3 py-1 text-xs font-bold text-success">
-                  Valor: {h.valor}
+                <p className="mb-5 text-sm leading-relaxed text-foreground flex-1">{h.historia}</p>
+                <div className="mt-auto inline-flex items-center gap-2 rounded-full bg-success/15 px-4 py-2 text-sm font-bold text-success w-fit">
+                  <span className="h-2 w-2 rounded-full bg-success shrink-0" aria-hidden="true" />
+                  {h.valor}
                 </div>
               </div>
             ))}

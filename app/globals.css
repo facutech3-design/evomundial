@@ -102,12 +102,36 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    /* Base mas grande para lectura en pantalla proyectada / TV */
+    font-size: 18px;
   }
   h1, h2, h3, h4 {
     @apply font-sans;
-    line-height: 1.2;
+    line-height: 1.15;
   }
   p {
-    line-height: 1.6;
+    line-height: 1.65;
+  }
+  /* Animacion de entrada para secciones */
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .section-enter {
+    animation: fadeSlideIn 0.35s ease both;
+  }
+  /* Animacion de pulso suave para el countdown */
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  .pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
   }
 }

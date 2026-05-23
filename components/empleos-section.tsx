@@ -135,7 +135,7 @@ export default function EmpleosSection() {
   const [rolSeleccionado, setRolSeleccionado] = useState<string | null>(null)
 
   return (
-    <section className="min-h-screen bg-background px-6 py-12">
+    <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
@@ -236,23 +236,27 @@ export default function EmpleosSection() {
 
         {/* Actividad: Yo trabajo en el Mundial */}
         <div className="mt-12 rounded-3xl bg-success p-8 text-success-foreground">
-          <h3 className="mb-3 text-2xl font-black">Actividad: Yo trabajo en el Mundial</h3>
-          <p className="mb-6 text-lg text-success-foreground/85 leading-relaxed text-pretty">
-            Cada participante elige el rol que mas le gusta o con el que mas se identifica. Luego preparamos 
-            una presentacion breve: quien soy, que hago en el Mundial y por que me eligieron para ese trabajo.
+          <div className="mb-1 inline-block rounded-full bg-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
+            Actividad de cierre
+          </div>
+          <h3 className="mt-3 mb-3 text-3xl font-black">Yo trabajo en el Mundial</h3>
+          <p className="mb-7 text-base text-success-foreground/85 leading-relaxed text-pretty max-w-2xl">
+            Cada participante elige el rol que mas le gusta o con el que mas se identifica.
+            Luego preparamos una presentacion breve: quien soy, que hago en el Mundial
+            y por que me eligieron para ese trabajo.
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white/20 p-5">
-              <div className="text-2xl font-black mb-2">1</div>
-              <p className="font-semibold text-sm">Elegimos el rol que mas nos gusta de toda la lista</p>
+            <div className="rounded-2xl bg-white/20 p-6">
+              <div className="text-3xl font-black mb-3">1</div>
+              <p className="font-bold text-base leading-snug">Elegimos el rol que mas nos gusta de toda la lista</p>
             </div>
-            <div className="rounded-2xl bg-white/20 p-5">
-              <div className="text-2xl font-black mb-2">2</div>
-              <p className="font-semibold text-sm">Preparamos como presentarnos: nombre, rol y una habilidad que tenemos</p>
+            <div className="rounded-2xl bg-white/20 p-6">
+              <div className="text-3xl font-black mb-3">2</div>
+              <p className="font-bold text-base leading-snug">Preparamos como presentarnos: nombre, rol y una habilidad que tenemos</p>
             </div>
-            <div className="rounded-2xl bg-white/20 p-5">
-              <div className="text-2xl font-black mb-2">3</div>
-              <p className="font-semibold text-sm">Presentamos al grupo como si fuera una entrevista de trabajo real</p>
+            <div className="rounded-2xl bg-white/20 p-6">
+              <div className="text-3xl font-black mb-3">3</div>
+              <p className="font-bold text-base leading-snug">Presentamos al grupo como si fuera una entrevista de trabajo real</p>
             </div>
           </div>
         </div>
