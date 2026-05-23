@@ -175,19 +175,27 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
             ))}
           </div>
 
-          {/* Sedes */}
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Sedes con banderas */}
+          <div className="mt-4 flex flex-wrap justify-center gap-4">
             {[
-              { pais: "Estados Unidos", bandera: "Sede 1" },
-              { pais: "Mexico", bandera: "Sede 2" },
-              { pais: "Canada", bandera: "Sede 3" },
-            ].map(({ pais }) => (
-              <span
+              { pais: "Estados Unidos", emoji: "🇺🇸", detalle: "11 ciudades sede" },
+              { pais: "Mexico", emoji: "🇲🇽", detalle: "3 ciudades sede" },
+              { pais: "Canada", emoji: "🇨🇦", detalle: "2 ciudades sede" },
+            ].map(({ pais, emoji, detalle }) => (
+              <div
                 key={pais}
-                className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold text-white"
+                className="flex flex-col items-center gap-1.5 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 backdrop-blur-sm"
               >
-                {pais}
-              </span>
+                <span
+                  className="text-5xl leading-none"
+                  role="img"
+                  aria-label={`Bandera de ${pais}`}
+                >
+                  {emoji}
+                </span>
+                <span className="text-sm font-black text-white">{pais}</span>
+                <span className="text-xs text-white/50 font-semibold">{detalle}</span>
+              </div>
             ))}
           </div>
         </div>

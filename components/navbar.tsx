@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
@@ -32,6 +32,24 @@ export default function Navbar({
   onNavigate: (id: string) => void
 }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isDark, setIsDark] = useState(false)
+
+  // Leer preferencia guardada al montar
+  useEffect(() => {
+    const saved = localStorage.getItem("evomundial-theme")
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const dark = saved ? saved === "dark" : prefersDark
+    setIsDark(dark)
+    document.documentElement.classList.toggle("dark", dark)
+  }, [])
+
+  const toggleTheme = () => {
+    const next = !isDark
+    setIsDark(next)
+    document.documentElement.classList.toggle("dark", next)
+    localStorage.setItem("evomundial-theme", next ? "dark" : "light")
+  }
+
   const activeIndex = SECTIONS.findIndex((s) => s.id === active)
   const progressPercent = ((activeIndex) / (SECTIONS.length - 1)) * 100
 
@@ -106,15 +124,28 @@ export default function Navbar({
           })()}
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Cerrar menu" : "Abrir menu"}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Boton tema + menu mobile */}
+        <div className="flex items-center gap-2">
+          {/* Toggle oscuro / claro */}
+          <button
+            onClick={toggleTheme}
+            className="rounded-full bg-white/10 p-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
+            aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            title={isDark ? "Modo claro" : "Modo oscuro"}
+          >
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Cerrar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown */}
