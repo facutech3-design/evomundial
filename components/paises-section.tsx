@@ -129,7 +129,7 @@ const PAISES = [
     idioma: "Espanol",
     comida: "Asado, chivito, mate",
     cancion: "Mandolín — Gustavo Pena (El Príncipe)",
-    youtube: "https://www.youtube.com/watch?v=Q2vFp2ns4HE",
+    youtube: "https://www.youtube.com/watch?v=56yjg8xJWw4",
     curiosidad: "Uruguay fue campeon del primer Mundial de la historia en 1930, que se celebro en su propio pais. Una nacion chica con historia enorme.",
     color: "from-sky-500 to-sky-700",
     dato: "2 titulos",
