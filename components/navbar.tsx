@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon } from "lucide-react"
+import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon, FileText } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 const SECTIONS = [
@@ -136,6 +137,18 @@ export default function Navbar({
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
+          {/* Enlace PDF */}
+          <Link
+            href="/pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-4 py-2 text-sm font-bold transition-all hover:opacity-90 active:scale-95"
+            title="Ver presentacion PDF"
+          >
+            <FileText size={15} />
+            Presentacion
+          </Link>
+
           {/* Mobile menu button */}
           <button
             className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10"
@@ -176,6 +189,19 @@ export default function Navbar({
                 </li>
               )
             })}
+            {/* Enlace PDF en mobile */}
+            <li>
+              <Link
+                href="/pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-semibold bg-accent text-accent-foreground mt-1"
+              >
+                <FileText size={18} />
+                Ver Presentacion PDF
+              </Link>
+            </li>
           </ul>
         </div>
       )}
