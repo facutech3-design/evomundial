@@ -15,25 +15,19 @@ export default function SpeakButton({
   label = "Escuchar",
   variant = "icon",
 }: SpeakButtonProps) {
-  const { speak, stop, isListening, isSupported } = useSpeechSynthesis()
+  const { speak, stop, isListening } = useSpeechSynthesis()
   const [showTooltip, setShowTooltip] = useState(false)
-
-  if (!isSupported) {
-    console.log("[v0] SpeakButton: isSupported es false, no renderizando botón")
-    return null
-  }
 
   const handleClick = () => {
     console.log("[v0] SpeakButton click, isListening:", isListening)
-    console.log("[v0] Texto a leer:", text?.substring(0, 80) + "...")
+    console.log("[v0] Texto:", text?.substring(0, 50))
     if (isListening) {
       stop()
     } else {
       if (!text || text.trim().length === 0) {
-        console.log("[v0] Advertencia: texto vacío")
+        console.log("[v0] Texto vacío")
         return
       }
-      console.log("[v0] Llamando a speak() con:", text.substring(0, 50) + "...")
       speak(text)
     }
   }
