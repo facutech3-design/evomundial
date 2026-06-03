@@ -19,10 +19,13 @@ export default function SpeakButton({
   const [showTooltip, setShowTooltip] = useState(false)
 
   if (!isSupported) {
+    console.log("[v0] SpeakButton: isSupported es false, no renderizando botón")
     return null
   }
 
   const handleClick = () => {
+    console.log("[v0] SpeakButton click, isListening:", isListening)
+    console.log("[v0] Texto a leer:", text?.substring(0, 80) + "...")
     if (isListening) {
       stop()
     } else {
@@ -30,7 +33,7 @@ export default function SpeakButton({
         console.log("[v0] Advertencia: texto vacío")
         return
       }
-      console.log("[v0] SpeakButton: Leyendo", text.substring(0, 50) + "...")
+      console.log("[v0] Llamando a speak() con:", text.substring(0, 50) + "...")
       speak(text)
     }
   }
