@@ -102,7 +102,7 @@ export default function Navbar({
                   onClick={() => onNavigate(s.id)}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all",
+                    "flex items-center gap-2 rounded-full px-4 py-2.5 text-accessible-sm font-bold transition-all",
                     isActive
                       ? cn(SECTION_ACCENT[s.id], "shadow-md scale-105")
                       : "text-white/75 hover:bg-white/10 hover:text-white"
@@ -174,7 +174,7 @@ export default function Navbar({
                     onClick={() => { onNavigate(s.id); setMenuOpen(false) }}
                     aria-current={isActive ? "page" : undefined}
                     className={cn(
-                      "flex w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-semibold transition-all",
+                      "flex w-full items-center gap-3 rounded-xl px-4 py-4 text-accessible-lg font-bold transition-all",
                       isActive
                         ? cn(SECTION_ACCENT[s.id], "shadow-sm")
                         : "text-white/80 hover:bg-white/10 hover:text-white"

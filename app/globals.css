@@ -100,6 +100,15 @@
   --font-sans: 'Atkinson Hyperlegible', 'Atkinson Hyperlegible Fallback', sans-serif;
   --font-display: 'Atkinson Hyperlegible', 'Atkinson Hyperlegible Fallback', sans-serif;
 
+  /* Tamaños accesibles para lectura fácil */
+  --text-accessible-sm: 18px;
+  --text-accessible-base: 20px;
+  --text-accessible-lg: 24px;
+  --text-accessible-xl: 28px;
+  --text-accessible-2xl: 36px;
+  --text-accessible-3xl: 48px;
+  --text-accessible-4xl: 56px;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -146,15 +155,15 @@
     font-size: 18px;
   }
   h1, h2, h3, h4 {
-    @apply font-sans font-bold;
-    line-height: 1.3;
+    @apply font-sans font-black;
+    line-height: 1.2;
     letter-spacing: 0.02em;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 8vw, 5rem);
   }
   h2 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
   }
   h3 {
     font-size: 1.75rem;
@@ -169,6 +178,38 @@
   em, i {
     font-style: normal;
   }
+
+  /* Clases accesibles */
+  .text-accessible-sm {
+    @apply text-base;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  .text-accessible-base {
+    font-size: 20px;
+    line-height: 1.9;
+  }
+  .text-accessible-lg {
+    font-size: 24px;
+    line-height: 1.8;
+  }
+  .text-accessible-xl {
+    font-size: 28px;
+    line-height: 1.6;
+  }
+  .text-accessible-2xl {
+    font-size: 36px;
+    line-height: 1.4;
+  }
+  .text-accessible-3xl {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  .text-accessible-4xl {
+    font-size: 56px;
+    line-height: 1.1;
+  }
+
   /* Animacion de entrada para secciones */
   @keyframes fadeSlideIn {
     from {

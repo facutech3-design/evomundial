@@ -238,13 +238,13 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
             </div>
           </div>
 
-          <h1 className="mb-5 text-5xl font-black text-white md:text-7xl lg:text-8xl text-balance leading-none tracking-tight">
+          <h1 className="mb-5 text-5xl font-black text-white md:text-7xl lg:text-9xl text-balance leading-tight tracking-tight">
             El Mundial
             <br />
             <span className="text-accent">es de todos</span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-white/70 md:text-xl leading-relaxed text-pretty">
+          <p className="mx-auto mb-8 max-w-2xl text-accessible-lg text-white/85 md:text-accessible-xl leading-relaxed text-pretty font-semibold">
             Un proyecto para explorar el Mundial 2026 desde la cultura, el arte,
             los valores y el movimiento. Porque el mundo del futbol es mucho
             mas que el futbol.
@@ -342,12 +342,12 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
                 <button
                   key={card.id}
                   onClick={() => onNavigate(card.id)}
-                  className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[280px] ${card.color} ${card.textColor} border-2 border-current`}
+                  className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[300px] ${card.color} ${card.textColor} border-2 border-current`}
                 >
-                  <p className="text-3.5xl mb-3 leading-none" role="img">{card.emoji}</p>
-                  <h3 className="mb-3 text-xl font-black leading-tight">{card.titulo}</h3>
-                  <p className={`mb-6 text-base leading-relaxed opacity-85 flex-1`}>{card.descripcion}</p>
-                  <button className="mt-auto w-full h-14 rounded-2xl bg-current font-bold text-lg border-2 border-current transition-all hover:opacity-90">
+                  <p className="text-7xl mb-4 leading-none" role="img">{card.emoji}</p>
+                  <h3 className="mb-4 text-accessible-xl font-black leading-tight">{card.titulo}</h3>
+                  <p className={`mb-6 text-accessible-base leading-relaxed opacity-90 flex-1`}>{card.descripcion}</p>
+                  <button className="mt-auto w-full h-16 rounded-2xl bg-current font-bold text-accessible-lg border-2 border-current transition-all hover:opacity-90 active:scale-95">
                     {card.boton}
                   </button>
                 </button>
