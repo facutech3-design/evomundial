@@ -99,8 +99,8 @@ export default function ArteSection() {
             <Palette size={32} className="text-creative-foreground" />
           </div>
           <div>
-            <h2 className="text-4xl font-black text-foreground md:text-5xl">Arte y Creatividad</h2>
-            <p className="mt-2 text-lg text-muted-foreground text-pretty">
+            <h2 className="text-5xl font-black text-foreground md:text-6xl">Arte y Creatividad</h2>
+            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
               El arte no tiene reglas ni limites. Cada Mundial genera una explosion de colores, formas y expresion. 
               Nos sumamos a esa fiesta creativa.
             </p>

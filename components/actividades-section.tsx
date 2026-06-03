@@ -116,8 +116,8 @@ export default function ActividadesSection() {
             <Activity size={32} className="text-accent-foreground" />
           </div>
           <div>
-            <h2 className="text-4xl font-black text-foreground md:text-5xl">Actividades Adaptadas</h2>
-            <p className="mt-2 text-lg text-muted-foreground text-pretty">
+            <h2 className="text-5xl font-black text-foreground md:text-6xl">Actividades Adaptadas</h2>
+            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
               El deporte es para todos los cuerpos. Cada actividad esta pensada para que todos puedan participar, 
               cada uno a su manera. No hay forma incorrecta de jugar.
             </p>
@@ -125,12 +125,12 @@ export default function ActividadesSection() {
         </div>
 
         {/* Principio guia */}
-        <div className="mb-8 rounded-3xl bg-accent p-6 text-accent-foreground">
-          <p className="text-lg font-black leading-relaxed">
+        <div className="mb-8 rounded-3xl bg-accent p-8 text-accent-foreground">
+          <p className="text-accessible-xl font-black leading-relaxed">
             &quot;El deporte adaptado no simplifica el juego, lo universaliza. Permite que mas personas encuentren 
             un lugar en el juego. La inclusion no es una concesion: es una oportunidad para todos.&quot;
           </p>
-          <p className="mt-2 text-sm opacity-80 font-semibold">— Principio del proyecto EvoMundial</p>
+          <p className="mt-3 text-accessible-base opacity-90 font-semibold">— Principio del proyecto EvoMundial</p>
         </div>
 
         {/* Filtros de posicion */}

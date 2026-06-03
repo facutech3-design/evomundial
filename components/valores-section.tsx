@@ -101,8 +101,8 @@ export default function ValoresSection() {
             <Heart size={32} className="text-success-foreground" />
           </div>
           <div>
-            <h2 className="text-4xl font-black text-foreground md:text-5xl">Valores e Inclusion</h2>
-            <p className="mt-2 text-lg text-muted-foreground text-pretty">
+            <h2 className="text-5xl font-black text-foreground md:text-6xl">Valores e Inclusion</h2>
+            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
               El futbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusion 
               y lo que nos hace mejores personas.
             </p>
@@ -137,7 +137,7 @@ export default function ValoresSection() {
 
                 {abierto && (
                   <div className="border-t border-border px-6 pb-6 pt-4">
-                    <p className="text-base leading-relaxed text-foreground mb-4">{valor.descripcion}</p>
+                    <p className="text-accessible-base leading-relaxed text-foreground mb-4">{valor.descripcion}</p>
 
                     <div className="mb-4 rounded-2xl bg-muted p-4">
                       <p className="text-sm font-bold uppercase tracking-wide text-muted-foreground mb-2">

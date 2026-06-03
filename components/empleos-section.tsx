@@ -143,8 +143,8 @@ export default function EmpleosSection() {
             <Briefcase size={32} className="text-primary-foreground" />
           </div>
           <div>
-            <h2 className="text-4xl font-black text-foreground md:text-5xl">Empleos del Mundial</h2>
-            <p className="mt-2 text-lg text-muted-foreground text-pretty">
+            <h2 className="text-5xl font-black text-foreground md:text-6xl">Empleos del Mundial</h2>
+            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
               Un Mundial no lo hacen solo los jugadores. Detras del escenario trabajan miles de personas con los 
               trabajos mas variados. Descubrimos que roles existen y cuales nos interesan.
             </p>
@@ -152,15 +152,15 @@ export default function EmpleosSection() {
         </div>
 
         {/* Dato importante */}
-        <div className="mb-10 rounded-3xl bg-primary p-6 text-primary-foreground">
-          <div className="flex flex-wrap items-center gap-6">
+        <div className="mb-10 rounded-3xl bg-primary p-8 text-primary-foreground">
+          <div className="flex flex-wrap items-center gap-8">
             <div className="text-center">
-              <div className="text-4xl font-black">+100.000</div>
-              <div className="text-sm opacity-80 font-semibold">empleos directos generados</div>
+              <div className="text-accessible-4xl font-black">+100.000</div>
+              <div className="text-accessible-base opacity-90 font-semibold">empleos directos generados</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
+            <div className="hidden sm:block w-px h-16 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-4xl font-black">3</div>
+              <div className="text-accessible-4xl font-black">3</div>
               <div className="text-sm opacity-80 font-semibold">paises sede en 2026</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
