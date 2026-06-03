@@ -7,37 +7,66 @@ export function useSpeechSynthesis() {
   const [isSupported, setIsSupported] = useState(false)
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null)
 
-  // Verificar soporte al montar
+  // Verificar soporte y cargar voces al montar
   useEffect(() => {
-    const supported = typeof window !== "undefined" && "speechSynthesis" in window
+    if (typeof window === "undefined") return
+    
+    const supported = "speechSynthesis" in window
     setIsSupported(supported)
     console.log("[v0] Speech Synthesis soportado:", supported)
+    
+    if (supported) {
+      // Cargar voces disponibles
+      const loadVoices = () => {
+        const voices = window.speechSynthesis.getVoices()
+        console.log("[v0] Voces disponibles:", voices.length)
+        voices.forEach((v, i) => {
+          if (v.lang.includes("es")) {
+            console.log(`[v0] Voz español ${i}:`, v.name, v.lang)
+          }
+        })
+      }
+      
+      loadVoices()
+      window.speechSynthesis.onvoiceschanged = loadVoices
+    }
   }, [])
 
   const speak = useCallback((text: string) => {
     if (!text) {
-      console.log("[v0] Error: No hay texto para leer")
+      console.log("[v0] Error: texto vacío")
+      return
+    }
+
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      console.log("[v0] Error: window.speechSynthesis no disponible")
       return
     }
 
     try {
-      console.log("[v0] speak() llamado con texto:", text.substring(0, 80) + "...")
-      console.log("[v0] isSupported actual:", isSupported)
+      console.log("[v0] === Iniciando síntesis de voz ===")
+      console.log("[v0] Texto:", text.substring(0, 100))
       
-      // Usar speechSynthesis directamente en lugar de isSupported
-      if (!window.speechSynthesis) {
-        console.log("[v0] Error: window.speechSynthesis no existe")
-        return
-      }
-
       // Cancelar cualquier reproducción anterior
       window.speechSynthesis.cancel()
+      console.log("[v0] Cancelada reproducción anterior")
       
+      // Crear utterancia
       const utterance = new SpeechSynthesisUtterance(text)
       utterance.lang = "es-ES"
       utterance.rate = 0.9
       utterance.pitch = 1
       utterance.volume = 1
+
+      // Intentar asignar voz en español
+      const voices = window.speechSynthesis.getVoices()
+      const spanishVoice = voices.find(v => v.lang.startsWith("es"))
+      if (spanishVoice) {
+        utterance.voice = spanishVoice
+        console.log("[v0] Voz asignada:", spanishVoice.name)
+      } else {
+        console.log("[v0] No se encontró voz en español, usando voz por defecto")
+      }
 
       utterance.onstart = () => {
         console.log("[v0] ✓ Síntesis iniciada")
@@ -50,20 +79,29 @@ export function useSpeechSynthesis() {
       }
 
       utterance.onerror = (event: SpeechSynthesisErrorEvent) => {
-        console.log("[v0] ✗ Error de síntesis:", event.error)
+        console.log("[v0] ✗ Error:", event.error)
         setIsListening(false)
+      }
+
+      utterance.onpause = () => {
+        console.log("[v0] Síntesis pausada")
+      }
+
+      utterance.onresume = () => {
+        console.log("[v0] Síntesis reanudada")
       }
 
       utteranceRef.current = utterance
       
-      console.log("[v0] Llamando a speechSynthesis.speak()...")
-      window.speechSynthesis.speak(utterance)
-      console.log("[v0] speak() ejecutado")
+      console.log("[v0] Llamando a window.speechSynthesis.speak()...")
+      const result = window.speechSynthesis.speak(utterance)
+      console.log("[v0] Resultado:", result !== null)
+      console.log("[v0] === Síntesis enviada al sistema ===")
     } catch (error) {
       console.log("[v0] Excepción en speak():", error)
       setIsListening(false)
     }
-  }, [isSupported])
+  }, [])
 
   const stop = useCallback(() => {
     console.log("[v0] Deteniendo síntesis...")
