@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
+import { Atkinson_Hyperlegible } from 'next/font/google'
 import './globals.css'
 
-const nunito = Nunito({
+const atkinson = Atkinson_Hyperlegible({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800', '900'],
+  weight: ['400', '700'],
   variable: '--font-sans',
 })
 
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${nunito.variable} bg-background`} suppressHydrationWarning>
+    <html lang="es" className={`${atkinson.variable} bg-background`} suppressHydrationWarning>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

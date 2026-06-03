@@ -671,10 +671,15 @@ export default function PaisesSection() {
             <Globe size={32} className="text-primary-foreground" />
           </div>
           <div>
-            <h2 className="text-4xl font-black text-foreground md:text-5xl">Paises y Culturas</h2>
-            <p className="mt-2 text-lg text-muted-foreground text-pretty">
-              Los 48 clasificados al Mundial 2026, agrupados por confederacion. Toca cada bandera para descubrir su cultura, comida, musica y curiosidades.
-            </p>
+            <div className="flex flex-col items-center sm:items-start gap-3 mb-4">
+              <p className="text-5xl leading-none" role="img">🌍</p>
+              <div>
+                <h2 className="text-4xl font-black text-foreground md:text-5xl">Países y Culturas</h2>
+                <p className="mt-3 text-xl text-muted-foreground text-pretty leading-relaxed">
+                  Los 48 clasificados al Mundial 2026, agrupados por confederación. Toca cada bandera para descubrir su cultura, comida, música y curiosidades.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

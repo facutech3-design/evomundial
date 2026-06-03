@@ -9,6 +9,8 @@ const CARDS = [  {
     icon: Globe,
     titulo: "Paises y Culturas",
     descripcion: "Viajamos por el mundo sin salir del centro. Conocemos los paises sede y los que participan.",
+    emoji: "🌍",
+    boton: "Ver países 🌍",
     color: "bg-primary",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
@@ -18,6 +20,8 @@ const CARDS = [  {
     icon: Heart,
     titulo: "Valores e Inclusion",
     descripcion: "El deporte como espejo de la sociedad. Fair play, diversidad y representacion.",
+    emoji: "🤝",
+    boton: "Ver valores 🤝",
     color: "bg-success",
     textColor: "text-success-foreground",
     accentBg: "bg-white/20",
@@ -27,6 +31,8 @@ const CARDS = [  {
     icon: Palette,
     titulo: "Arte y Creatividad",
     descripcion: "Disenamos camisetas, banderas y mascotas. La creatividad no tiene limites.",
+    emoji: "🎨",
+    boton: "Ver arte 🎨",
     color: "bg-creative",
     textColor: "text-creative-foreground",
     accentBg: "bg-white/20",
@@ -36,6 +42,8 @@ const CARDS = [  {
     icon: Activity,
     titulo: "Actividades Adaptadas",
     descripcion: "Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos.",
+    emoji: "🏃",
+    boton: "Ver actividades 🏃",
     color: "bg-accent",
     textColor: "text-accent-foreground",
     accentBg: "bg-black/10",
@@ -45,6 +53,8 @@ const CARDS = [  {
     icon: Briefcase,
     titulo: "Empleos del Mundial",
     descripcion: "Quien trabaja en un mundial? Conocemos todos los roles mas alla de los jugadores.",
+    emoji: "💼",
+    boton: "Ver empleos 💼",
     color: "bg-foreground",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
@@ -177,13 +187,14 @@ function Carrusel() {
   )
 }
 
-function CountdownUnit({ value, label }: { value: number; label: string }) {
+function CountdownUnit({ value, label, emoji }: { value: number; label: string; emoji?: string }) {
   return (
-    <div className="flex flex-col items-center rounded-2xl bg-white/10 px-5 py-4 backdrop-blur-sm min-w-[72px]">
-      <span className="text-4xl font-black text-accent leading-none tabular-nums">
+    <div className="flex flex-col items-center rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm min-w-[90px]">
+      {emoji && <span className="text-3xl mb-2" role="img">{emoji}</span>}
+      <span className="text-3.5xl font-black text-accent leading-none tabular-nums">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="mt-1 text-xs font-bold uppercase tracking-widest text-white/60">{label}</span>
+      <span className="mt-2 text-sm font-bold uppercase tracking-widest text-white/80">{label}</span>
     </div>
   )
 }
@@ -240,17 +251,17 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
           </p>
 
           {/* Countdown */}
-          <div className="mb-6">
-            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-white/50">
-              Faltan para el Mundial 2026
+          <div className="mb-8">
+            <p className="mb-4 text-2xl font-bold uppercase tracking-widest text-white text-center">
+              ⏳ Falta para el mundial
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <CountdownUnit value={dias} label="dias" />
-              <CountdownUnit value={horas} label="horas" />
-              <CountdownUnit value={minutos} label="min" />
-              <CountdownUnit value={segundos} label="seg" />
+            <div className="flex flex-wrap justify-center gap-4">
+              <CountdownUnit value={dias} label="DÍAS" emoji="📅" />
+              <CountdownUnit value={horas} label="HORAS" emoji="🕐" />
+              <CountdownUnit value={minutos} label="MINUTOS" emoji="⏱️" />
+              <CountdownUnit value={segundos} label="SEGUNDOS" emoji="⏱️" />
             </div>
-            <p className="mt-3 text-xs text-white/40 font-semibold">
+            <p className="mt-4 text-base text-white/80 font-semibold text-center">
               Primer partido: 11 de junio de 2026
             </p>
           </div>
@@ -324,24 +335,21 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
             Cinco caminos para descubrir el Mundial
           </p>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {CARDS.map((card) => {
               const Icon = card.icon
               return (
                 <button
                   key={card.id}
                   onClick={() => onNavigate(card.id)}
-                  className={`group flex flex-col items-start rounded-3xl p-7 text-left transition-all hover:scale-[1.03] hover:shadow-xl active:scale-95 ${card.color} ${card.textColor}`}
+                  className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[280px] ${card.color} ${card.textColor} border-2 border-current`}
                 >
-                  <div className={`mb-4 rounded-2xl p-3 ${card.accentBg}`}>
-                    <Icon size={30} />
-                  </div>
-                  <h3 className="mb-2 text-xl font-black leading-tight">{card.titulo}</h3>
-                  <p className={`mb-5 text-sm leading-relaxed opacity-80 flex-1`}>{card.descripcion}</p>
-                  <div className="mt-auto flex items-center gap-1 text-sm font-bold">
-                    Explorar
-                    <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </div>
+                  <p className="text-3.5xl mb-3 leading-none" role="img">{card.emoji}</p>
+                  <h3 className="mb-3 text-xl font-black leading-tight">{card.titulo}</h3>
+                  <p className={`mb-6 text-base leading-relaxed opacity-85 flex-1`}>{card.descripcion}</p>
+                  <button className="mt-auto w-full h-14 rounded-2xl bg-current font-bold text-lg border-2 border-current transition-all hover:opacity-90">
+                    {card.boton}
+                  </button>
                 </button>
               )
             })}

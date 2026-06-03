@@ -97,8 +97,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Nunito', 'Nunito Fallback', sans-serif;
-  --font-display: 'Nunito', 'Nunito Fallback', sans-serif;
+  --font-sans: 'Atkinson Hyperlegible', 'Atkinson Hyperlegible Fallback', sans-serif;
+  --font-display: 'Atkinson Hyperlegible', 'Atkinson Hyperlegible Fallback', sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -143,15 +143,31 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    /* Base mas grande para lectura en pantalla proyectada / TV */
     font-size: 18px;
   }
   h1, h2, h3, h4 {
-    @apply font-sans;
-    line-height: 1.15;
+    @apply font-sans font-bold;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
   }
   p {
-    line-height: 1.65;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    font-size: 1.25rem;
+    text-align: left;
+    font-style: normal !important;
+  }
+  em, i {
+    font-style: normal;
   }
   /* Animacion de entrada para secciones */
   @keyframes fadeSlideIn {
@@ -172,7 +188,25 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
   }
-  .pulse-soft {
-    animation: pulseSoft 2s ease-in-out infinite;
+  /* Mobile accessibility: sin texto menor a 18px */
+  @media (max-width: 480px) {
+    body {
+      font-size: 18px;
+    }
+    p {
+      font-size: 1.125rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    button {
+      min-height: 52px;
+      width: 100% !important;
+    }
   }
-}
