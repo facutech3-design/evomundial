@@ -151,15 +151,16 @@ export default function Navbar({
                 speak(text)
               }
             }}
-            className={`rounded-full p-2.5 transition-all active:scale-95 ${
+            className={`flex items-center gap-2 rounded-full px-4 py-2.5 font-bold text-accessible-sm transition-all active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 shadow-md hover:shadow-lg ${
               isListening
-                ? "bg-red-500 text-white hover:bg-red-600"
-                : "bg-white/10 text-white hover:bg-white/20"
+                ? "bg-red-500 text-white hover:bg-red-600 animate-pulse"
+                : "bg-accent text-accent-foreground hover:bg-accent/90"
             }`}
             aria-label={isListening ? "Detener lectura" : "Escuchar página"}
             title={isListening ? "Detener lectura" : "Escuchar página"}
           >
-            <Volume2 size={18} className={isListening ? "animate-pulse" : ""} />
+            <Volume2 size={20} className={isListening ? "animate-bounce" : ""} />
+            <span className="hidden md:inline">{isListening ? "Deteniendo..." : "Escuchar"}</span>
           </button>
 
           {/* Enlace PDF */}

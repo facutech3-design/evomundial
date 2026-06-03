@@ -78,7 +78,7 @@ export default function Home() {
 
       {/* Botón de escuchar fijo en esquina */}
       {pageText && (
-        <div className="fixed bottom-6 right-6 z-40">
+        <div className="fixed bottom-8 right-8 z-40 drop-shadow-2xl">
           <SpeakButton text={pageText} label="Escuchar página" variant="icon" />
         </div>
       )}
