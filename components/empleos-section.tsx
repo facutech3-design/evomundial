@@ -148,14 +148,6 @@ export default function EmpleosSection() {
             </p>
           </div>
         </div>
-          <div>
-            <h2 className="text-5xl font-black text-foreground md:text-6xl">Empleos del Mundial</h2>
-            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
-              Un Mundial no lo hacen solo los jugadores. Detras del escenario trabajan miles de personas con los 
-              trabajos mas variados. Descubrimos que roles existen y cuales nos interesan.
-            </p>
-          </div>
-        </div>
 
         {/* Dato importante */}
         <div className="mb-10 rounded-3xl bg-primary p-8 text-primary-foreground">
