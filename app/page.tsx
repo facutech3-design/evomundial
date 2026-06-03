@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useRef, useEffect } from "react"
 import Navbar, { SECTIONS } from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import PaisesSection from "@/components/paises-section"
@@ -8,6 +8,7 @@ import ValoresSection from "@/components/valores-section"
 import ArteSection from "@/components/arte-section"
 import ActividadesSection from "@/components/actividades-section"
 import EmpleosSection from "@/components/empleos-section"
+import SpeakButton from "@/components/speak-button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const SECTION_IDS = SECTIONS.map((s) => s.id)
@@ -40,12 +41,22 @@ function SectionContent({
 export default function Home() {
   const [sectionActiva, setSectionActiva] = useState("inicio")
   const [renderKey, setRenderKey] = useState(0)
+  const mainContentRef = useRef<HTMLDivElement>(null)
+  const [pageText, setPageText] = useState("")
 
   const handleNavigate = useCallback((id: string) => {
     setSectionActiva(id)
     setRenderKey((k) => k + 1)
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
+
+  // Extraer texto de la sección actual para lectura
+  useEffect(() => {
+    if (mainContentRef.current) {
+      const textContent = mainContentRef.current.innerText || mainContentRef.current.textContent || ""
+      setPageText(textContent)
+    }
+  }, [sectionActiva, renderKey])
 
   const currentIndex = SECTION_IDS.indexOf(sectionActiva)
   const prevSection = currentIndex > 0 ? SECTION_IDS[currentIndex - 1] : null
@@ -58,12 +69,19 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Navbar active={sectionActiva} onNavigate={handleNavigate} />
 
-      <main className="flex-1" id="main-content">
+      <main className="flex-1" id="main-content" ref={mainContentRef}>
         {/* key fuerza re-mount y dispara la animacion section-enter en globals.css */}
         <div key={renderKey}>
           <SectionContent id={sectionActiva} onNavigate={handleNavigate} />
         </div>
       </main>
+
+      {/* Botón de escuchar fijo en esquina */}
+      {pageText && (
+        <div className="fixed bottom-6 right-6 z-40">
+          <SpeakButton text={pageText} label="Escuchar página" variant="icon" />
+        </div>
+      )}
 
       {/* Footer navegacion entre secciones */}
       <footer className="border-t border-border bg-card px-6 py-5">

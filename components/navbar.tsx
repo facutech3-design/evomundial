@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon, FileText } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon, FileText, Volume2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis"
 
 const SECTIONS = [
   { id: "inicio", label: "🏠 Inicio", icon: Home },
@@ -34,6 +35,8 @@ export default function Navbar({
 }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(false)
+  const { speak, isListening } = useSpeechSynthesis()
+  const mainRef = useRef<HTMLDivElement | null>(null)
 
   // Leer preferencia guardada al montar
   useEffect(() => {
@@ -42,6 +45,9 @@ export default function Navbar({
     const dark = saved ? saved === "dark" : prefersDark
     setIsDark(dark)
     document.documentElement.classList.toggle("dark", dark)
+    
+    // Obtener referencia al main content
+    mainRef.current = document.getElementById("main-content") as HTMLDivElement
   }, [])
 
   const toggleTheme = () => {
@@ -135,6 +141,25 @@ export default function Navbar({
             title={isDark ? "Modo claro" : "Modo oscuro"}
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          {/* Boton escuchar pagina */}
+          <button
+            onClick={() => {
+              if (mainRef.current) {
+                const text = mainRef.current.innerText || mainRef.current.textContent || ""
+                speak(text)
+              }
+            }}
+            className={`rounded-full p-2.5 transition-all active:scale-95 ${
+              isListening
+                ? "bg-red-500 text-white hover:bg-red-600"
+                : "bg-white/10 text-white hover:bg-white/20"
+            }`}
+            aria-label={isListening ? "Detener lectura" : "Escuchar página"}
+            title={isListening ? "Detener lectura" : "Escuchar página"}
+          >
+            <Volume2 size={18} className={isListening ? "animate-pulse" : ""} />
           </button>
 
           {/* Enlace PDF */}
