@@ -54,6 +54,7 @@ export default function Home() {
   useEffect(() => {
     if (mainContentRef.current) {
       const textContent = mainContentRef.current.innerText || mainContentRef.current.textContent || ""
+      console.log("[v0] Texto extraído:", textContent.substring(0, 100) + "...")
       setPageText(textContent)
     }
   }, [sectionActiva, renderKey])

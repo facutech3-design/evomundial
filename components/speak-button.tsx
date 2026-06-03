@@ -26,6 +26,11 @@ export default function SpeakButton({
     if (isListening) {
       stop()
     } else {
+      if (!text || text.trim().length === 0) {
+        console.log("[v0] Advertencia: texto vacío")
+        return
+      }
+      console.log("[v0] SpeakButton: Leyendo", text.substring(0, 50) + "...")
       speak(text)
     }
   }
