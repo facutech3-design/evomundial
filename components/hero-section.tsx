@@ -191,7 +191,7 @@ function CountdownUnit({ value, label, emoji }: { value: number; label: string; 
   return (
     <div className="flex flex-col items-center rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm min-w-[90px]">
       {emoji && <span className="text-3xl mb-2" role="img">{emoji}</span>}
-      <span className="text-3.5xl font-black text-accent leading-none tabular-nums">
+      <span className="text-3.5xl font-black text-accent leading-none tabular-nums" suppressHydrationWarning>
         {String(value).padStart(2, "0")}
       </span>
       <span className="mt-2 text-sm font-bold uppercase tracking-widest text-white/80">{label}</span>
