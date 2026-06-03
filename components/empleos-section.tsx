@@ -139,9 +139,15 @@ export default function EmpleosSection() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
-          <div className="rounded-2xl bg-foreground p-4">
-            <Briefcase size={32} className="text-primary-foreground" />
+          <p className="text-6xl md:text-7xl leading-none mt-1" role="img">💼</p>
+          <div>
+            <h2 className="text-5xl font-black text-foreground md:text-6xl">Empleos del Mundial</h2>
+            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
+              Un Mundial no lo hacen solo los jugadores. Detras del escenario trabajan miles de personas con los 
+              trabajos mas variados. Descubrimos que roles existen y cuales nos interesan.
+            </p>
           </div>
+        </div>
           <div>
             <h2 className="text-5xl font-black text-foreground md:text-6xl">Empleos del Mundial</h2>
             <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">

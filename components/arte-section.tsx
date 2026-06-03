@@ -95,9 +95,7 @@ export default function ArteSection() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
-          <div className="rounded-2xl bg-creative p-4">
-            <Palette size={32} className="text-creative-foreground" />
-          </div>
+          <p className="text-6xl md:text-7xl leading-none mt-1" role="img">🎨</p>
           <div>
             <h2 className="text-5xl font-black text-foreground md:text-6xl">Arte y Creatividad</h2>
             <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
@@ -116,16 +114,16 @@ export default function ArteSection() {
               <button
                 key={act.id}
                 onClick={() => setActividadActiva(activa ? null : act.id)}
-                className={`flex flex-col rounded-3xl p-6 text-left transition-all hover:scale-105 active:scale-95 border-2 ${
-                  activa ? "border-foreground" : "border-transparent"
+                className={`flex flex-col rounded-3xl p-7 text-left transition-all hover:scale-105 active:scale-95 border-2 focus-visible:outline-3 focus-visible:outline-offset-2 ${
+                  activa ? "border-foreground shadow-lg scale-105" : "border-transparent"
                 } ${act.color} ${act.textColor}`}
               >
                 <div className="mb-3 rounded-2xl bg-white/20 p-3 w-fit">
-                  <Icon size={24} />
+                  <Icon size={28} />
                 </div>
-                <h3 className="text-lg font-black mb-1 leading-tight">{act.titulo}</h3>
-                <p className="text-sm opacity-80 leading-relaxed">{act.descripcion}</p>
-                <div className="mt-4 text-sm font-bold opacity-90">
+                <h3 className="text-accessible-lg font-black mb-2 leading-tight">{act.titulo}</h3>
+                <p className="text-accessible-base opacity-85 leading-relaxed flex-1">{act.descripcion}</p>
+                <div className="mt-4 text-accessible-base font-bold opacity-95">
                   {activa ? "Cerrar detalle" : "Ver actividad"}
                 </div>
               </button>
@@ -137,28 +135,28 @@ export default function ArteSection() {
         {actividad && (
           <div className="mb-10 rounded-3xl border-2 border-foreground bg-card p-8 shadow-xl section-enter">
             <div className="flex items-start justify-between mb-6">
-              <h3 className="text-2xl font-black text-foreground">{actividad.titulo}</h3>
+              <h3 className="text-accessible-2xl font-black text-foreground">{actividad.titulo}</h3>
               <button
                 onClick={() => setActividadActiva(null)}
                 className="rounded-full bg-muted p-2 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all ml-4 shrink-0"
                 aria-label="Cerrar detalle"
               >
                 <span className="sr-only">Cerrar</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {/* Materiales */}
               <div>
-                <div className="mb-3 flex items-center gap-2">
-                  <Paintbrush size={20} className="text-creative" />
-                  <h4 className="font-black text-foreground uppercase text-sm tracking-wide">
+                <div className="mb-4 flex items-center gap-2">
+                  <Paintbrush size={24} className="text-creative" />
+                  <h4 className="font-black text-foreground uppercase text-base tracking-wide">
                     Necesitamos
                   </h4>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {actividad.materiales.map((mat) => (
-                    <li key={mat} className="flex items-center gap-3 rounded-xl bg-muted px-4 py-3 text-sm font-semibold text-foreground">
+                    <li key={mat} className="flex items-center gap-3 rounded-xl bg-muted px-4 py-3 text-accessible-base font-semibold text-foreground">
                       <span className="h-2 w-2 shrink-0 rounded-full bg-creative" aria-hidden="true" />
                       {mat}
                     </li>
@@ -168,14 +166,14 @@ export default function ArteSection() {
 
               {/* Pasos */}
               <div>
-                <h4 className="mb-3 font-black text-foreground uppercase text-sm tracking-wide">
+                <h4 className="mb-4 font-black text-foreground uppercase text-base tracking-wide">
                   Paso a paso
                 </h4>
-                <ol className="space-y-2">
+                <ol className="space-y-3">
                   {actividad.pasos.map((paso, i) => (
-                    <li key={paso} className="flex items-start gap-3 text-sm text-foreground">
+                    <li key={paso} className="flex items-start gap-3 text-accessible-base text-foreground">
                       <span
-                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-creative text-xs font-black text-creative-foreground"
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-creative text-xs font-black text-creative-foreground"
                         aria-hidden="true"
                       >
                         {i + 1}
@@ -191,24 +189,24 @@ export default function ArteSection() {
 
         {/* Mascotas de Mundiales */}
         <div>
-          <h3 className="mb-2 text-2xl font-black text-foreground">Las mascotas del Mundial a traves de la historia</h3>
-          <p className="mb-6 text-muted-foreground">
+          <h3 className="mb-3 text-accessible-2xl font-black text-foreground">Las mascotas del Mundial a traves de la historia</h3>
+          <p className="mb-8 text-accessible-lg text-foreground/85 leading-relaxed font-semibold">
             Cada Mundial tiene un personaje que lo representa. Conocemos algunas de las mas famosas.
           </p>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
             {MASCOTAS_MUNDIALES.map((m) => (
               <div
                 key={m.mundial}
-                className="rounded-2xl border border-border bg-card p-4 text-center hover:border-creative hover:shadow-md transition-all"
+                className="rounded-2xl border border-border bg-card p-5 text-center hover:border-creative hover:shadow-md transition-all"
               >
-                <div className="mb-2 mx-auto h-14 w-14 rounded-full bg-creative/15 flex items-center justify-center">
-                  <Star size={24} className="text-creative" />
+                <div className="mb-3 mx-auto h-16 w-16 rounded-full bg-creative/15 flex items-center justify-center">
+                  <Star size={28} className="text-creative" />
                 </div>
-                <div className="text-xs font-black uppercase tracking-wide text-muted-foreground mb-1">
+                <div className="text-xs font-black uppercase tracking-wide text-muted-foreground mb-2">
                   {m.mundial}
                 </div>
-                <div className="text-base font-black text-foreground mb-1">{m.mascota}</div>
-                <div className="text-xs text-muted-foreground leading-relaxed">{m.descripcion}</div>
+                <div className="text-base font-black text-foreground mb-2">{m.mascota}</div>
+                <div className="text-accessible-sm text-muted-foreground leading-relaxed">{m.descripcion}</div>
               </div>
             ))}
           </div>

@@ -235,7 +235,7 @@
 }
 
 /* Mobile accessibility: sin texto menor a 18px */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   body {
     font-size: 18px;
   }
@@ -251,8 +251,8 @@
   h3 {
     font-size: 1.25rem;
   }
-  button {
+  button, a[role="button"], [role="button"] {
     min-height: 52px;
-    width: 100% !important;
+    min-width: 52px;
   }
 }

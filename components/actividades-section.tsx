@@ -112,9 +112,7 @@ export default function ActividadesSection() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
-          <div className="rounded-2xl bg-accent p-4">
-            <Activity size={32} className="text-accent-foreground" />
-          </div>
+          <p className="text-6xl md:text-7xl leading-none mt-1" role="img">🏃</p>
           <div>
             <h2 className="text-5xl font-black text-foreground md:text-6xl">Actividades Adaptadas</h2>
             <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
