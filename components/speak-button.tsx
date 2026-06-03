@@ -19,15 +19,19 @@ export default function SpeakButton({
   const [showTooltip, setShowTooltip] = useState(false)
 
   const handleClick = () => {
-    console.log("[v0] SpeakButton click, isListening:", isListening)
-    console.log("[v0] Texto:", text?.substring(0, 50))
+    console.log("[v0] SpeakButton clicked")
+    console.log("[v0] isListening:", isListening)
+    console.log("[v0] text length:", text?.length)
+    
     if (isListening) {
+      console.log("[v0] Deteniendo lectura")
       stop()
     } else {
       if (!text || text.trim().length === 0) {
-        console.log("[v0] Texto vacío")
+        console.log("[v0] Error: texto vacío, no se puede hablar")
         return
       }
+      console.log("[v0] Iniciando lectura con:", text.substring(0, 50))
       speak(text)
     }
   }

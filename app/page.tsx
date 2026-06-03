@@ -53,9 +53,13 @@ export default function Home() {
   // Extraer texto de la sección actual para lectura
   useEffect(() => {
     if (mainContentRef.current) {
-      const textContent = mainContentRef.current.innerText || mainContentRef.current.textContent || ""
-      console.log("[v0] Texto extraído:", textContent.substring(0, 100) + "...")
-      setPageText(textContent)
+      const textContent = mainContentRef.current.innerText || mainContentRef.current.textContent || "Contenido de la página"
+      console.log("[v0] Texto extraído (primeros 100 chars):", textContent?.substring(0, 100))
+      console.log("[v0] Longitud total:", textContent?.length)
+      setPageText(textContent || "Contenido de la página")
+    } else {
+      console.log("[v0] mainContentRef no está disponible")
+      setPageText("Contenido de la página")
     }
   }, [sectionActiva, renderKey])
 
