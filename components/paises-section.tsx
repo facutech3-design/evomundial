@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "��������🇳",
+    emoji: "����������🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
@@ -890,8 +890,8 @@ export default function PaisesSection() {
               </div>
 
               {/* Panel derecho - Bandera prominente */}
-              <div className="hidden lg:flex flex-col items-center justify-center">
-                <div className="text-9xl leading-none drop-shadow-lg" role="img" aria-label={`Bandera de ${paisActual.nombre}`}>
+              <div className="hidden lg:flex flex-col items-center justify-center max-w-xs">
+                <div className="text-8xl leading-none drop-shadow-lg overflow-hidden" role="img" aria-label={`Bandera de ${paisActual.nombre}`}>
                   {paisActual.emoji}
                 </div>
                 <p className="text-2xl font-black text-white mt-6 text-center">{paisActual.nombre}</p>
