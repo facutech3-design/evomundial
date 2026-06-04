@@ -354,7 +354,7 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
                   onClick={() => onNavigate(card.id)}
                   className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[320px] ${card.color} ${card.textColor} border-2 border-current`}
                 >
-                  <p className="text-[4.5rem] mb-4 leading-none" role="img">{card.emoji}</p>
+                  <p className="mb-4 leading-none text-9xl" role="img" style={{ fontSize: '5.5rem' }}>{card.emoji}</p>
                   <h3 className="mb-4 text-2xl font-black leading-tight uppercase">{card.titulo}</h3>
                   <p className={`mb-6 text-accessible-base leading-relaxed opacity-90 flex-1`}>{card.descripcion}</p>
                   <div className="mt-auto w-full flex flex-col gap-3">
