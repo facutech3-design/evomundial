@@ -31,7 +31,7 @@ export default function SpeakButton({
 
   if (variant === "icon") {
     return (
-      <div className="relative">
+      <div className="relative" suppressHydrationWarning>
         <button
           onClick={handleClick}
           onMouseEnter={() => setShowTooltip(true)}
@@ -43,6 +43,7 @@ export default function SpeakButton({
           }`}
           aria-label={isListening ? "Detener lectura" : "Escuchar página"}
           title={isListening ? "Detener lectura" : "Escuchar página"}
+          suppressHydrationWarning
         >
           {isListening ? (
             <Volume1 size={28} className="animate-bounce" />
@@ -68,6 +69,7 @@ export default function SpeakButton({
           : "bg-accent text-accent-foreground hover:bg-accent/90"
       }`}
       aria-label={isListening ? "Detener lectura" : label}
+      suppressHydrationWarning
     >
       {isListening ? (
         <>
