@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "������🇳",
+    emoji: "��������🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
@@ -870,8 +870,6 @@ export default function PaisesSection() {
                     <ChevronLeft size={22} />
                     Anterior
                   </button>
-                  <button
-                    onClick={cerrar}
                   <button
                     onClick={cerrar}
                     className="rounded-full bg-muted p-3 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all"
