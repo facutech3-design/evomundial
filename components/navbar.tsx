@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon, FileText, Volume2, Music } from "lucide-react"
+import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon, FileText, Volume2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -10,7 +10,6 @@ import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis"
 const SECTIONS = [
   { id: "inicio", label: "🏠 Inicio", icon: Home },
   { id: "paises", label: "🌍 Países y Culturas", icon: Globe },
-  { id: "musica", label: "🎵 Música", icon: Music },
   { id: "valores", label: "🤝 Valores e Inclusión", icon: Heart },
   { id: "arte", label: "🎨 Arte y Creatividad", icon: Palette },
   { id: "actividades", label: "🏃 Actividades Adaptadas", icon: Activity },
@@ -21,7 +20,6 @@ const SECTIONS = [
 const SECTION_ACCENT: Record<string, string> = {
   inicio: "bg-white text-foreground",
   paises: "bg-primary text-primary-foreground",
-  musica: "bg-green-600 text-white",
   valores: "bg-success text-success-foreground",
   arte: "bg-creative text-creative-foreground",
   actividades: "bg-accent text-accent-foreground",

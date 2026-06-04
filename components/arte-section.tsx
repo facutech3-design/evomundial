@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Palette, Shirt, Flag, Star, Paintbrush, ImageIcon } from "lucide-react"
 import { BotonLeer } from "@/components/boton-leer"
+import { PlaylistGlobal } from "@/components/playlist-global"
 
 const ACTIVIDADES_ARTE = [
   {
@@ -231,6 +232,11 @@ export default function ArteSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Playlist Global de Canciones */}
+        <div className="mt-12">
+          <PlaylistGlobal />
         </div>
       </div>
     </section>

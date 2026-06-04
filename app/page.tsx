@@ -4,7 +4,6 @@ import { useState, useCallback, useRef, useEffect } from "react"
 import Navbar, { SECTIONS } from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import PaisesSection from "@/components/paises-section"
-import MusicaSection from "@/components/musica-section"
 import ValoresSection from "@/components/valores-section"
 import ArteSection from "@/components/arte-section"
 import ActividadesSection from "@/components/actividades-section"
@@ -26,8 +25,6 @@ function SectionContent({
       return <HeroSection onNavigate={onNavigate} />
     case "paises":
       return <PaisesSection />
-    case "musica":
-      return <MusicaSection />
     case "valores":
       return <ValoresSection />
     case "arte":
