@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight, ChevronLeft } from "lucide-react"
 import BotonSonido from "@/components/boton-sonido"
+import { BotonLeer } from "@/components/boton-leer"
 
 const CARDS = [  {
     id: "paises",
@@ -251,11 +252,11 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
             mas que el futbol.
           </p>
 
-          {/* Boton de sonido del hero */}
+          {/* Boton de lectura del hero */}
           <div className="flex justify-center mb-8">
-            <BotonSonido 
-              texto="El Mundial es de todos. Un proyecto para explorar el Mundial 2026 desde la cultura, el arte, los valores y el movimiento." 
-              variant="inline"
+            <BotonLeer 
+              etiqueta="Escuchar presentación"
+              texto="El Mundial es de todos. Un proyecto para explorar el Mundial 2026 desde la cultura, el arte, los valores y el movimiento. Porque el mundo del fútbol es mucho más que el fútbol."
             />
           </div>
 
@@ -360,7 +361,7 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
                     <button className="w-full h-16 rounded-2xl bg-current font-bold text-accessible-lg border-2 border-current transition-all hover:opacity-90 active:scale-95">
                       {card.boton}
                     </button>
-                    <BotonSonido texto={card.texto} variant="inline" />
+                    <BotonLeer etiqueta="Escuchar sección" texto={card.texto} />
                   </div>
                 </button>
               )
