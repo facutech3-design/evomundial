@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "🇸🇳",
+    emoji: "����🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
@@ -775,7 +775,7 @@ export default function PaisesSection() {
               <div className={`bg-gradient-to-br ${paisActual.color} p-8 text-white`}>
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="text-7xl mb-3 leading-none">{paisActual.emoji}</div>
+                    <div className="text-9xl mb-3 leading-none">{paisActual.emoji}</div>
                     <h3 className="text-3xl font-black">{paisActual.nombre}</h3>
                     <div className="flex items-center gap-1.5 mt-1 text-white/75 text-sm font-semibold">
                       <MapPin size={14} />
