@@ -42,7 +42,7 @@ export default function Home() {
   const [sectionActiva, setSectionActiva] = useState("inicio")
   const [renderKey, setRenderKey] = useState(0)
   const mainContentRef = useRef<HTMLDivElement>(null)
-  const [pageText, setPageText] = useState("")
+  const [pageText, setPageText] = useState("Bienvenido a EvoMundial")
 
   const handleNavigate = useCallback((id: string) => {
     setSectionActiva(id)
@@ -53,13 +53,10 @@ export default function Home() {
   // Extraer texto de la sección actual para lectura
   useEffect(() => {
     if (mainContentRef.current) {
-      const textContent = mainContentRef.current.innerText || mainContentRef.current.textContent || "Contenido de la página"
-      console.log("[v0] Texto extraído (primeros 100 chars):", textContent?.substring(0, 100))
-      console.log("[v0] Longitud total:", textContent?.length)
-      setPageText(textContent || "Contenido de la página")
-    } else {
-      console.log("[v0] mainContentRef no está disponible")
-      setPageText("Contenido de la página")
+      const textContent = mainContentRef.current.innerText || mainContentRef.current.textContent || ""
+      if (textContent.trim().length > 0) {
+        setPageText(textContent)
+      }
     }
   }, [sectionActiva, renderKey])
 
