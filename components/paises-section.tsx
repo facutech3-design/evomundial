@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "����🇳",
+    emoji: "🇸🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
