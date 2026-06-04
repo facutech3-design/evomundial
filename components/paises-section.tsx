@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "🇸🇳",
+    emoji: "����🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
@@ -799,14 +799,14 @@ export default function PaisesSection() {
               </div>
 
               {/* Contenido */}
-              <div className="p-7 space-y-4">
+              <div className="p-7 space-y-5">
                 <div className="flex gap-3">
                   <div className="shrink-0 rounded-xl bg-primary/10 p-3">
                     <Languages size={20} className="text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">Idioma</p>
-                    <p className="font-semibold text-foreground text-base">{paisActual.idioma}</p>
+                    <p className="text-sm font-bold uppercase tracking-widest text-primary underline underline-offset-2">Idioma</p>
+                    <p className="font-semibold text-foreground text-lg">{paisActual.idioma}</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -814,7 +814,7 @@ export default function PaisesSection() {
                     <Utensils size={20} className="text-success" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">Comidas tipicas</p>
+                    <p className="text-sm font-bold uppercase tracking-widest text-success underline underline-offset-2">Comidas tipicas</p>
                     <div className="flex flex-wrap gap-x-3 gap-y-1 mt-0.5">
                       {paisActual.comida.split(",").map((plato) => (
                         <a
@@ -822,7 +822,7 @@ export default function PaisesSection() {
                           href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(plato.trim())}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-semibold text-foreground text-base hover:text-primary underline underline-offset-2 transition-colors"
+                          className="inline-flex items-center gap-1 font-semibold text-foreground text-lg hover:text-primary underline underline-offset-2 transition-colors"
                           aria-label={`Ver imagen de ${plato.trim()} en Google`}
                         >
                           {plato.trim()}
@@ -837,13 +837,13 @@ export default function PaisesSection() {
                     <Music size={20} className="text-creative" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">Cancion mas escuchada</p>
-                    <p className="font-semibold text-foreground text-base leading-snug">{paisActual.cancion}</p>
+                    <p className="text-sm font-bold uppercase tracking-widest text-creative underline underline-offset-2">Cancion mas escuchada</p>
+                    <p className="font-semibold text-foreground text-lg leading-snug">{paisActual.cancion}</p>
                     <a
                       href={paisActual.youtube}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-bold text-white transition-all hover:bg-red-700 active:scale-95"
+                      className="mt-2 inline-flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-base font-bold text-white transition-all hover:bg-red-700 active:scale-95"
                       aria-label={`Escuchar ${paisActual.cancion} en YouTube`}
                     >
                       <ExternalLink size={14} />
@@ -851,11 +851,11 @@ export default function PaisesSection() {
                     </a>
                   </div>
                 </div>
-                <div className="rounded-2xl bg-muted p-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-2">
+                <div className="rounded-2xl bg-muted p-5">
+                  <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground underline underline-offset-2 mb-2">
                     Dato interesante
                   </p>
-                  <p className="text-sm leading-relaxed text-foreground">{paisActual.curiosidad}</p>
+                  <p className="text-base leading-relaxed text-foreground">{paisActual.curiosidad}</p>
                 </div>
               </div>
 
