@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Heart, Users, Scale, Star, ChevronDown, ChevronUp } from "lucide-react"
 
 const VALORES = [
@@ -95,11 +96,30 @@ export default function ValoresSection() {
   return (
     <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-10 flex items-start gap-4">
-          <div className="rounded-2xl bg-success p-4">
-            <Heart size={32} className="text-success-foreground" />
+
+        {/* Imagen principal */}
+        <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
+          <Image
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
+            alt="Personas de distintas culturas juntas celebrando"
+            width={1200}
+            height={400}
+            className="w-full h-full object-cover"
+            priority
+          />
+          <div className="sr-only">
+            Imagen de personas de diferentes culturas y etnias juntas celebrando y apoyándose mutuamente.
           </div>
+        </div>
+
+        {/* Header */}
+        <div className="mb-10">
+          <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Inclusión">🤝</p>
+          <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Valores e Inclusión</h2>
+          <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
+            El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.
+          </p>
+        </div>
           <div>
             <div className="flex items-start gap-4">
               <p className="text-6xl md:text-7xl leading-none mt-1" role="img">🤝</p>

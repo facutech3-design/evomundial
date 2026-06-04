@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Briefcase, Mic, Camera, Utensils, Shield, Stethoscope, Truck, Headphones, ChevronDown, ChevronUp } from "lucide-react"
 
 const EMPLEOS = [
@@ -137,16 +138,30 @@ export default function EmpleosSection() {
   return (
     <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-10 flex items-start gap-4">
-          <p className="text-6xl md:text-7xl leading-none mt-1" role="img">💼</p>
-          <div>
-            <h2 className="text-5xl font-black text-foreground md:text-6xl">Empleos del Mundial</h2>
-            <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
-              Un Mundial no lo hacen solo los jugadores. Detras del escenario trabajan miles de personas con los 
-              trabajos mas variados. Descubrimos que roles existen y cuales nos interesan.
-            </p>
+
+        {/* Imagen principal */}
+        <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
+          <Image
+            src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200&q=80"
+            alt="Estadio con trabajadores y vista interna"
+            width={1200}
+            height={400}
+            className="w-full h-full object-cover"
+            priority
+          />
+          <div className="sr-only">
+            Imagen de un estadio lleno de personas trabajando en diferentes roles durante un evento deportivo.
           </div>
+        </div>
+
+        {/* Header */}
+        <div className="mb-10">
+          <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Empleos">💼</p>
+          <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Empleos del Mundial</h2>
+          <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
+            Un Mundial no lo hacen solo los jugadores. Detrás del escenario trabajan miles de personas con los trabajos más variados. Descubrimos qué roles existen y cuáles nos interesan.
+          </p>
+        </div>
         </div>
 
         {/* Dato importante */}

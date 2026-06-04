@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Image from "next/image"
 import { Globe, Music, Utensils, Languages, X, ChevronLeft, ChevronRight, MapPin, ExternalLink } from "lucide-react"
 
 const PAISES = [
@@ -665,20 +666,30 @@ export default function PaisesSection() {
     <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
 
+        {/* Imagen principal */}
+        <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
+          <Image
+            src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1200&q=80"
+            alt="Mapa del mundo con banderas de países"
+            width={1200}
+            height={400}
+            className="w-full h-full object-cover"
+            priority
+          />
+          <div className="sr-only">
+            Imagen de un mapa del mundo mostrando banderas de diferentes países.
+          </div>
+        </div>
+
         {/* Header */}
         <div className="mb-10 flex items-start gap-4">
-          <div className="shrink-0 rounded-2xl bg-primary p-4">
-            <Globe size={32} className="text-primary-foreground" />
-          </div>
           <div>
-            <div className="flex flex-col items-center sm:items-start gap-3 mb-4">
-              <p className="text-5xl leading-none" role="img">🌍</p>
-              <div>
-                <h2 className="text-4xl font-black text-foreground md:text-5xl">Países y Culturas</h2>
-                <p className="mt-3 text-xl text-muted-foreground text-pretty leading-relaxed">
-                  Los 48 clasificados al Mundial 2026, agrupados por confederación. Toca cada bandera para descubrir su cultura, comida, música y curiosidades.
-                </p>
-              </div>
+            <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Países y Culturas">🌍</p>
+            <div>
+              <h2 className="text-5xl font-black text-foreground md:text-6xl">Países y Culturas</h2>
+              <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
+                Los 48 clasificados al Mundial 2026. Toca cada país para descubrir su cultura, comida, música y curiosidades.
+              </p>
             </div>
           </div>
         </div>
