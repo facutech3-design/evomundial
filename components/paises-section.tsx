@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "����🇳",
+    emoji: "������🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
@@ -767,125 +767,136 @@ export default function PaisesSection() {
             aria-modal="true"
             aria-label={`Informacion sobre ${paisActual.nombre}`}
           >
-            <div
-              className="relative w-full max-w-lg rounded-3xl bg-card shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header con gradiente */}
-              <div className={`bg-gradient-to-br ${paisActual.color} p-8 text-white`}>
-                <div className="flex items-start justify-between">
+            {/* Container con dos paneles */}
+            <div className="flex gap-8 items-center w-full max-w-5xl">
+              {/* Panel izquierdo - Contenido */}
+              <div
+                className="relative flex-1 rounded-3xl bg-card shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header con gradiente */}
+                <div className={`bg-gradient-to-br ${paisActual.color} p-8 text-white`}>
                   <div>
-                    <div className="text-9xl mb-3 leading-none">{paisActual.emoji}</div>
-                    <h3 className="text-3xl font-black">{paisActual.nombre}</h3>
-                    <div className="flex items-center gap-1.5 mt-1 text-white/75 text-sm font-semibold">
-                      <MapPin size={14} />
+                    <h3 className="text-4xl font-black">{paisActual.nombre}</h3>
+                    <div className="flex items-center gap-1.5 mt-2 text-white/75 text-lg font-semibold">
+                      <MapPin size={18} />
                       {paisActual.continente}
                     </div>
                   </div>
-                  <div className="flex flex-col items-end gap-2">
+                  <div className="flex flex-col items-start gap-2 mt-4">
                     {paisActual.sede && (
-                      <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold">
+                      <span className="rounded-full bg-white/25 px-4 py-2 text-base font-bold">
                         Sede 2026
                       </span>
                     )}
-                    <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold">
+                    <span className="rounded-full bg-white/25 px-4 py-2 text-base font-bold">
                       {paisActual.dato}
                     </span>
                   </div>
+                  <div className="mt-4 text-base text-white/50 font-semibold">
+                    {indiceModal + 1} de {paisesFiltrados.length}
+                  </div>
                 </div>
-                <div className="mt-4 text-xs text-white/50 font-semibold">
-                  {indiceModal + 1} de {paisesFiltrados.length}
-                </div>
-              </div>
 
-              {/* Contenido */}
-              <div className="p-7 space-y-5">
-                <div className="flex gap-3">
-                  <div className="shrink-0 rounded-xl bg-primary/10 p-3">
-                    <Languages size={20} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold uppercase tracking-widest text-primary underline underline-offset-2">Idioma</p>
-                    <p className="font-semibold text-foreground text-lg">{paisActual.idioma}</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="shrink-0 rounded-xl bg-success/10 p-3">
-                    <Utensils size={20} className="text-success" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold uppercase tracking-widest text-success underline underline-offset-2">Comidas tipicas</p>
-                    <div className="flex flex-wrap gap-x-3 gap-y-1 mt-0.5">
-                      {paisActual.comida.split(",").map((plato) => (
-                        <a
-                          key={plato.trim()}
-                          href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(plato.trim())}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-semibold text-foreground text-lg hover:text-primary underline underline-offset-2 transition-colors"
-                          aria-label={`Ver imagen de ${plato.trim()} en Google`}
-                        >
-                          {plato.trim()}
-                          <ExternalLink size={12} className="shrink-0 opacity-40" />
-                        </a>
-                      ))}
+                {/* Contenido */}
+                <div className="p-8 space-y-6">
+                  <div className="flex gap-4">
+                    <div className="shrink-0 rounded-xl bg-primary/10 p-4">
+                      <Languages size={28} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold uppercase tracking-widest text-primary underline underline-offset-3">Idioma</p>
+                      <p className="font-semibold text-foreground text-2xl mt-1">{paisActual.idioma}</p>
                     </div>
                   </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="shrink-0 rounded-xl bg-creative/10 p-3">
-                    <Music size={20} className="text-creative" />
+                  <div className="flex gap-4">
+                    <div className="shrink-0 rounded-xl bg-success/10 p-4">
+                      <Utensils size={28} className="text-success" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold uppercase tracking-widest text-success underline underline-offset-3">Comidas tipicas</p>
+                      <div className="flex flex-wrap gap-x-4 gap-y-2 mt-2">
+                        {paisActual.comida.split(",").map((plato) => (
+                          <a
+                            key={plato.trim()}
+                            href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(plato.trim())}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 font-semibold text-foreground text-xl hover:text-primary underline underline-offset-2 transition-colors"
+                            aria-label={`Ver imagen de ${plato.trim()} en Google`}
+                          >
+                            {plato.trim()}
+                            <ExternalLink size={16} className="shrink-0 opacity-40" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold uppercase tracking-widest text-creative underline underline-offset-2">Cancion mas escuchada</p>
-                    <p className="font-semibold text-foreground text-lg leading-snug">{paisActual.cancion}</p>
-                    <a
-                      href={paisActual.youtube}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-base font-bold text-white transition-all hover:bg-red-700 active:scale-95"
-                      aria-label={`Escuchar ${paisActual.cancion} en YouTube`}
-                    >
-                      <ExternalLink size={14} />
-                      Escuchar en YouTube
-                    </a>
+                  <div className="flex gap-4">
+                    <div className="shrink-0 rounded-xl bg-creative/10 p-4">
+                      <Music size={28} className="text-creative" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-lg font-bold uppercase tracking-widest text-creative underline underline-offset-3">Cancion mas escuchada</p>
+                      <p className="font-semibold text-foreground text-xl leading-snug mt-1">{paisActual.cancion}</p>
+                      <a
+                        href={paisActual.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-2 rounded-xl bg-red-600 px-5 py-3 text-lg font-bold text-white transition-all hover:bg-red-700 active:scale-95"
+                        aria-label={`Escuchar ${paisActual.cancion} en YouTube`}
+                      >
+                        <ExternalLink size={18} />
+                        Escuchar en YouTube
+                      </a>
+                    </div>
+                  </div>
+                  <div className="rounded-2xl bg-muted p-6">
+                    <p className="text-lg font-bold uppercase tracking-widest text-muted-foreground underline underline-offset-3 mb-3">
+                      Dato interesante
+                    </p>
+                    <p className="text-lg leading-relaxed text-foreground">{paisActual.curiosidad}</p>
                   </div>
                 </div>
-                <div className="rounded-2xl bg-muted p-5">
-                  <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground underline underline-offset-2 mb-2">
-                    Dato interesante
-                  </p>
-                  <p className="text-base leading-relaxed text-foreground">{paisActual.curiosidad}</p>
+
+                {/* Navegacion */}
+                <div className="flex items-center justify-between gap-3 px-8 pb-8">
+                  <button
+                    onClick={anterior}
+                    disabled={indiceModal === 0}
+                    className="flex items-center gap-2 rounded-2xl bg-secondary px-5 py-3 text-lg font-bold text-secondary-foreground transition-all hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed active:scale-95"
+                    aria-label="Pais anterior"
+                  >
+                    <ChevronLeft size={22} />
+                    Anterior
+                  </button>
+                  <button
+                    onClick={cerrar}
+                  <button
+                    onClick={cerrar}
+                    className="rounded-full bg-muted p-3 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all"
+                    aria-label="Cerrar"
+                  >
+                    <X size={24} />
+                  </button>
+                  <button
+                    onClick={siguiente}
+                    disabled={indiceModal === paisesFiltrados.length - 1}
+                    className="flex items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-lg font-bold text-primary-foreground transition-all hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed active:scale-95"
+                    aria-label="Pais siguiente"
+                  >
+                    Siguiente
+                    <ChevronRight size={22} />
+                  </button>
                 </div>
               </div>
 
-              {/* Navegacion */}
-              <div className="flex items-center justify-between gap-3 px-7 pb-7">
-                <button
-                  onClick={anterior}
-                  disabled={indiceModal === 0}
-                  className="flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 text-sm font-bold text-secondary-foreground transition-all hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed active:scale-95"
-                  aria-label="Pais anterior"
-                >
-                  <ChevronLeft size={18} />
-                  Anterior
-                </button>
-                <button
-                  onClick={cerrar}
-                  className="rounded-full bg-muted p-2.5 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all"
-                  aria-label="Cerrar"
-                >
-                  <X size={20} />
-                </button>
-                <button
-                  onClick={siguiente}
-                  disabled={indiceModal === paisesFiltrados.length - 1}
-                  className="flex items-center gap-2 rounded-2xl bg-primary px-4 py-3 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed active:scale-95"
-                  aria-label="Pais siguiente"
-                >
-                  Siguiente
-                  <ChevronRight size={18} />
-                </button>
+              {/* Panel derecho - Bandera prominente */}
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="text-9xl leading-none drop-shadow-lg" role="img" aria-label={`Bandera de ${paisActual.nombre}`}>
+                  {paisActual.emoji}
+                </div>
+                <p className="text-2xl font-black text-white mt-6 text-center">{paisActual.nombre}</p>
               </div>
             </div>
           </div>
