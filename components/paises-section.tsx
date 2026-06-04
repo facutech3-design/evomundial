@@ -682,16 +682,12 @@ export default function PaisesSection() {
         </div>
 
         {/* Header */}
-        <div className="mb-10 flex items-start gap-4">
-          <div>
-            <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Países y Culturas">🌍</p>
-            <div>
-              <h2 className="text-5xl font-black text-foreground md:text-6xl">Países y Culturas</h2>
-              <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
-                Los 48 clasificados al Mundial 2026. Toca cada país para descubrir su cultura, comida, música y curiosidades.
-              </p>
-            </div>
-          </div>
+        <div className="mb-10">
+          <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Países y Culturas">🌍</p>
+          <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Países y Culturas</h2>
+          <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
+            Los 48 clasificados al Mundial 2026. Toca cada país para descubrir su cultura, comida, música y curiosidades.
+          </p>
         </div>
 
         {/* Contador de resultados */}

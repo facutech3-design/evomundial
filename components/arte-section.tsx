@@ -118,7 +118,6 @@ export default function ArteSection() {
             El arte no tiene reglas ni límites. Cada Mundial genera una explosión de colores, formas y expresión. Nos sumamos a esa fiesta creativa.
           </p>
         </div>
-        </div>
 
         {/* Selector de actividades */}
         <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

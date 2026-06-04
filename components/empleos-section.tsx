@@ -162,7 +162,6 @@ export default function EmpleosSection() {
             Un Mundial no lo hacen solo los jugadores. Detrás del escenario trabajan miles de personas con los trabajos más variados. Descubrimos qué roles existen y cuáles nos interesan.
           </p>
         </div>
-        </div>
 
         {/* Dato importante */}
         <div className="mb-10 rounded-3xl bg-primary p-8 text-primary-foreground">

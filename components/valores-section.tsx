@@ -120,19 +120,6 @@ export default function ValoresSection() {
             El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.
           </p>
         </div>
-          <div>
-            <div className="flex items-start gap-4">
-              <p className="text-6xl md:text-7xl leading-none mt-1" role="img">🤝</p>
-              <div>
-                <h2 className="text-5xl font-black text-foreground md:text-6xl">Valores e Inclusion</h2>
-                <p className="mt-3 text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold">
-                  El futbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusion 
-                  y lo que nos hace mejores personas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Valores accordeon */}
         <div className="mb-12 space-y-3">
