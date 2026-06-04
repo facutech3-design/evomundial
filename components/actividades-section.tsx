@@ -135,7 +135,6 @@ export default function ActividadesSection() {
             El deporte es para todos los cuerpos. Cada actividad está pensada para que todos puedan participar, cada uno a su manera. No hay forma incorrecta de jugar.
           </p>
         </div>
-        </div>
 
         {/* Principio guia */}
         <div className="mb-8 rounded-3xl bg-accent p-8 text-accent-foreground">
