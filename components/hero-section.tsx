@@ -3,43 +3,43 @@
 import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight, ChevronLeft } from "lucide-react"
+import BotonSonido from "@/components/boton-sonido"
 
 const CARDS = [  {
     id: "paises",
-    icon: Globe,
-    titulo: "Paises y Culturas",
-    descripcion: "Viajamos por el mundo sin salir del centro. Conocemos los paises sede y los que participan.",
+    titulo: "Países y Culturas",
+    descripcion: "Viajamos por el mundo sin salir del centro. Conocemos los países sede y los que participan.",
     emoji: "🌍",
     boton: "Ver países 🌍",
     color: "bg-primary",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
+    texto: "Países y Culturas. Viajamos por el mundo sin salir del centro. Conocemos los países sede y los que participan.",
   },
   {
     id: "valores",
-    icon: Heart,
-    titulo: "Valores e Inclusion",
-    descripcion: "El deporte como espejo de la sociedad. Fair play, diversidad y representacion.",
+    titulo: "Valores e Inclusión",
+    descripcion: "El deporte como espejo de la sociedad. Fair play, diversidad y representación.",
     emoji: "🤝",
     boton: "Ver valores 🤝",
     color: "bg-success",
     textColor: "text-success-foreground",
     accentBg: "bg-white/20",
+    texto: "Valores e Inclusión. El deporte como espejo de la sociedad. Fair play, diversidad y representación.",
   },
   {
     id: "arte",
-    icon: Palette,
     titulo: "Arte y Creatividad",
-    descripcion: "Disenamos camisetas, banderas y mascotas. La creatividad no tiene limites.",
+    descripcion: "Diseñamos camisetas, banderas y mascotas. La creatividad no tiene límites.",
     emoji: "🎨",
     boton: "Ver arte 🎨",
     color: "bg-creative",
     textColor: "text-creative-foreground",
     accentBg: "bg-white/20",
+    texto: "Arte y Creatividad. Diseñamos camisetas, banderas y mascotas. La creatividad no tiene límites.",
   },
   {
     id: "actividades",
-    icon: Activity,
     titulo: "Actividades Adaptadas",
     descripcion: "Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos.",
     emoji: "🏃",
@@ -47,17 +47,18 @@ const CARDS = [  {
     color: "bg-accent",
     textColor: "text-accent-foreground",
     accentBg: "bg-black/10",
+    texto: "Actividades Adaptadas. Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos.",
   },
   {
     id: "empleos",
-    icon: Briefcase,
     titulo: "Empleos del Mundial",
-    descripcion: "Quien trabaja en un mundial? Conocemos todos los roles mas alla de los jugadores.",
+    descripcion: "¿Quién trabaja en un mundial? Conocemos todos los roles más allá de los jugadores.",
     emoji: "💼",
     boton: "Ver empleos 💼",
     color: "bg-foreground",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
+    texto: "Empleos del Mundial. ¿Quién trabaja en un mundial? Conocemos todos los roles más allá de los jugadores.",
   },
 ]
 
@@ -250,34 +251,43 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
             mas que el futbol.
           </p>
 
+          {/* Boton de sonido del hero */}
+          <div className="flex justify-center mb-8">
+            <BotonSonido 
+              texto="El Mundial es de todos. Un proyecto para explorar el Mundial 2026 desde la cultura, el arte, los valores y el movimiento." 
+              variant="inline"
+            />
+          </div>
+
           {/* Countdown */}
           <div className="mb-8">
-            <p className="mb-4 text-2xl font-bold uppercase tracking-widest text-white text-center">
-              ⏳ Falta para el mundial
+            <p className="mb-6 text-accessible-xl font-black uppercase tracking-widest text-white text-center">
+              ⏳ Falta para el mundial 2026
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <CountdownUnit value={dias} label="DÍAS" emoji="📅" />
-              <CountdownUnit value={horas} label="HORAS" emoji="🕐" />
-              <CountdownUnit value={minutos} label="MINUTOS" emoji="⏱️" />
-              <CountdownUnit value={segundos} label="SEGUNDOS" emoji="⏱️" />
+              <CountdownUnit value={dias} label="Días" emoji="📅" />
+              <CountdownUnit value={horas} label="Horas" emoji="🕐" />
+              <CountdownUnit value={minutos} label="Minutos" emoji="⏱️" />
+              <CountdownUnit value={segundos} label="Segundos" emoji="⚡" />
             </div>
-            <p className="mt-4 text-base text-white/80 font-semibold text-center">
+            <p className="mt-4 text-accessible-base text-white/80 font-semibold text-center">
               Primer partido: 11 de junio de 2026
             </p>
           </div>
 
-          {/* Stats del torneo */}
+          {/* Stats del torneo con emojis */}
           <div className="flex flex-wrap justify-center gap-3 mt-6 mb-8">
             {[
-              { num: "48", desc: "Selecciones" },
-              { num: "3", desc: "Paises Sede" },
-              { num: "104", desc: "Partidos" },
-              { num: "16", desc: "Grupos" },
+              { num: "48", desc: "Selecciones", emoji: "⚽" },
+              { num: "3", desc: "Países Sede", emoji: "🏟️" },
+              { num: "104", desc: "Partidos", emoji: "🎯" },
+              { num: "16", desc: "Grupos", emoji: "👥" },
             ].map((stat) => (
               <div
                 key={stat.desc}
                 className="flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 px-6 py-3"
               >
+                <span className="text-2xl mb-1">{stat.emoji}</span>
                 <span className="text-2xl font-black text-white">{stat.num}</span>
                 <span className="text-xs text-white/50 font-semibold uppercase tracking-wide mt-0.5">
                   {stat.desc}
@@ -337,19 +347,21 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {CARDS.map((card) => {
-              const Icon = card.icon
               return (
                 <button
                   key={card.id}
                   onClick={() => onNavigate(card.id)}
-                  className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[300px] ${card.color} ${card.textColor} border-2 border-current`}
+                  className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[320px] ${card.color} ${card.textColor} border-2 border-current`}
                 >
-                  <p className="text-7xl mb-4 leading-none" role="img">{card.emoji}</p>
-                  <h3 className="mb-4 text-accessible-xl font-black leading-tight">{card.titulo}</h3>
+                  <p className="text-6xl mb-4 leading-none" role="img">{card.emoji}</p>
+                  <h3 className="mb-4 text-2xl font-black leading-tight uppercase">{card.titulo}</h3>
                   <p className={`mb-6 text-accessible-base leading-relaxed opacity-90 flex-1`}>{card.descripcion}</p>
-                  <button className="mt-auto w-full h-16 rounded-2xl bg-current font-bold text-accessible-lg border-2 border-current transition-all hover:opacity-90 active:scale-95">
-                    {card.boton}
-                  </button>
+                  <div className="mt-auto w-full flex flex-col gap-3">
+                    <button className="w-full h-16 rounded-2xl bg-current font-bold text-accessible-lg border-2 border-current transition-all hover:opacity-90 active:scale-95">
+                      {card.boton}
+                    </button>
+                    <BotonSonido texto={card.texto} variant="inline" />
+                  </div>
                 </button>
               )
             })}
