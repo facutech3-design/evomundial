@@ -82,10 +82,9 @@ const EMPLEOS = [
           "Prepara la comida de los jugadores y cuerpos tecnicos. Cada seleccion tiene sus necesidades nutricionales especificas. Un equipo medico y nutricional trabaja junto.",
         habilidades: ["Nutricion deportiva", "Cocina internacional", "Confidencialidad"],
       },
-      ],
-    },
-  ],
-}
+    ],
+  },
+]
 
 export default function EmpleosSection() {
   const [areaActiva, setAreaActiva] = useState<string | null>(null)
