@@ -92,8 +92,8 @@ export default function ArteSection() {
     <section className="min-h-screen bg-background px-6 py-12 section-enter">
       <div className="mx-auto max-w-7xl">
 
-        {/* Imagen principal con pictograma superpuesto */}
-        <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg relative">
+        {/* Imagen principal */}
+        <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
           <Image
             src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1200&q=80"
             alt="Manos pintando arte colorido"
@@ -105,18 +105,17 @@ export default function ArteSection() {
           <div className="sr-only">
             Imagen de manos pintando con colores vibrantes en una obra de arte.
           </div>
-          {/* Pictograma superpuesto */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <p className="text-9xl drop-shadow-lg" role="img" aria-label="Ícono de Arte">🎨</p>
-          </div>
         </div>
 
-        {/* Header */}
-        <div className="mb-10">
-          <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Arte y Creatividad</h2>
-          <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
-            El arte no tiene reglas ni límites. Cada Mundial genera una explosión de colores, formas y expresión. Nos sumamos a esa fiesta creativa.
-          </p>
+        {/* Header con pictograma */}
+        <div className="mb-10 flex items-start gap-4">
+          <p className="text-8xl leading-none flex-shrink-0" role="img" aria-label="Ícono de Arte">🎨</p>
+          <div>
+            <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Arte y Creatividad</h2>
+            <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
+              El arte no tiene reglas ni límites. Cada Mundial genera una explosión de colores, formas y expresión. Nos sumamos a esa fiesta creativa.
+            </p>
+          </div>
         </div>
 
         {/* Selector de actividades */}
