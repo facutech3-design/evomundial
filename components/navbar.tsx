@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils"
 const SECTIONS = [
   { id: "inicio", label: "🏠 Inicio", icon: Home },
   { id: "paises", label: "🌍 Países y Culturas", icon: Globe },
-  { id: "valores", label: "🤝 Valores e Inclusión", icon: Heart },
   { id: "arte", label: "🎨 Arte y Creatividad", icon: Palette },
   { id: "actividades", label: "🏃 Actividades Adaptadas", icon: Activity },
   { id: "empleos", label: "💼 Empleos del Mundial", icon: Briefcase },
+  { id: "valores", label: "🤝 Valores e Inclusión", icon: Heart },
 ]
 
 // Colores de acento por seccion para el indicador activo
