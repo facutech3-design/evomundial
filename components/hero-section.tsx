@@ -9,57 +9,67 @@ import { BotonLeer } from "@/components/boton-leer"
 const CARDS = [  {
     id: "paises",
     titulo: "Países y Culturas",
-    descripcion: "Viajamos por el mundo sin salir del centro. Conocemos los países sede y los que participan.",
+    descripcion: "Viajamos por el mundo. Conocemos otros países.",
     emoji: "🌍",
-    boton: "Ver países 🌍",
+    boton: "Ver países del mundo 🌍",
     color: "bg-primary",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
     texto: "Países y Culturas. Viajamos por el mundo sin salir del centro. Conocemos los países sede y los que participan.",
+    image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&q=80",
+    imageAlt: "Mapa del mundo con banderas de distintos países",
   },
   {
     id: "valores",
     titulo: "Valores e Inclusión",
-    descripcion: "El deporte como espejo de la sociedad. Fair play, diversidad y representación.",
+    descripcion: "Respeto, fair play y diversidad. El deporte une.",
     emoji: "🤝",
     boton: "Ver valores 🤝",
     color: "bg-success",
     textColor: "text-success-foreground",
     accentBg: "bg-white/20",
     texto: "Valores e Inclusión. El deporte como espejo de la sociedad. Fair play, diversidad y representación.",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
+    imageAlt: "Personas de distintas culturas unidas en equipo",
   },
   {
     id: "arte",
     titulo: "Arte y Creatividad",
-    descripcion: "Diseñamos camisetas, banderas y mascotas. La creatividad no tiene límites.",
+    descripcion: "Pintamos, diseñamos y creamos juntos.",
     emoji: "🎨",
-    boton: "Ver arte 🎨",
+    boton: "Ver arte y creatividad 🎨",
     color: "bg-creative",
     textColor: "text-creative-foreground",
     accentBg: "bg-white/20",
     texto: "Arte y Creatividad. Diseñamos camisetas, banderas y mascotas. La creatividad no tiene límites.",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80",
+    imageAlt: "Manos pintando con colores vivos",
   },
   {
     id: "actividades",
     titulo: "Actividades Adaptadas",
-    descripcion: "Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos.",
+    descripcion: "Jugamos y nos movemos. El deporte es para todos.",
     emoji: "🏃",
     boton: "Ver actividades 🏃",
     color: "bg-accent",
     textColor: "text-accent-foreground",
     accentBg: "bg-black/10",
     texto: "Actividades Adaptadas. Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos.",
+    image: "https://images.unsplash.com/photo-1551958219-acbc595d6b71?w=600&q=80",
+    imageAlt: "Personas jugando y moviéndose juntas en deporte adaptado",
   },
   {
     id: "empleos",
     titulo: "Empleos del Mundial",
-    descripcion: "¿Quién trabaja en un mundial? Conocemos todos los roles más allá de los jugadores.",
+    descripcion: "¿Quién trabaja en un mundial? Lo descubrimos.",
     emoji: "💼",
     boton: "Ver empleos 💼",
     color: "bg-foreground",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
     texto: "Empleos del Mundial. ¿Quién trabaja en un mundial? Conocemos todos los roles más allá de los jugadores.",
+    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&q=80",
+    imageAlt: "Estadio de fútbol con trabajadores y mucho movimiento",
   },
 ]
 
@@ -352,16 +362,34 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
                 <button
                   key={card.id}
                   onClick={() => onNavigate(card.id)}
-                  className={`group flex flex-col items-start rounded-3xl px-6 py-8 text-left transition-all hover:scale-105 hover:shadow-xl active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 min-h-[320px] ${card.color} ${card.textColor} border-2 border-current`}
+                  className="flex flex-col rounded-2xl overflow-hidden border-2 border-gray-200 bg-white hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 focus-visible:outline-3 focus-visible:outline-offset-2"
                 >
-                  <p className="mb-4 leading-none text-9xl" role="img" style={{ fontSize: '5.5rem' }}>{card.emoji}</p>
-                  <h3 className="mb-4 text-2xl font-black leading-tight uppercase">{card.titulo}</h3>
-                  <p className={`mb-6 text-accessible-base leading-relaxed opacity-90 flex-1`}>{card.descripcion}</p>
-                  <div className="mt-auto w-full flex flex-col gap-3">
-                    <button className="w-full h-16 rounded-2xl bg-current font-bold text-accessible-lg border-2 border-current transition-all hover:opacity-90 active:scale-95">
+                  {/* IMAGEN REAL */}
+                  <div className="relative w-full h-52 overflow-hidden bg-gray-200">
+                    <img
+                      src={card.image}
+                      alt={card.imageAlt}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Pictograma encima de la imagen */}
+                    <div className="absolute bottom-3 left-3 bg-white rounded-2xl px-3 py-2 shadow-lg flex items-center gap-2">
+                      <span className="text-4xl" role="img" aria-label={card.emoji}>
+                        {card.emoji}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* CONTENIDO */}
+                  <div className="flex flex-col gap-3 p-6">
+                    <h3 className="text-2xl font-black tracking-wide text-gray-900 leading-tight uppercase">
+                      {card.titulo}
+                    </h3>
+                    <p className="text-lg leading-relaxed text-gray-700">
+                      {card.descripcion}
+                    </p>
+                    <button className="w-full mt-2 py-4 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xl rounded-xl border-2 border-primary transition-all duration-200 min-h-[56px]">
                       {card.boton}
                     </button>
-                    <BotonLeer etiqueta="Escuchar sección" texto={card.texto} />
                   </div>
                 </button>
               )
