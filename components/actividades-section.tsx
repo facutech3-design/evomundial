@@ -116,8 +116,8 @@ export default function ActividadesSection() {
         {/* Imagen principal */}
         <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
           <Image
-            src="https://images.unsplash.com/photo-1551958219-acbc595d6b71?w=1200&q=80"
-            alt="Deporte adaptado con personas en movimiento"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disca%20basq-1ufRVQTjGAGvZpmtA9WHmQ9h8EAzCa.jpg"
+            alt="Persona en silla de ruedas jugando basquetbol adaptado"
             width={1200}
             height={400}
             className="w-full h-full object-cover"
