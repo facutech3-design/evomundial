@@ -385,7 +385,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
-    emoji: "����🇳",
+    emoji: "🇸🇳",
     sede: false,
     continente: "CAF",
     idioma: "Frances",
@@ -905,13 +905,14 @@ export default function PaisesSection() {
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              { n: "1", txt: "Elegimos un pais del mundo" },
-              { n: "2", txt: "Investigamos y dibujamos su bandera" },
-              { n: "3", txt: "Presentamos al grupo: somos sus embajadores" },
+              { n: "1", txt: "Elegimos un pais del mundo", emoji: "🌍" },
+              { n: "2", txt: "Investigamos y dibujamos su bandera", emoji: "🤔" },
+              { n: "3", txt: "Presentamos al grupo: somos sus embajadores", emoji: "👨‍🎓" },
             ].map((paso) => (
               <div key={paso.n} className="rounded-2xl bg-white/15 p-5">
+                <div className="text-6xl mb-3">{paso.emoji}</div>
                 <div className="text-3xl font-black mb-2">{paso.n}</div>
-                <p className="text-sm font-semibold leading-relaxed">{paso.txt}</p>
+                <p className="text-base font-semibold leading-relaxed">{paso.txt}</p>
               </div>
             ))}
           </div>
