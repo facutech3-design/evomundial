@@ -124,7 +124,7 @@ export default function ArteSection() {
         </div>
 
         {/* Selector de actividades */}
-        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="mb-10 flex flex-col gap-6">
           {ACTIVIDADES_ARTE.map((act) => {
             const Icon = act.icon
             const activa = actividadActiva === act.id
@@ -132,22 +132,22 @@ export default function ArteSection() {
               <button
                 key={act.id}
                 onClick={() => setActividadActiva(activa ? null : act.id)}
-                className={`flex flex-col rounded-3xl overflow-hidden border-3 transition-all active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 hover:shadow-xl hover:-translate-y-1 ${
+                className={`flex flex-row rounded-3xl overflow-hidden border-3 transition-all active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 hover:shadow-xl hover:-translate-y-1 ${
                   activa ? "border-foreground shadow-xl -translate-y-1" : "border-transparent"
                 } ${act.color} ${act.textColor}`}
               >
-                {/* Imagen grande */}
-                <div className="relative w-full h-64 overflow-hidden bg-black/10">
+                {/* Imagen a la izquierda */}
+                <div className="relative w-80 h-52 flex-shrink-0 overflow-hidden bg-black/10">
                   <Image
                     src={act.image}
                     alt={act.imageAlt}
-                    width={600}
-                    height={300}
+                    width={320}
+                    height={208}
                     className="w-full h-full object-cover"
                   />
                 </div>
 
-                {/* Contenido */}
+                {/* Contenido a la derecha */}
                 <div className="flex flex-col p-8 flex-1">
                   <div className="mb-3 rounded-2xl bg-white/20 p-3 w-fit">
                     <Icon size={32} />
