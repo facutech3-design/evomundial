@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Activity, Users, Clock, Shield, ChevronDown, ChevronUp } from "lucide-react"
-import { BotonLeer } from "@/components/boton-leer"
+import { Accessibility, ChevronDown, ChevronUp } from "lucide-react"
 
 type Nivel = "Todos" | "Sentado" | "De pie" | "Mixto"
 
@@ -135,12 +134,6 @@ export default function ActividadesSection() {
           <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
             El deporte es para todos los cuerpos. Cada actividad está pensada para que todos puedan participar, cada uno a su manera. No hay forma incorrecta de jugar.
           </p>
-          <div className="mt-4">
-            <BotonLeer 
-              etiqueta="Escuchar sección"
-              texto="Actividades Adaptadas. Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos."
-            />
-          </div>
         </div>
 
         {/* Principio guia */}

@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Heart, Users, Scale, Star, ChevronDown, ChevronUp } from "lucide-react"
-import { BotonLeer } from "@/components/boton-leer"
 
 const VALORES = [
   {
@@ -120,12 +119,6 @@ export default function ValoresSection() {
           <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
             El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.
           </p>
-          <div className="mt-4">
-            <BotonLeer 
-              etiqueta="Escuchar sección"
-              texto="Valores e Inclusión. El deporte como espejo de la sociedad. Fair play, diversidad y representación."
-            />
-          </div>
         </div>
 
         {/* Valores accordeon */}

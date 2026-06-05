@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight, ChevronLeft } from "lucide-react"
 import BotonSonido from "@/components/boton-sonido"
-import { BotonLeer } from "@/components/boton-leer"
 
 const CARDS = [  {
     id: "paises",
@@ -261,14 +260,6 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
             los valores y el movimiento. Porque el mundo del futbol es mucho
             mas que el futbol.
           </p>
-
-          {/* Boton de lectura del hero */}
-          <div className="flex justify-center mb-8">
-            <BotonLeer 
-              etiqueta="Escuchar presentación"
-              texto="El Mundial es de todos. Un proyecto para explorar el Mundial 2026 desde la cultura, el arte, los valores y el movimiento. Porque el mundo del fútbol es mucho más que el fútbol."
-            />
-          </div>
 
           {/* Countdown */}
           <div className="mb-8">
