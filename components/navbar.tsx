@@ -1,11 +1,9 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon, FileText, Volume2 } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis"
 
 const SECTIONS = [
   { id: "inicio", label: "🏠 Inicio", icon: Home },
@@ -35,8 +33,6 @@ export default function Navbar({
 }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(false)
-  const { speak, isListening } = useSpeechSynthesis()
-  const mainRef = useRef<HTMLDivElement | null>(null)
 
   // Leer preferencia guardada al montar
   useEffect(() => {
@@ -45,9 +41,6 @@ export default function Navbar({
     const dark = saved ? saved === "dark" : prefersDark
     setIsDark(dark)
     document.documentElement.classList.toggle("dark", dark)
-    
-    // Obtener referencia al main content
-    mainRef.current = document.getElementById("main-content") as HTMLDivElement
   }, [])
 
   const toggleTheme = () => {
@@ -108,13 +101,13 @@ export default function Navbar({
                   onClick={() => onNavigate(s.id)}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "flex items-center gap-2 rounded-full px-4 py-2.5 text-accessible-sm font-bold transition-all",
+                    "flex items-center gap-3 rounded-full px-5 py-3 text-xl font-bold transition-all",
                     isActive
                       ? cn(SECTION_ACCENT[s.id], "shadow-md scale-105")
                       : "text-white/75 hover:bg-white/10 hover:text-white"
                   )}
                 >
-                  <Icon size={14} />
+                  <Icon size={28} />
                   {s.label}
                 </button>
               </li>
@@ -142,38 +135,6 @@ export default function Navbar({
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-
-          {/* Boton escuchar pagina */}
-          <button
-            onClick={() => {
-              if (mainRef.current) {
-                const text = mainRef.current.innerText || mainRef.current.textContent || ""
-                speak(text)
-              }
-            }}
-            className={`flex items-center gap-2 rounded-full px-4 py-2.5 font-bold text-accessible-sm transition-all active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 shadow-md hover:shadow-lg ${
-              isListening
-                ? "bg-red-500 text-white hover:bg-red-600 animate-pulse"
-                : "bg-accent text-accent-foreground hover:bg-accent/90"
-            }`}
-            aria-label={isListening ? "Detener lectura" : "Escuchar página"}
-            title={isListening ? "Detener lectura" : "Escuchar página"}
-          >
-            <Volume2 size={20} className={isListening ? "animate-bounce" : ""} />
-            <span className="hidden md:inline">{isListening ? "Deteniendo..." : "Escuchar"}</span>
-          </button>
-
-          {/* Enlace PDF */}
-          <Link
-            href="/pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-4 py-2 text-sm font-bold transition-all hover:opacity-90 active:scale-95"
-            title="Ver presentacion PDF"
-          >
-            <FileText size={15} />
-            Presentacion
-          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -215,19 +176,6 @@ export default function Navbar({
                 </li>
               )
             })}
-            {/* Enlace PDF en mobile */}
-            <li>
-              <Link
-                href="/pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-                className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-semibold bg-accent text-accent-foreground mt-1"
-              >
-                <FileText size={18} />
-                Ver Presentacion PDF
-              </Link>
-            </li>
           </ul>
         </div>
       )}
