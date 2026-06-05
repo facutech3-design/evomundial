@@ -55,7 +55,7 @@ const CARDS = [  {
     textColor: "text-accent-foreground",
     accentBg: "bg-black/10",
     texto: "Actividades Adaptadas. Juegos y movimiento para todos los cuerpos. Porque el deporte es para todos.",
-    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
     imageAlt: "Personas jugando y moviéndose juntas en deporte adaptado",
   },
   {
