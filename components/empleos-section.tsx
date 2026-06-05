@@ -108,13 +108,15 @@ export default function EmpleosSection() {
           </div>
         </div>
 
-        {/* Header */}
-        <div className="mb-10">
-          <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Empleos">💼</p>
-          <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Empleos del Mundial</h2>
-          <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
-            Un Mundial no lo hacen solo los jugadores. Detrás del escenario trabajan miles de personas con los trabajos más variados. Descubrimos qué roles existen y cuáles nos interesan.
-          </p>
+        {/* Header con emoji al lado */}
+        <div className="mb-10 flex items-start gap-4">
+          <p className="text-8xl leading-none flex-shrink-0" role="img" aria-label="Ícono de Empleos">💼</p>
+          <div>
+            <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Empleos del Mundial</h2>
+            <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
+              Un Mundial no lo hacen solo los jugadores. Detrás del escenario trabajan miles de personas con los trabajos más variados. Descubrimos qué roles existen y cuáles nos interesan.
+            </p>
+          </div>
         </div>
 
         {/* Dato importante */}
