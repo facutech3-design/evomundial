@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Briefcase, Mic, Camera, Utensils, Shield, Stethoscope, Truck, Headphones, ChevronDown, ChevronUp } from "lucide-react"
+import { Briefcase, Mic, Camera, Utensils, Stethoscope, Headphones, ChevronDown, ChevronUp } from "lucide-react"
 import { BotonLeer } from "@/components/boton-leer"
 
 const EMPLEOS = [
@@ -82,55 +82,10 @@ const EMPLEOS = [
           "Prepara la comida de los jugadores y cuerpos tecnicos. Cada seleccion tiene sus necesidades nutricionales especificas. Un equipo medico y nutricional trabaja junto.",
         habilidades: ["Nutricion deportiva", "Cocina internacional", "Confidencialidad"],
       },
-    ],
-  },
-  {
-    area: "Seguridad y Salud",
-    color: "bg-accent",
-    textColor: "text-accent-foreground",
-    icon: Shield,
-    roles: [
-      {
-        nombre: "Personal de seguridad",
-        descripcion:
-          "Protege a jugadores, arbitros y publico. Revisa entradas y accesos, controla multitudes y actua ante emergencias. Requiere entrenamiento especifico.",
-        habilidades: ["Gestion de multitudes", "Comunicacion", "Calma bajo presion"],
-      },
-      {
-        nombre: "Kinesiologo y medico deportivo",
-        descripcion:
-          "Atiende a los jugadores durante y despues de los partidos. Trata lesiones en tiempo real y trabaja para que los atletas se recuperen lo antes posible.",
-        habilidades: ["Kinesiologia", "Emergencias", "Trabajo en equipo medico"],
-      },
-    ],
-  },
-  {
-    area: "Logistica y Organizacion",
-    color: "bg-foreground",
-    textColor: "text-primary-foreground",
-    icon: Truck,
-    roles: [
-      {
-        nombre: "Coordinador de traslados",
-        descripcion:
-          "Organiza como llegan y se van los equipos, arbitros y autoridades. Gestiona buses, autos y micros. Una logistica que involucra miles de personas.",
-        habilidades: ["Organizacion", "Gestion del tiempo", "Comunicacion"],
-      },
-      {
-        nombre: "Interprete de idiomas",
-        descripcion:
-          "Traduce en tiempo real durante conferencias de prensa, reuniones tecnicas y situaciones de emergencia. En un Mundial conviven docenas de idiomas.",
-        habilidades: ["Idiomas (ingles, frances, espanol, etc.)", "Rapidez mental", "Concentracion"],
-      },
-      {
-        nombre: "Responsable de accesibilidad",
-        descripcion:
-          "Garantiza que todas las personas con discapacidad puedan disfrutar del evento. Coordina rampas, asientos especiales, audiodescripcion y lenguaje de senas.",
-        habilidades: ["Conocimiento de accesibilidad", "Empatia", "Resolucion de problemas"],
-      },
-    ],
-  },
-]
+      ],
+    },
+  ],
+}
 
 export default function EmpleosSection() {
   const [areaActiva, setAreaActiva] = useState<string | null>(null)
