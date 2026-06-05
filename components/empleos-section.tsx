@@ -16,18 +16,14 @@ const EMPLEOS = [
         descripcion:
           "Narra los partidos en vivo por television o radio. Debe conocer las reglas del futbol, los jugadores, sus historias y saber hablar en publico con claridad y emocion.",
         habilidades: ["Comunicacion oral", "Conocimiento del deporte", "Trabajo bajo presion"],
+        imagen: "https://images.unsplash.com/photo-1478874409620-f4ce8d21df60?w=600&q=80",
       },
       {
         nombre: "Periodista de campo",
         descripcion:
           "Entrevista a jugadores, tecnicos y hinchas antes y despues de los partidos. Trabaja en el estadio, en el hotel de los equipos y en la zona mixta.",
         habilidades: ["Entrevistas", "Idiomas", "Adaptabilidad"],
-      },
-      {
-        nombre: "Community manager",
-        descripcion:
-          "Maneja las redes sociales del evento: publica actualizaciones, fotos, videos y responde a los hinchas en todo el mundo en tiempo real.",
-        habilidades: ["Redes sociales", "Redaccion rapida", "Creatividad digital"],
+        imagen: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80",
       },
     ],
   },
@@ -42,18 +38,14 @@ const EMPLEOS = [
         descripcion:
           "Coordina todo lo que pasa dentro del estadio: las camaras, las pantallas gigantes, la musica, los efectos de luz y el funcionamiento general del espectaculo.",
         habilidades: ["Coordinacion de equipos", "Tecnologia", "Planificacion"],
+        imagen: "https://images.unsplash.com/photo-1536240478035-b44f8c34cbbb?w=600&q=80",
       },
       {
         nombre: "Fotografo de prensa",
         descripcion:
           "Captura los momentos mas importantes de los partidos. Sus fotos aparecen en diarios y revistas de todo el mundo. Un buen ojo y mucha paciencia son esenciales.",
         habilidades: ["Fotografia", "Rapidez de reflejos", "Edicion de imagen"],
-      },
-      {
-        nombre: "Voluntario del evento",
-        descripcion:
-          "El ejercito invisible que hace funcionar cada Mundial. Guian al publico, dan informacion, ayudan a personas con discapacidad, reparten materiales. Son la cara amigable del evento.",
-        habilidades: ["Atencion al publico", "Trabajo en equipo", "Idiomas basicos"],
+        imagen: "https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=600&q=80",
       },
     ],
   },
@@ -68,18 +60,14 @@ const EMPLEOS = [
         descripcion:
           "Prepara comida para miles de personas en pocas horas. El trabajo empieza horas antes de cada partido y requiere organizacion, velocidad y trabajo en equipo.",
         habilidades: ["Cocina en volumen", "Higiene alimentaria", "Trabajo bajo presion"],
+        imagen: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
       },
       {
         nombre: "Vendedor ambulante",
         descripcion:
           "Recorre las tribunas vendiendo bebidas, snacks y recuerdos. Tiene contacto directo con los hinchas de todo el mundo y necesita buena disposicion y energia.",
         habilidades: ["Atencion al publico", "Calculo basico", "Resistencia fisica"],
-      },
-      {
-        nombre: "Cocinero de delegaciones",
-        descripcion:
-          "Prepara la comida de los jugadores y cuerpos tecnicos. Cada seleccion tiene sus necesidades nutricionales especificas. Un equipo medico y nutricional trabaja junto.",
-        habilidades: ["Nutricion deportiva", "Cocina internacional", "Confidencialidad"],
+        imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561818?w=600&q=80",
       },
     ],
   },
@@ -169,28 +157,41 @@ export default function EmpleosSection() {
 
                 {abierta && (
                   <div className="border-t border-border px-6 pb-6 pt-4">
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                       {area.roles.map((rol) => (
                         <div
                           key={rol.nombre}
-                          className="rounded-2xl border border-border bg-muted/40 p-5 hover:border-primary hover:shadow-md transition-all cursor-pointer"
+                          className="rounded-2xl border-2 border-border overflow-hidden hover:border-primary hover:shadow-lg transition-all cursor-pointer bg-muted/40"
                           onClick={() =>
                             setRolSeleccionado(
                               rolSeleccionado === rol.nombre ? null : rol.nombre
                             )
                           }
                         >
-                          <h4 className="mb-2 text-base font-black text-foreground">{rol.nombre}</h4>
-                          <p className="mb-3 text-sm leading-relaxed text-muted-foreground">{rol.descripcion}</p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {rol.habilidades.map((h) => (
-                              <span
-                                key={h}
-                                className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary"
-                              >
-                                {h}
-                              </span>
-                            ))}
+                          {/* Imagen */}
+                          <div className="relative w-full h-64 overflow-hidden bg-black/10">
+                            <Image
+                              src={rol.imagen}
+                              alt={rol.nombre}
+                              width={400}
+                              height={300}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+
+                          {/* Contenido */}
+                          <div className="p-6">
+                            <h4 className="mb-3 text-xl font-black text-foreground">{rol.nombre}</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {rol.habilidades.map((h) => (
+                                <span
+                                  key={h}
+                                  className="rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary"
+                                >
+                                  {h}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       ))}
