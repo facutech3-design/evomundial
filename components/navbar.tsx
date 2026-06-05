@@ -1,12 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Home, Menu, X, Sun, Moon } from "lucide-react"
+import { Globe, Heart, Palette, Activity, Briefcase, Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const SECTIONS = [
-  { id: "inicio", label: "🏠 Inicio", icon: Home },
   { id: "paises", label: "🌍 Países y Culturas", icon: Globe },
   { id: "arte", label: "🎨 Arte y Creatividad", icon: Palette },
   { id: "actividades", label: "🏃 Actividades Adaptadas", icon: Activity },
@@ -16,7 +15,6 @@ const SECTIONS = [
 
 // Colores de acento por seccion para el indicador activo
 const SECTION_ACCENT: Record<string, string> = {
-  inicio: "bg-white text-foreground",
   paises: "bg-primary text-primary-foreground",
   valores: "bg-success text-success-foreground",
   arte: "bg-creative text-creative-foreground",
@@ -65,10 +63,8 @@ export default function Navbar({
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         {/* Logo */}
-        <button
-          onClick={() => onNavigate("inicio")}
+        <div
           className="flex items-center gap-3"
-          aria-label="Ir al inicio"
         >
           <Image
             src="/evolutiva.jpeg"
@@ -88,7 +84,7 @@ export default function Navbar({
           <span className="hidden md:block rounded-full bg-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
             2026
           </span>
-        </button>
+        </div>
 
         {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-1" role="list">
