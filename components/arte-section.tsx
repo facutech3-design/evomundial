@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Palette, Shirt, Flag, Paintbrush, ImageIcon } from "lucide-react"
+import { Palette, Shirt, Flag, Sparkles, Paintbrush, ImageIcon } from "lucide-react"
 import { BotonLeer } from "@/components/boton-leer"
 
 const ACTIVIDADES_ARTE = [
@@ -46,7 +46,7 @@ const ACTIVIDADES_ARTE = [
   },
   {
     id: "mascota",
-    icon: Star,
+    icon: Sparkles,
     titulo: "Creamos la mascota",
     descripcion:
       "Cada Mundial tiene una mascota oficial. Inventamos la nuestra: un animal, un personaje o un ser imaginario que represente los valores del grupo.",
