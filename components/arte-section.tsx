@@ -2,44 +2,47 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Palette, Shirt, Flag, Star, Paintbrush, ImageIcon } from "lucide-react"
+import { Palette, Shirt, Flag, Paintbrush, ImageIcon } from "lucide-react"
 import { BotonLeer } from "@/components/boton-leer"
-import { PlaylistGlobal } from "@/components/playlist-global"
 
 const ACTIVIDADES_ARTE = [
   {
     id: "camiseta",
     icon: Shirt,
-    titulo: "Disenamos la camiseta",
+    titulo: "Diseñamos la camiseta",
     descripcion:
-      "¿Como seria la camiseta ideal del centro? Elegimos colores, numeros, escudo y nombre. Cada persona disena la suya.",
-    materiales: ["Papel o tela blanca", "Marcadores de colores", "Pinturas textiles (si hay)", "Imaginacion"],
+      "¿Cómo sería la camiseta ideal del centro? Elegimos colores, números, escudo y nombre. Cada persona diseña la suya.",
+    materiales: ["Papel o tela blanca", "Marcadores de colores", "Pinturas textiles (si hay)", "Imaginación"],
     pasos: [
-      "Miramos disenos de camisetas de distintos paises",
+      "Miramos diseños de camisetas de distintos países",
       "Elegimos colores que representen al grupo",
       "Dibujamos la silueta de una camiseta",
-      "La decoramos con nuestro nombre o numero",
+      "La decoramos con nuestro nombre o número",
       "Compartimos y votamos la camiseta favorita",
     ],
     color: "bg-primary",
     textColor: "text-primary-foreground",
+    image: "https://images.unsplash.com/photo-1503342394128-c104cbb67ba0?w=800&q=80",
+    imageAlt: "Camisetas coloridas diseñadas",
   },
   {
     id: "bandera",
     icon: Flag,
     titulo: "Inventamos nuestra bandera",
     descripcion:
-      "Si el centro fuera un pais, ¿como seria su bandera? Que simbolos, colores y formas nos representan a todos.",
-    materiales: ["Papel de color", "Tijeras", "Cola vinilica", "Marcadores"],
+      "Si el centro fuera un país, ¿cómo sería su bandera? Qué símbolos, colores y formas nos representan a todos.",
+    materiales: ["Papel de color", "Tijeras", "Cola vinílica", "Marcadores"],
     pasos: [
-      "Hablamos de que colores nos gustan y que representan",
-      "Elegimos un simbolo o figura que nos una",
-      "Disenamos la bandera entre todos",
-      "Le ponemos un nombre a nuestro pais imaginario",
+      "Hablamos de qué colores nos gustan y qué representan",
+      "Elegimos un símbolo o figura que nos una",
+      "Diseñamos la bandera entre todos",
+      "Le ponemos un nombre a nuestro país imaginario",
       "Presentamos la bandera como si fuera oficial",
     ],
     color: "bg-success",
     textColor: "text-success-foreground",
+    image: "https://images.unsplash.com/photo-1476764624898-61bb168e3c00?w=800&q=80",
+    imageAlt: "Banderas coloridas diseñadas",
   },
   {
     id: "mascota",
@@ -47,45 +50,38 @@ const ACTIVIDADES_ARTE = [
     titulo: "Creamos la mascota",
     descripcion:
       "Cada Mundial tiene una mascota oficial. Inventamos la nuestra: un animal, un personaje o un ser imaginario que represente los valores del grupo.",
-    materiales: ["Papel", "Colores y marcadores", "Arcilla o plastilina (opcional)", "Lapices"],
+    materiales: ["Papel", "Colores y marcadores", "Arcilla o plastilina (opcional)", "Lápices"],
     pasos: [
-      "Miramos mascotas de Mundiales anteriores (Fuleco, Zabivaka, Kaz y Adidas)",
-      "Pensamos que animal o ser nos representa",
+      "Pensamos qué animal o ser nos representa",
       "Lo dibujamos y le ponemos nombre",
-      "Escribimos su historia: de donde viene, que poderes tiene",
+      "Escribimos su historia: de dónde viene, qué poderes tiene",
       "La presentamos al grupo",
+      "Creamos una historia especial de nuestra mascota",
     ],
     color: "bg-creative",
     textColor: "text-creative-foreground",
+    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b2f?w=800&q=80",
+    imageAlt: "Mascotas creativas dibujadas",
   },
   {
     id: "afiche",
     icon: ImageIcon,
     titulo: "Armamos el afiche del torneo",
     descripcion:
-      "Creamos el afiche oficial del torneo del centro. Con nombre, fecha, equipos participantes y un eslogan que diga quienes somos.",
+      "Creamos el afiche oficial del torneo del centro. Con nombre, fecha, equipos participantes y un eslogan que diga quiénes somos.",
     materiales: ["Papel grande (A3 o afiche)", "Revistas para recortar", "Marcadores gruesos", "Regla"],
     pasos: [
       "Decidimos el nombre del torneo del centro",
       "Inventamos los equipos que participan",
-      "Disenamos el afiche con toda la informacion",
+      "Diseñamos el afiche con toda la información",
       "Agregamos una frase que represente al grupo",
       "Lo colgamos en el centro",
     ],
     color: "bg-accent",
     textColor: "text-accent-foreground",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
+    imageAlt: "Afiches creativos del torneo",
   },
-]
-
-const MASCOTAS_MUNDIALES = [
-  { mundial: "Argentina 1978", mascota: "Gauchito", descripcion: "Un nino gaucho con poncho y sombrero" },
-  { mundial: "Mexico 1986", mascota: "Pique", descripcion: "Un chile jalapeño con bigotes y sombrero" },
-  { mundial: "Francia 1998", mascota: "Footix", descripcion: "Un gallo azul con balon amarillo" },
-  { mundial: "Sudafrica 2010", mascota: "Zakumi", descripcion: "Un leopardo verde y amarillo" },
-  { mundial: "Brasil 2014", mascota: "Fuleco", descripcion: "Un armadillo azul y verde" },
-  { mundial: "Rusia 2018", mascota: "Zabivaka", descripcion: "Un lobo con anteojos deportivos" },
-  { mundial: "Qatar 2022", mascota: "La'eeb", descripcion: "Un keffiyeh blanco animado y jugueton" },
-  { mundial: "USA-Mexico-Canada 2026", mascota: "Por definir", descripcion: "Se anuncia proximamente" },
 ]
 
 export default function ArteSection() {
@@ -128,7 +124,7 @@ export default function ArteSection() {
         </div>
 
         {/* Selector de actividades */}
-        <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
           {ACTIVIDADES_ARTE.map((act) => {
             const Icon = act.icon
             const activa = actividadActiva === act.id
@@ -136,17 +132,31 @@ export default function ArteSection() {
               <button
                 key={act.id}
                 onClick={() => setActividadActiva(activa ? null : act.id)}
-                className={`flex flex-col rounded-3xl p-7 text-left transition-all hover:scale-105 active:scale-95 border-2 focus-visible:outline-3 focus-visible:outline-offset-2 ${
-                  activa ? "border-foreground shadow-lg scale-105" : "border-transparent"
+                className={`flex flex-col rounded-3xl overflow-hidden border-3 transition-all active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 hover:shadow-xl hover:-translate-y-1 ${
+                  activa ? "border-foreground shadow-xl -translate-y-1" : "border-transparent"
                 } ${act.color} ${act.textColor}`}
               >
-                <div className="mb-3 rounded-2xl bg-white/20 p-3 w-fit">
-                  <Icon size={28} />
+                {/* Imagen grande */}
+                <div className="relative w-full h-64 overflow-hidden bg-black/10">
+                  <Image
+                    src={act.image}
+                    alt={act.imageAlt}
+                    width={600}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-accessible-lg font-black mb-2 leading-tight">{act.titulo}</h3>
-                <p className="text-accessible-base opacity-85 leading-relaxed flex-1">{act.descripcion}</p>
-                <div className="mt-4 text-accessible-base font-bold opacity-95">
-                  {activa ? "Cerrar detalle" : "Ver actividad"}
+
+                {/* Contenido */}
+                <div className="flex flex-col p-8 flex-1">
+                  <div className="mb-3 rounded-2xl bg-white/20 p-3 w-fit">
+                    <Icon size={32} />
+                  </div>
+                  <h3 className="text-2xl font-black mb-3 leading-tight">{act.titulo}</h3>
+                  <p className="text-base opacity-90 leading-relaxed flex-1">{act.descripcion}</p>
+                  <div className="mt-6 text-base font-bold opacity-95">
+                    {activa ? "▼ Cerrar detalle" : "▶ Ver actividad"}
+                  </div>
                 </div>
               </button>
             )
@@ -208,36 +218,6 @@ export default function ArteSection() {
             </div>
           </div>
         )}
-
-        {/* Mascotas de Mundiales */}
-        <div>
-          <h3 className="mb-3 text-accessible-2xl font-black text-foreground">Las mascotas del Mundial a traves de la historia</h3>
-          <p className="mb-8 text-accessible-lg text-foreground/85 leading-relaxed font-semibold">
-            Cada Mundial tiene un personaje que lo representa. Conocemos algunas de las mas famosas.
-          </p>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
-            {MASCOTAS_MUNDIALES.map((m) => (
-              <div
-                key={m.mundial}
-                className="rounded-2xl border border-border bg-card p-5 text-center hover:border-creative hover:shadow-md transition-all"
-              >
-                <div className="mb-3 mx-auto h-16 w-16 rounded-full bg-creative/15 flex items-center justify-center">
-                  <Star size={28} className="text-creative" />
-                </div>
-                <div className="text-xs font-black uppercase tracking-wide text-muted-foreground mb-2">
-                  {m.mundial}
-                </div>
-                <div className="text-base font-black text-foreground mb-2">{m.mascota}</div>
-                <div className="text-accessible-sm text-muted-foreground leading-relaxed">{m.descripcion}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Playlist Global de Canciones */}
-        <div className="mt-12">
-          <PlaylistGlobal />
-        </div>
       </div>
     </section>
   )
