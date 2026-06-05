@@ -62,9 +62,11 @@ export default function Navbar({
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        {/* Logo */}
-        <div
-          className="flex items-center gap-3"
+        {/* Logo - Botón de Inicio */}
+        <button
+          onClick={() => onNavigate("inicio")}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          aria-label="Ir al inicio"
         >
           <Image
             src="/evolutiva.jpeg"
@@ -84,7 +86,7 @@ export default function Navbar({
           <span className="hidden md:block rounded-full bg-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
             2026
           </span>
-        </div>
+        </button>
 
         {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-1" role="list">
