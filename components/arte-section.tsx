@@ -187,7 +187,7 @@ export default function ArteSection() {
                   />
                 </div>
               )}
-              {actividadActiva !== "camiseta" && actividad && (
+              {actividadActiva && actividadActiva !== "camiseta" && actividad && (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
