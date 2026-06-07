@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Palette, Shirt, Flag, Dog, Paintbrush } from "lucide-react"
 
 const ACTIVIDADES_ARTE = [
