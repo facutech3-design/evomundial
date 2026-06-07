@@ -175,44 +175,59 @@ export default function ArteSection() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {/* Materiales */}
-              <div>
-                <div className="mb-4 flex items-center gap-2">
-                  <Paintbrush size={24} className="text-creative" />
-                  <h4 className="font-black text-foreground uppercase text-base tracking-wide">
-                    Necesitamos
-                  </h4>
+            <div className="w-full">
+              {actividadActiva === "camiseta" && (
+                <div className="rounded-2xl overflow-hidden">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-T7u7GdEbQgijRJtCcSgRjQTAbSJqNv.png"
+                    alt="Niños diseñando camisetas colaborativamente"
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
-                <ul className="space-y-3">
-                  {actividad.materiales.map((mat) => (
-                    <li key={mat} className="flex items-center gap-3 rounded-xl bg-muted px-4 py-3 text-accessible-base font-semibold text-foreground">
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-creative" aria-hidden="true" />
-                      {mat}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
+              {actividadActiva !== "camiseta" && actividad && (
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  {/* Materiales */}
+                  <div>
+                    <div className="mb-4 flex items-center gap-2">
+                      <Paintbrush size={24} className="text-creative" />
+                      <h4 className="font-black text-foreground uppercase text-base tracking-wide">
+                        Necesitamos
+                      </h4>
+                    </div>
+                    <ul className="space-y-3">
+                      {actividad.materiales.map((mat) => (
+                        <li key={mat} className="flex items-center gap-3 rounded-xl bg-muted px-4 py-3 text-accessible-base font-semibold text-foreground">
+                          <span className="h-2 w-2 shrink-0 rounded-full bg-creative" aria-hidden="true" />
+                          {mat}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              {/* Pasos */}
-              <div>
-                <h4 className="mb-4 font-black text-foreground uppercase text-base tracking-wide">
-                  Paso a paso
-                </h4>
-                <ol className="space-y-3">
-                  {actividad.pasos.map((paso, i) => (
-                    <li key={paso} className="flex items-start gap-3 text-accessible-base text-foreground">
-                      <span
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-creative text-xs font-black text-creative-foreground"
-                        aria-hidden="true"
-                      >
-                        {i + 1}
-                      </span>
-                      <span className="pt-0.5 leading-relaxed">{paso}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+                  {/* Pasos */}
+                  <div>
+                    <h4 className="mb-4 font-black text-foreground uppercase text-base tracking-wide">
+                      Paso a paso
+                    </h4>
+                    <ol className="space-y-3">
+                      {actividad.pasos.map((paso, i) => (
+                        <li key={paso} className="flex items-start gap-3 text-accessible-base text-foreground">
+                          <span
+                            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-creative text-xs font-black text-creative-foreground"
+                            aria-hidden="true"
+                          >
+                            {i + 1}
+                          </span>
+                          <span className="pt-0.5 leading-relaxed">{paso}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}
