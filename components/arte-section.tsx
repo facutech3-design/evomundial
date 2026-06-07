@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Palette, Shirt, Flag, Dog, Paintbrush } from "lucide-react"
 
 const ACTIVIDADES_ARTE = [
@@ -184,9 +185,10 @@ export default function ArteSection() {
                     </ol>
                   </div>
               </div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   )
