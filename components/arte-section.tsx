@@ -177,14 +177,30 @@ export default function ArteSection() {
             </div>
             <div className="w-full">
               {actividadActiva === "camiseta" && (
-                <div className="rounded-2xl overflow-hidden">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-Xrz2UzURBEtnXOddY5gJmRmodCAgC2.png"
-                    alt="Niños diseñando camisetas colaborativamente"
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto object-contain"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Mini imagen a la izquierda */}
+                  <div className="md:col-span-1">
+                    <div className="rounded-2xl overflow-hidden sticky top-4">
+                      <Image
+                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-Xrz2UzURBEtnXOddY5gJmRmodCAgC2.png"
+                        alt="Niños diseñando camisetas"
+                        width={300}
+                        height={300}
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Imagen grande a la derecha */}
+                  <div className="md:col-span-2 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-Xrz2UzURBEtnXOddY5gJmRmodCAgC2.png"
+                      alt="Niños diseñando camisetas colaborativamente"
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
                 </div>
               )}
               {actividadActiva && actividadActiva !== "camiseta" && actividad && (
