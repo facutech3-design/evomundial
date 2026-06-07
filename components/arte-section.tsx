@@ -146,7 +146,20 @@ export default function ArteSection() {
               </button>
             </div>
             <div className="w-full">
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {actividadActiva === "camiseta" && (
+                <div className="rounded-2xl overflow-hidden bg-white/5 w-full">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-EbVOKvkX69nPVmPi43ZEUU32VZLhWa.png"
+                    alt="Niños diseñando camisetas colaborativamente"
+                    width={1200}
+                    height={800}
+                    priority
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              )}
+              {actividadActiva && actividadActiva !== "camiseta" && (
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
                     <div className="mb-4 flex items-center gap-2">
@@ -184,7 +197,8 @@ export default function ArteSection() {
                       ))}
                     </ol>
                   </div>
-              </div>
+                </div>
+              )}
             </div>
           </div>
         )}
