@@ -179,7 +179,7 @@ export default function ArteSection() {
               {actividadActiva === "camiseta" && (
                 <div className="rounded-2xl overflow-hidden">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-T7u7GdEbQgijRJtCcSgRjQTAbSJqNv.png"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-Xrz2UzURBEtnXOddY5gJmRmodCAgC2.png"
                     alt="Niños diseñando camisetas colaborativamente"
                     width={1200}
                     height={800}
