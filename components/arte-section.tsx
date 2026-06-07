@@ -158,7 +158,31 @@ export default function ArteSection() {
                   />
                 </div>
               )}
-              {actividadActiva && actividadActiva !== "camiseta" && (
+              {actividadActiva === "bandera" && (
+                <div className="rounded-2xl overflow-hidden bg-white/5 w-full">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-jRmd0vwlgGKbYwp3sCBJ4GbIzP1QOW.png"
+                    alt="Niños sosteniendo bandera inclusiva diseñada"
+                    width={1200}
+                    height={800}
+                    priority
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              )}
+              {actividadActiva === "mascota" && (
+                <div className="rounded-2xl overflow-hidden bg-white/5 w-full">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mascota%20mundial-Ys8QNM7lxMFKl8bDe4Irz7pvJ8N23V.png"
+                    alt="Niños creando mascota del mundial"
+                    width={1200}
+                    height={800}
+                    priority
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              )}
+              {actividadActiva && actividadActiva !== "camiseta" && actividadActiva !== "bandera" && actividadActiva !== "mascota" && (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
