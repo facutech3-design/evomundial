@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
-import { Palette, Shirt, Flag, Sparkles, Paintbrush } from "lucide-react"
+import { Palette, Shirt, Flag, Dog, Paintbrush } from "lucide-react"
 
 const ACTIVIDADES_ARTE = [
   {
@@ -45,7 +44,7 @@ const ACTIVIDADES_ARTE = [
   },
   {
     id: "mascota",
-    icon: Sparkles,
+    icon: Dog,
     titulo: "Creamos la mascota",
     descripcion:
       "Cada Mundial tiene una mascota oficial. Inventamos la nuestra: un animal, un personaje o un ser imaginario que represente los valores del grupo.",
@@ -157,43 +156,7 @@ export default function ArteSection() {
               </button>
             </div>
             <div className="w-full">
-              {actividadActiva === "camiseta" && (
-                <div className="rounded-2xl overflow-hidden bg-white/5 w-full min-h-96">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-Xrz2UzURBEtnXOddY5gJmRmodCAgC2.png"
-                    alt="Niños diseñando camisetas colaborativamente"
-                    width={1200}
-                    height={800}
-                    priority
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              {actividadActiva === "bandera" && (
-                <div className="rounded-2xl overflow-hidden bg-white/5 w-full min-h-96">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-CNxoXAEHpTlFQcaEk2CVIn8vsqiA34.png"
-                    alt="Niños sosteniendo bandera inclusiva diseñada"
-                    width={1200}
-                    height={800}
-                    priority
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              {actividadActiva === "mascota" && (
-                <div className="rounded-2xl overflow-hidden bg-white/5 w-full min-h-96">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mascota%20mundial-9gP7j3YnG3HGSPlhdzJyOJPngJrX17.png"
-                    alt="Niños creando mascota del mundial"
-                    width={1200}
-                    height={800}
-                    priority
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              {actividadActiva && actividadActiva !== "camiseta" && actividadActiva !== "bandera" && actividadActiva !== "mascota" && actividad && (
+              {actividadActiva && actividad && (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
