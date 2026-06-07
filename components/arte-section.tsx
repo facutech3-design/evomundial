@@ -186,7 +186,7 @@ export default function ArteSection() {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   )
