@@ -177,13 +177,14 @@ export default function ArteSection() {
             </div>
             <div className="w-full">
               {actividadActiva === "camiseta" && (
-                <div className="rounded-2xl overflow-hidden">
+                <div className="rounded-2xl overflow-hidden bg-white/5">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-Xrz2UzURBEtnXOddY5gJmRmodCAgC2.png"
                     alt="Niños diseñando camisetas colaborativamente"
                     width={1200}
                     height={800}
-                    className="w-full h-auto object-contain"
+                    priority
+                    className="w-full h-auto object-cover"
                   />
                 </div>
               )}
