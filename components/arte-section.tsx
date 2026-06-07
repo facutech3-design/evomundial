@@ -188,7 +188,19 @@ export default function ArteSection() {
                   />
                 </div>
               )}
-              {actividadActiva && actividadActiva !== "camiseta" && actividad && (
+              {actividadActiva === "bandera" && (
+                <div className="rounded-2xl overflow-hidden bg-white/5 w-full min-h-96">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-CNxoXAEHpTlFQcaEk2CVIn8vsqiA34.png"
+                    alt="Niños sosteniendo bandera inclusiva diseñada"
+                    width={1200}
+                    height={800}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              {actividadActiva && actividadActiva !== "camiseta" && actividadActiva !== "bandera" && actividad && (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
