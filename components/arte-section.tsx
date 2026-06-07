@@ -185,7 +185,6 @@ export default function ArteSection() {
                     </ol>
                   </div>
               </div>
-              </div>
             </div>
           </div>
         )}
