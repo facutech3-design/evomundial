@@ -181,7 +181,19 @@ export default function ArteSection() {
                   />
                 </div>
               )}
-              {actividadActiva && actividadActiva !== "camiseta" && actividadActiva !== "bandera" && actividad && (
+              {actividadActiva === "mascota" && (
+                <div className="rounded-2xl overflow-hidden bg-white/5 w-full min-h-96">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mascota%20mundial-9gP7j3YnG3HGSPlhdzJyOJPngJrX17.png"
+                    alt="Niños creando mascota del mundial"
+                    width={1200}
+                    height={800}
+                    priority
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              {actividadActiva && actividadActiva !== "camiseta" && actividadActiva !== "bandera" && actividadActiva !== "mascota" && actividad && (
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
