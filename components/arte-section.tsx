@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Palette, Shirt, Flag, Dog, Paintbrush } from "lucide-react"
 
 const ACTIVIDADES_ARTE = [
@@ -115,17 +114,6 @@ export default function ArteSection() {
                   activa ? "border-foreground shadow-xl -translate-y-1" : "border-transparent"
                 } ${act.color} ${act.textColor}`}
               >
-                {/* Imagen a la izquierda */}
-                <div className="relative w-80 h-52 flex-shrink-0 overflow-hidden bg-black/10">
-                  <Image
-                    src={act.image}
-                    alt={act.imageAlt}
-                    width={320}
-                    height={208}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
                 {/* Contenido a la derecha */}
                 <div className="flex flex-col p-8 flex-1">
                   <div className="mb-6 rounded-2xl bg-white/20 p-4 w-fit">
@@ -157,8 +145,7 @@ export default function ArteSection() {
               </button>
             </div>
             <div className="w-full">
-              {actividadActiva && actividad && (
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {/* Materiales */}
                   <div>
                     <div className="mb-4 flex items-center gap-2">
@@ -196,8 +183,7 @@ export default function ArteSection() {
                       ))}
                     </ol>
                   </div>
-                </div>
-              )}
+              </div>
             </div>
           </div>
         )}
