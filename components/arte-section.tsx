@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Palette, Shirt, Flag, Sparkles, Paintbrush, ImageIcon } from "lucide-react"
+import { Palette, Shirt, Flag, Sparkles, Paintbrush } from "lucide-react"
 
 const ACTIVIDADES_ARTE = [
   {
@@ -61,25 +61,6 @@ const ACTIVIDADES_ARTE = [
     textColor: "text-creative-foreground",
     image: "https://images.unsplash.com/photo-1516627145497-ae6968895b2f?w=800&q=80",
     imageAlt: "Mascotas creativas dibujadas",
-  },
-  {
-    id: "afiche",
-    icon: ImageIcon,
-    titulo: "Armamos el afiche del torneo",
-    descripcion:
-      "Creamos el afiche oficial del torneo del centro. Con nombre, fecha, equipos participantes y un eslogan que diga quiénes somos.",
-    materiales: ["Papel grande (A3 o afiche)", "Revistas para recortar", "Marcadores gruesos", "Regla"],
-    pasos: [
-      "Decidimos el nombre del torneo del centro",
-      "Inventamos los equipos que participan",
-      "Diseñamos el afiche con toda la información",
-      "Agregamos una frase que represente al grupo",
-      "Lo colgamos en el centro",
-    ],
-    color: "bg-accent",
-    textColor: "text-accent-foreground",
-    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
-    imageAlt: "Afiches creativos del torneo",
   },
 ]
 
