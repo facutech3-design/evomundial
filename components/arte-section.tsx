@@ -128,12 +128,12 @@ export default function ArteSection() {
 
                 {/* Contenido a la derecha */}
                 <div className="flex flex-col p-8 flex-1">
-                  <div className="mb-3 rounded-2xl bg-white/20 p-3 w-fit">
-                    <Icon size={32} />
+                  <div className="mb-6 rounded-2xl bg-white/20 p-4 w-fit">
+                    <Icon size={64} />
                   </div>
-                  <h3 className="text-2xl font-black mb-3 leading-tight">{act.titulo}</h3>
-                  <p className="text-base opacity-90 leading-relaxed flex-1">{act.descripcion}</p>
-                  <div className="mt-6 text-base font-bold opacity-95">
+                  <h3 className="text-4xl font-black mb-4 leading-tight">{act.titulo}</h3>
+                  <p className="text-2xl opacity-90 leading-relaxed flex-1 font-semibold">{act.descripcion}</p>
+                  <div className="mt-8 text-lg font-bold opacity-95">
                     {activa ? "▼ Cerrar detalle" : "▶ Ver actividad"}
                   </div>
                 </div>
