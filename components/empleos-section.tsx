@@ -240,14 +240,14 @@ export default function EmpleosSection() {
         {/* Modal para imagen ampliada */}
         {imagenAmpliada && (
           <div 
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2"
             onClick={() => setImagenAmpliada(null)}
             role="dialog"
             aria-modal="true"
             aria-label="Imagen ampliada"
           >
             <div 
-              className="relative w-full max-w-4xl max-h-[90vh]"
+              className="relative w-full max-w-6xl max-h-[95vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <button
