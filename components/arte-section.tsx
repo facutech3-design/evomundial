@@ -64,9 +64,11 @@ const ACTIVIDADES_ARTE = [
   },
 ]
 
-export default function ArteSection() {
-  const [actividadActiva, setActividadActiva] = useState<string | null>(null)
-  const [imagenAmpliada, setImagenAmpliada] = useState<string | null>(null)
+  const imagenesActividades: Record<string, string> = {
+    camiseta: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-EbVOKvkX69nPVmPi43ZEUU32VZLhWa.png",
+    bandera: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-jRmd0vwlgGKbYwp3sCBJ4GbIzP1QOW.png",
+    mascota: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mascota%20mundial-Ys8QNM7lxMFKl8bDe4Irz7pvJ8N23V.png",
+  }
 
   const actividad = ACTIVIDADES_ARTE.find((a) => a.id === actividadActiva)
 
@@ -111,7 +113,14 @@ export default function ArteSection() {
             return (
               <button
                 key={act.id}
-                onClick={() => setActividadActiva(activa ? null : act.id)}
+                onClick={() => {
+                  const esActivo = actividadActiva === act.id
+                  setActividadActiva(esActivo ? null : act.id)
+                  // Abrir imagen en modal automáticamente
+                  if (!esActivo && imagenesActividades[act.id]) {
+                    setImagenAmpliada(imagenesActividades[act.id])
+                  }
+                }}
                 className={`flex flex-row rounded-3xl overflow-hidden border-3 transition-all active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-2 hover:shadow-xl hover:-translate-y-1 ${
                   activa ? "border-foreground shadow-xl -translate-y-1" : "border-transparent"
                 } ${act.color} ${act.textColor}`}
