@@ -76,6 +76,7 @@ const EMPLEOS = [
 export default function EmpleosSection() {
   const [areaActiva, setAreaActiva] = useState<string | null>(null)
   const [rolSeleccionado, setRolSeleccionado] = useState<string | null>(null)
+  const [imagenAmpliada, setImagenAmpliada] = useState<string | null>(null)
 
   return (
     <section className="min-h-screen bg-background px-6 py-12 section-enter">

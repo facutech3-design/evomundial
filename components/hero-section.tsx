@@ -378,9 +378,9 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
                     <p className="text-lg leading-relaxed text-gray-700">
                       {card.descripcion}
                     </p>
-                    <button className="w-full mt-2 py-4 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xl rounded-xl border-2 border-primary transition-all duration-200 min-h-[56px]">
+                    <div className="w-full mt-2 py-4 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xl rounded-xl border-2 border-primary transition-all duration-200 min-h-[56px] flex items-center justify-center pointer-events-none">
                       {card.boton}
-                    </button>
+                    </div>
                   </div>
                 </button>
               )
