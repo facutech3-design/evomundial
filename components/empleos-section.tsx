@@ -45,7 +45,7 @@ const EMPLEOS = [
         descripcion:
           "Captura los momentos mas importantes de los partidos. Sus fotos aparecen en diarios y revistas de todo el mundo. Un buen ojo y mucha paciencia son esenciales.",
         habilidades: ["Fotografia", "Rapidez de reflejos", "Edicion de imagen"],
-        imagen: "https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=600&q=80",
+        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camarografa%20evolutiva-CRSg0HshR03geD672prlnN4f8Z7rEr.jpeg",
       },
     ],
   },
