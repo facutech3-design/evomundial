@@ -16,7 +16,7 @@ const EMPLEOS = [
         descripcion:
           "Narra los partidos en vivo por television o radio. Debe conocer las reglas del futbol, los jugadores, sus historias y saber hablar en publico con claridad y emocion.",
         habilidades: ["Comunicacion oral", "Conocimiento del deporte", "Trabajo bajo presion"],
-        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/relator%20deportivo-LTXvdmkfIDFoU6VbEva82rRDHarnNx.avif",
+        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/relatores%20evolutiva-VgN1PRbtRRCpOdYANGjYaMXfjVYPfC.jpeg",
       },
       {
         nombre: "Periodista de campo",
