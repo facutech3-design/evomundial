@@ -23,7 +23,7 @@ const EMPLEOS = [
         descripcion:
           "Entrevista a jugadores, tecnicos y hinchas antes y despues de los partidos. Trabaja en el estadio, en el hotel de los equipos y en la zona mixta.",
         habilidades: ["Entrevistas", "Idiomas", "Adaptabilidad"],
-        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/comentariasta%20de%20campo-O4Ip85A1TOmzW8vXB6U2u4jfxfqFxk.webp",
+        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/comentariasta%20de%20campo-7bBhDwlFANt5wf6ivj7uYbUdIhVnP6.webp",
       },
     ],
   },
