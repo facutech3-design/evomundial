@@ -71,6 +71,10 @@ export default function ActividadesSection() {
   const [imagenAmpliada, setImagenAmpliada] = useState<string | null>(null)
 
   const imagenesActividades: Record<number, string> = {
+    1: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/penal%20sentado0-ZvBKXeNA9uC7yBjUnbBPPjixJWgZaT.png",
+  }
+
+  const imagenesActividades: Record<number, string> = {
     1: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/penal%20sentado0-bExc9rLUifjdT1fXWlOrkikPQFjiMU.png",
   }
 
