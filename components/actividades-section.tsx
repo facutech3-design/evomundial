@@ -72,6 +72,7 @@ export default function ActividadesSection() {
 
   const imagenesActividades: Record<number, string> = {
     1: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/penal%20sentado0-ZvBKXeNA9uC7yBjUnbBPPjixJWgZaT.png",
+    2: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pase%20en%20circulo-aecu8RcYrrwGenYJFcmJf3sZu3TU7F.png",
   }
 
   const actsFiltradas =
