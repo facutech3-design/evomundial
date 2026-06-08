@@ -67,7 +67,7 @@ const EMPLEOS = [
         descripcion:
           "Recorre las tribunas vendiendo bebidas, snacks y recuerdos. Tiene contacto directo con los hinchas de todo el mundo y necesita buena disposicion y energia.",
         habilidades: ["Atencion al publico", "Calculo basico", "Resistencia fisica"],
-        imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561818?w=600&q=80",
+        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pepsi%20vendedor%20ambulante-epi1kjjvjYYe1TMyww06wfx7FqBEml.png",
       },
     ],
   },
