@@ -66,6 +66,7 @@ const ACTIVIDADES_ARTE = [
 
 export default function ArteSection() {
   const [actividadActiva, setActividadActiva] = useState<string | null>(null)
+  const [imagenAmpliada, setImagenAmpliada] = useState<string | null>(null)
 
   const actividad = ACTIVIDADES_ARTE.find((a) => a.id === actividadActiva)
 
@@ -147,7 +148,10 @@ export default function ArteSection() {
             </div>
             <div className="w-full">
               {actividadActiva === "camiseta" && (
-                <div className="rounded-2xl overflow-hidden bg-white/5 w-full">
+                <div 
+                  className="rounded-2xl overflow-hidden bg-white/5 w-full cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setImagenAmpliada("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-EbVOKvkX69nPVmPi43ZEUU32VZLhWa.png")}
+                >
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-EbVOKvkX69nPVmPi43ZEUU32VZLhWa.png"
                     alt="Niños diseñando camisetas colaborativamente"
@@ -159,7 +163,10 @@ export default function ArteSection() {
                 </div>
               )}
               {actividadActiva === "bandera" && (
-                <div className="rounded-2xl overflow-hidden bg-white/5 w-full">
+                <div 
+                  className="rounded-2xl overflow-hidden bg-white/5 w-full cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setImagenAmpliada("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-jRmd0vwlgGKbYwp3sCBJ4GbIzP1QOW.png")}
+                >
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-jRmd0vwlgGKbYwp3sCBJ4GbIzP1QOW.png"
                     alt="Niños sosteniendo bandera inclusiva diseñada"
@@ -171,7 +178,10 @@ export default function ArteSection() {
                 </div>
               )}
               {actividadActiva === "mascota" && (
-                <div className="rounded-2xl overflow-hidden bg-white/5 w-full">
+                <div 
+                  className="rounded-2xl overflow-hidden bg-white/5 w-full cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setImagenAmpliada("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mascota%20mundial-Ys8QNM7lxMFKl8bDe4Irz7pvJ8N23V.png")}
+                >
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mascota%20mundial-Ys8QNM7lxMFKl8bDe4Irz7pvJ8N23V.png"
                     alt="Niños creando mascota del mundial"
@@ -227,6 +237,39 @@ export default function ArteSection() {
           </div>
         )}
       </div>
+
+      {/* Modal para imagen ampliada */}
+      {imagenAmpliada && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setImagenAmpliada(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Imagen ampliada"
+        >
+          <div 
+            className="relative w-full max-w-4xl max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setImagenAmpliada(null)}
+              className="absolute top-4 right-4 bg-background/90 hover:bg-background text-foreground rounded-full p-2 z-10 transition-colors"
+              aria-label="Cerrar imagen ampliada"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <Image
+              src={imagenAmpliada}
+              alt="Imagen ampliada"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
