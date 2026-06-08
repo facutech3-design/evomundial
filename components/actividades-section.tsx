@@ -68,6 +68,11 @@ const NIVELES: Nivel[] = ["Todos", "Sentado", "De pie", "Mixto"]
 export default function ActividadesSection() {
   const [filtro, setFiltro] = useState<Nivel>("Todos")
   const [expandido, setExpandido] = useState<number | null>(null)
+  const [imagenAmpliada, setImagenAmpliada] = useState<string | null>(null)
+
+  const imagenesActividades: Record<number, string> = {
+    1: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/penal%20sentado0-bExc9rLUifjdT1fXWlOrkikPQFjiMU.png",
+  }
 
   const actsFiltradas =
     filtro === "Todos" ? ACTIVIDADES : ACTIVIDADES.filter((a) => a.nivel === filtro)
@@ -142,7 +147,13 @@ export default function ActividadesSection() {
             return (
               <div key={act.id} className={`overflow-hidden rounded-2xl border-2 ${act.color} shadow-sm`}>
                 <button
-                  onClick={() => setExpandido(abierto ? null : act.id)}
+                  onClick={() => {
+                    setExpandido(abierto ? null : act.id)
+                    // Abrir imagen en modal si existe
+                    if (!abierto && imagenesActividades[act.id]) {
+                      setImagenAmpliada(imagenesActividades[act.id])
+                    }
+                  }}
                   className="flex w-full items-center gap-4 p-6 text-left transition-all hover:bg-black/5"
                   aria-expanded={abierto}
                 >
@@ -251,6 +262,39 @@ export default function ActividadesSection() {
           </div>
         </div>
       </div>
+
+      {/* Modal para imagen ampliada */}
+      {imagenAmpliada && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2"
+          onClick={() => setImagenAmpliada(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Imagen ampliada"
+        >
+          <div 
+            className="relative w-full max-w-6xl max-h-[95vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setImagenAmpliada(null)}
+              className="absolute top-4 right-4 bg-background/90 hover:bg-background text-foreground rounded-full p-2 z-10 transition-colors"
+              aria-label="Cerrar imagen ampliada"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <Image
+              src={imagenAmpliada}
+              alt="Imagen ampliada"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
