@@ -74,10 +74,6 @@ export default function ActividadesSection() {
     1: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/penal%20sentado0-ZvBKXeNA9uC7yBjUnbBPPjixJWgZaT.png",
   }
 
-  const imagenesActividades: Record<number, string> = {
-    1: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/penal%20sentado0-bExc9rLUifjdT1fXWlOrkikPQFjiMU.png",
-  }
-
   const actsFiltradas =
     filtro === "Todos" ? ACTIVIDADES : ACTIVIDADES.filter((a) => a.nivel === filtro)
 
