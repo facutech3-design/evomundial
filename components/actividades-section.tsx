@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Accessibility, ChevronDown, ChevronUp, Users, Clock } from "lucide-react"
+import { Accessibility, ChevronDown, ChevronUp, Users, Clock, Shield } from "lucide-react"
 
 type Nivel = "Todos" | "Sentado" | "De pie" | "Mixto"
 
