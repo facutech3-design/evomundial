@@ -38,7 +38,7 @@ const EMPLEOS = [
         descripcion:
           "Coordina todo lo que pasa dentro del estadio: las camaras, las pantallas gigantes, la musica, los efectos de luz y el funcionamiento general del espectaculo.",
         habilidades: ["Coordinacion de equipos", "Tecnologia", "Planificacion"],
-        imagen: "https://images.unsplash.com/photo-1536240478035-b44f8c34cbbb?w=600&q=80",
+        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/director%20tecnico-kQeaQ7KqAQ7pL2pYCCD2ZiEmVLcrrg.jpeg",
       },
       {
         nombre: "Fotografo de prensa",
