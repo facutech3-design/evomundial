@@ -64,6 +64,10 @@ const ACTIVIDADES_ARTE = [
   },
 ]
 
+export default function ArteSection() {
+  const [actividadActiva, setActividadActiva] = useState<string | null>(null)
+  const [imagenAmpliada, setImagenAmpliada] = useState<string | null>(null)
+
   const imagenesActividades: Record<string, string> = {
     camiseta: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camiseta%20%20dise%C3%B1o-EbVOKvkX69nPVmPi43ZEUU32VZLhWa.png",
     bandera: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nuestra%20bandera.%20-jRmd0vwlgGKbYwp3sCBJ4GbIzP1QOW.png",
