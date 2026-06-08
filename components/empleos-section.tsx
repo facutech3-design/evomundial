@@ -85,15 +85,15 @@ export default function EmpleosSection() {
         {/* Imagen principal */}
         <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1ycvdn5beZLonZzLmlgBbzObPW4sHn.png"
-            alt="Estadio profesional lleno con vista del campo de juego"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/todo%20evolutiva-SGvshdVXwFJ4nEQV0wTjGp15ftNHiZ.jpeg"
+            alt="Niños en el centro de día Evolutiva explorando culturas del mundo"
             width={1200}
             height={400}
             className="w-full h-full object-cover"
             priority
           />
           <div className="sr-only">
-            Imagen de un estadio de fútbol profesional completamente lleno con vista desde las gradas del campo en juego.
+            Imagen de niños en el centro de día Evolutiva explorando diferentes culturas del mundo, música, gastronomía y valores de inclusión.
           </div>
         </div>
 
