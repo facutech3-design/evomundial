@@ -169,7 +169,13 @@ export default function EmpleosSection() {
                           }
                         >
                           {/* Imagen */}
-                          <div className="relative w-full h-64 overflow-hidden bg-black/10">
+                          <div 
+                            className="relative w-full h-64 overflow-hidden bg-black/10 cursor-pointer hover:opacity-80 transition-opacity"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setImagenAmpliada(rol.imagen)
+                            }}
+                          >
                             <Image
                               src={rol.imagen}
                               alt={rol.nombre}
@@ -229,6 +235,39 @@ export default function EmpleosSection() {
             </div>
           </div>
         </div>
+
+        {/* Modal para imagen ampliada */}
+        {imagenAmpliada && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+            onClick={() => setImagenAmpliada(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Imagen ampliada"
+          >
+            <div 
+              className="relative w-full max-w-4xl max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setImagenAmpliada(null)}
+                className="absolute top-4 right-4 bg-background/90 hover:bg-background text-foreground rounded-full p-2 z-10 transition-colors"
+                aria-label="Cerrar imagen ampliada"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <Image
+                src={imagenAmpliada}
+                alt="Imagen ampliada"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
