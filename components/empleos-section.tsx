@@ -60,7 +60,7 @@ const EMPLEOS = [
         descripcion:
           "Prepara comida para miles de personas en pocas horas. El trabajo empieza horas antes de cada partido y requiere organizacion, velocidad y trabajo en equipo.",
         habilidades: ["Cocina en volumen", "Higiene alimentaria", "Trabajo bajo presion"],
-        imagen: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
+        imagen: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cocinero%20evolutiva-4RyQh9RB27lAM9db2VZtkwqvsQug7I.jpeg",
       },
       {
         nombre: "Vendedor ambulante",
