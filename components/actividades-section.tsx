@@ -45,42 +45,6 @@ const ACTIVIDADES = [
   },
   {
     id: 3,
-    nombre: "Torneo de bo-boce",
-    descripcion:
-      "Version adaptada de la bocce. Se lanza una pelota pequeña (pallino) y cada participante tira su pelota intentando acercarse. Funciona perfecto en todas las posiciones y espacios pequenos.",
-    nivel: "Mixto" as Nivel,
-    participantes: "2 a 8",
-    duracion: "20-30 min",
-    materiales: ["Pelotas de distintos colores", "Una pelota pequena o marcador (pallino)", "Espacio libre"],
-    adaptaciones: [
-      "El pallino puede ser un globo o tela colorida",
-      "Jugar desde silla o de pie segun cada persona",
-      "Modificar distancias segun la habilidad",
-    ],
-    objetivos: ["Precision", "Estrategia", "Competencia amigable"],
-    color: "border-creative bg-creative/5",
-    badge: "bg-creative text-creative-foreground",
-  },
-  {
-    id: 4,
-    nombre: "Relevo mundial",
-    descripcion:
-      "El grupo se divide en 'selecciones'. Cada equipo tiene una bandera de un pais diferente. Los equipos realizan una serie de tareas (pasar la pelota, caminar hasta un punto, resolver una pregunta de cultura) y suman puntos.",
-    nivel: "Mixto" as Nivel,
-    participantes: "6 o mas",
-    duracion: "30-45 min",
-    materiales: ["Banderas de cartulina de cada pais", "Pelotas", "Preguntas escritas", "Planilla de puntos"],
-    adaptaciones: [
-      "Cada tarea se adapta a las posibilidades de cada participante",
-      "Equipos mixtos con distintas capacidades: todos aportan algo diferente",
-      "Las preguntas culturales equilibran lo fisico con lo cognitivo",
-    ],
-    objetivos: ["Cooperacion", "Conocimiento cultural", "Dinamica grupal"],
-    color: "border-accent bg-accent/5",
-    badge: "bg-accent text-accent-foreground",
-  },
-  {
-    id: 5,
     nombre: "Danza de las naciones",
     descripcion:
       "Exploramos el movimiento desde el ritmo de distintos paises. Cumbia (Colombia), samba (Brasil), tango (Argentina), tambores (Nigeria), danza contemporanea (Francia). Cada quien mueve lo que puede: manos, cabeza, torso.",
