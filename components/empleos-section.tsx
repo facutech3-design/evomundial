@@ -85,15 +85,15 @@ export default function EmpleosSection() {
         {/* Imagen principal */}
         <div className="mb-10 rounded-3xl overflow-hidden h-80 md:h-96 shadow-lg">
           <Image
-            src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200&q=80"
-            alt="Estadio con trabajadores y vista interna"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1ycvdn5beZLonZzLmlgBbzObPW4sHn.png"
+            alt="Estadio profesional lleno con vista del campo de juego"
             width={1200}
             height={400}
             className="w-full h-full object-cover"
             priority
           />
           <div className="sr-only">
-            Imagen de un estadio lleno de personas trabajando en diferentes roles durante un evento deportivo.
+            Imagen de un estadio de fútbol profesional completamente lleno con vista desde las gradas del campo en juego.
           </div>
         </div>
 
