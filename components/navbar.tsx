@@ -7,15 +7,19 @@ import { cn } from "@/lib/utils"
 
 // Pictogramas ARASAAC como componentes SVG
 const PictogramasMundo = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.2"/>
-    <path d="M50 10 L60 30 L45 40 L55 50 L40 55 L50 70 L35 65 L30 80" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" fill="none"/>
-  </svg>
+  <div className="w-14 h-14 flex items-center justify-center">
+    <Image
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png"
+      alt="Mundo"
+      width={56}
+      height={56}
+      className="w-14 h-14 object-contain"
+    />
+  </div>
 )
 
 const PictogramasPintura = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="15" y="25" width="70" height="55" rx="5" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.1"/>
     <circle cx="30" cy="40" r="8" fill="currentColor"/>
     <circle cx="70" cy="45" r="8" fill="currentColor"/>
@@ -25,7 +29,7 @@ const PictogramasPintura = () => (
 )
 
 const PictogramasDeporte = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="50" cy="30" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
     <rect x="42" y="45" width="16" height="25" rx="2" fill="currentColor" opacity="0.3"/>
     <line x1="35" y1="45" x2="20" y2="60" stroke="currentColor" strokeWidth="2"/>
@@ -36,7 +40,7 @@ const PictogramasDeporte = () => (
 )
 
 const PictogramasTrabajo = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="20" y="35" width="60" height="45" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.1"/>
     <rect x="20" y="25" width="60" height="15" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
     <line x1="35" y1="35" x2="35" y2="80" stroke="currentColor" strokeWidth="1.5"/>
@@ -46,7 +50,7 @@ const PictogramasTrabajo = () => (
 )
 
 const PictogramasAmistad = () => (
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="35" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
     <circle cx="65" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
     <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
