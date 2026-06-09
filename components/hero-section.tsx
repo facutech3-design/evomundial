@@ -51,6 +51,7 @@ const CARDS = [  {
     titulo: "Actividades Adaptadas",
     descripcion: "Jugamos y nos movemos. El deporte es para todos.",
     emoji: "🏃",
+    pictograma: "actividades",
     boton: "Ver actividades",
     color: "bg-accent",
     textColor: "text-accent-foreground",
@@ -217,6 +218,17 @@ function PictogramaCard({ tipo }: { tipo: string }) {
       <Image
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creatividadara-V4THdSzv7JJWMQ88Zt5g1xj5qgxmSs.png"
         alt="Arte y Creatividad"
+        width={48}
+        height={48}
+        className="w-12 h-12 object-contain"
+      />
+    )
+  }
+  if (tipo === "actividades") {
+    return (
+      <Image
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baloncesto%20adaptado%20ara-SP5IbDXiqOzwg8ItiFEJfsI8R1inMG.png"
+        alt="Actividades Adaptadas"
         width={48}
         height={48}
         className="w-12 h-12 object-contain"

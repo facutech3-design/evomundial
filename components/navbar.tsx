@@ -31,14 +31,15 @@ const PictogramasPintura = () => (
 )
 
 const PictogramasDeporte = () => (
-  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="30" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
-    <rect x="42" y="45" width="16" height="25" rx="2" fill="currentColor" opacity="0.3"/>
-    <line x1="35" y1="45" x2="20" y2="60" stroke="currentColor" strokeWidth="2"/>
-    <line x1="65" y1="45" x2="80" y2="60" stroke="currentColor" strokeWidth="2"/>
-    <line x1="42" y1="70" x2="25" y2="85" stroke="currentColor" strokeWidth="2"/>
-    <line x1="58" y1="70" x2="75" y2="85" stroke="currentColor" strokeWidth="2"/>
-  </svg>
+  <div className="w-14 h-14 flex items-center justify-center">
+    <Image
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baloncesto%20adaptado%20ara-SP5IbDXiqOzwg8ItiFEJfsI8R1inMG.png"
+      alt="Actividades Adaptadas"
+      width={56}
+      height={56}
+      className="w-14 h-14 object-contain"
+    />
+  </div>
 )
 
 const PictogramasTrabajo = () => (

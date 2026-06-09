@@ -101,14 +101,13 @@ export default function ActividadesSection() {
         {/* Header */}
         <div className="mb-10">
           <div className="w-24 h-24 mb-4">
-            <svg width="96" height="96" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="30" r="14" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
-              <rect x="40" y="48" width="20" height="28" rx="2" fill="currentColor" opacity="0.3"/>
-              <line x1="32" y1="48" x2="15" y2="65" stroke="currentColor" strokeWidth="2.5"/>
-              <line x1="68" y1="48" x2="85" y2="65" stroke="currentColor" strokeWidth="2.5"/>
-              <line x1="40" y1="76" x2="20" y2="92" stroke="currentColor" strokeWidth="2.5"/>
-              <line x1="60" y1="76" x2="80" y2="92" stroke="currentColor" strokeWidth="2.5"/>
-            </svg>
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baloncesto%20adaptado%20ara-SP5IbDXiqOzwg8ItiFEJfsI8R1inMG.png"
+              alt="Ícono de Actividades Adaptadas"
+              width={96}
+              height={96}
+              className="w-24 h-24 object-contain"
+            />
           </div>
           <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Actividades Adaptadas</h2>
           <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
