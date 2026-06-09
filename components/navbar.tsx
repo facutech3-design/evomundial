@@ -19,13 +19,15 @@ const PictogramasMundo = () => (
 )
 
 const PictogramasPintura = () => (
-  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="15" y="25" width="70" height="55" rx="5" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.1"/>
-    <circle cx="30" cy="40" r="8" fill="currentColor"/>
-    <circle cx="70" cy="45" r="8" fill="currentColor"/>
-    <circle cx="50" cy="65" r="8" fill="currentColor"/>
-    <path d="M20 85 L80 85" stroke="currentColor" strokeWidth="2"/>
-  </svg>
+  <div className="w-14 h-14 flex items-center justify-center">
+    <Image
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creatividadara-V4THdSzv7JJWMQ88Zt5g1xj5qgxmSs.png"
+      alt="Arte y Creatividad"
+      width={56}
+      height={56}
+      className="w-14 h-14 object-contain"
+    />
+  </div>
 )
 
 const PictogramasDeporte = () => (
