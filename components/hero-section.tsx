@@ -65,6 +65,7 @@ const CARDS = [  {
     titulo: "Empleos del Mundial",
     descripcion: "¿Quién trabaja en un mundial? Lo descubrimos.",
     emoji: "💼",
+    pictograma: "empleos",
     boton: "Ver empleos",
     color: "bg-foreground",
     textColor: "text-primary-foreground",
@@ -229,6 +230,17 @@ function PictogramaCard({ tipo }: { tipo: string }) {
       <Image
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baloncesto%20adaptado%20ara-SP5IbDXiqOzwg8ItiFEJfsI8R1inMG.png"
         alt="Actividades Adaptadas"
+        width={48}
+        height={48}
+        className="w-12 h-12 object-contain"
+      />
+    )
+  }
+  if (tipo === "empleos") {
+    return (
+      <Image
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/empleo-NMuG8qulE0uWGrMwrCbbjJedPwHYFB.png"
+        alt="Empleos del Mundial"
         width={48}
         height={48}
         className="w-12 h-12 object-contain"

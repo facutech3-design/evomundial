@@ -43,13 +43,15 @@ const PictogramasDeporte = () => (
 )
 
 const PictogramasTrabajo = () => (
-  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="20" y="35" width="60" height="45" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.1"/>
-    <rect x="20" y="25" width="60" height="15" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
-    <line x1="35" y1="35" x2="35" y2="80" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="50" y1="35" x2="50" y2="80" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="65" y1="35" x2="65" y2="80" stroke="currentColor" strokeWidth="1.5"/>
-  </svg>
+  <div className="w-14 h-14 flex items-center justify-center">
+    <Image
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/empleo-NMuG8qulE0uWGrMwrCbbjJedPwHYFB.png"
+      alt="Empleos del Mundial"
+      width={56}
+      height={56}
+      className="w-14 h-14 object-contain"
+    />
+  </div>
 )
 
 const PictogramasAmistad = () => (
