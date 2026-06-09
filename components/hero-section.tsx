@@ -213,6 +213,8 @@ function PictogramaCard({ tipo }: { tipo: string }) {
   }
   return <span className="text-4xl">{tipo}</span>
 }
+
+function CountdownUnit({ value, label, emoji }: { value: number; label: string; emoji?: string }) {
   return (
     <div className="flex flex-col items-center rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm min-w-[90px]">
       {emoji && <span className="text-3xl mb-2" role="img">{emoji}</span>}
