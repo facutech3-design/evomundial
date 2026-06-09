@@ -908,10 +908,12 @@ export default function PaisesSection() {
             {[
               { n: "1", txt: "Elegimos un pais del mundo", icon: <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png" alt="Mundo" width={32} height={32} className="w-8 h-8 object-contain" /> },
               { n: "2", txt: "Investigamos y dibujamos su bandera", emoji: "🤔" },
-              { n: "3", txt: "Presentamos al grupo: somos sus embajadores", emoji: "👨‍🎓" },
+              { n: "3", txt: "Presentamos al grupo: somos sus embajadores", icon: <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="35" cy="30" r="10" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.3"/><circle cx="65" cy="30" r="10" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.3"/><circle cx="50" cy="45" r="10" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.3"/><path d="M43 60 L57 60 L60 75 L40 75 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.3"/><path d="M25 60 L35 60 L33 72 L23 72 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.3"/><path d="M65 60 L75 60 L77 72 L67 72 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.3"/></svg> },
             ].map((paso) => (
               <div key={paso.n} className="rounded-2xl bg-white/15 p-5">
-                <div className="text-6xl mb-3">{paso.emoji}</div>
+                <div className="text-6xl mb-3 flex items-center justify-center">
+                  {paso.icon || paso.emoji}
+                </div>
                 <div className="text-3xl font-black mb-2">{paso.n}</div>
                 <p className="text-base font-semibold leading-relaxed">{paso.txt}</p>
               </div>
