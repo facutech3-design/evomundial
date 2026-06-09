@@ -1,16 +1,67 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Globe, Heart, Palette, Activity, Briefcase, Menu, X, Sun, Moon } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
+// Pictogramas ARASAAC como componentes SVG
+const PictogramasMundo = () => (
+  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.2"/>
+    <path d="M50 10 L60 30 L45 40 L55 50 L40 55 L50 70 L35 65 L30 80" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" fill="none"/>
+  </svg>
+)
+
+const PictogramasPintura = () => (
+  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="15" y="25" width="70" height="55" rx="5" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.1"/>
+    <circle cx="30" cy="40" r="8" fill="currentColor"/>
+    <circle cx="70" cy="45" r="8" fill="currentColor"/>
+    <circle cx="50" cy="65" r="8" fill="currentColor"/>
+    <path d="M20 85 L80 85" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+)
+
+const PictogramasDeporte = () => (
+  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="30" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+    <rect x="42" y="45" width="16" height="25" rx="2" fill="currentColor" opacity="0.3"/>
+    <line x1="35" y1="45" x2="20" y2="60" stroke="currentColor" strokeWidth="2"/>
+    <line x1="65" y1="45" x2="80" y2="60" stroke="currentColor" strokeWidth="2"/>
+    <line x1="42" y1="70" x2="25" y2="85" stroke="currentColor" strokeWidth="2"/>
+    <line x1="58" y1="70" x2="75" y2="85" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+)
+
+const PictogramasTrabajo = () => (
+  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="35" width="60" height="45" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.1"/>
+    <rect x="20" y="25" width="60" height="15" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
+    <line x1="35" y1="35" x2="35" y2="80" stroke="currentColor" strokeWidth="1.5"/>
+    <line x1="50" y1="35" x2="50" y2="80" stroke="currentColor" strokeWidth="1.5"/>
+    <line x1="65" y1="35" x2="65" y2="80" stroke="currentColor" strokeWidth="1.5"/>
+  </svg>
+)
+
+const PictogramasAmistad = () => (
+  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="35" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+    <circle cx="65" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+    <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+    <path d="M47 62 L53 62 L55 75 L45 75 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.2"/>
+    <path d="M30 47 L40 47 L38 62 L28 62 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.2"/>
+    <path d="M60 47 L70 47 L72 62 L62 62 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.2"/>
+  </svg>
+)
+
 const SECTIONS = [
-  { id: "paises", label: "🌍 Países y Culturas", icon: Globe },
-  { id: "arte", label: "🎨 Arte y Creatividad", icon: Palette },
-  { id: "actividades", label: "🏃 Actividades Adaptadas", icon: Activity },
-  { id: "empleos", label: "💼 Empleos del Mundial", icon: Briefcase },
-  { id: "valores", label: "🤝 Valores e Inclusión", icon: Heart },
+  { id: "paises", label: "Países y Culturas", icon: PictogramasMundo },
+  { id: "arte", label: "Arte y Creatividad", icon: PictogramasPintura },
+  { id: "actividades", label: "Actividades Adaptadas", icon: PictogramasDeporte },
+  { id: "empleos", label: "Empleos del Mundial", icon: PictogramasTrabajo },
+  { id: "valores", label: "Valores e Inclusión", icon: PictogramasAmistad },
 ]
 
 // Colores de acento por seccion para el indicador activo
@@ -105,7 +156,7 @@ export default function Navbar({
                       : "text-white/75 hover:bg-white/10 hover:text-white"
                   )}
                 >
-                  <Icon size={28} />
+                  <Icon />
                   {s.label}
                 </button>
               </li>
@@ -118,7 +169,7 @@ export default function Navbar({
           {(() => {
             const s = SECTIONS.find((s) => s.id === active)
             const Icon = s?.icon
-            return Icon ? <><Icon size={16} />{s?.label}</> : null
+            return Icon ? <><Icon />{s?.label}</> : null
           })()}
         </div>
 
@@ -165,7 +216,7 @@ export default function Navbar({
                         : "text-white/80 hover:bg-white/10 hover:text-white"
                     )}
                   >
-                    <Icon size={18} />
+                    <Icon />
                     {s.label}
                     {isActive && (
                       <span className="ml-auto text-xs opacity-70 font-normal">Estas aqui</span>
