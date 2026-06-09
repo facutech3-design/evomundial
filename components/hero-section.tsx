@@ -10,7 +10,8 @@ const CARDS = [  {
     titulo: "Países y Culturas",
     descripcion: "Viajamos por el mundo. Conocemos otros países.",
     emoji: "🌍",
-    boton: "Ver países del mundo 🌍",
+    pictograma: "mundo",
+    boton: "Ver países del mundo",
     color: "bg-primary",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
@@ -23,7 +24,7 @@ const CARDS = [  {
     titulo: "Valores e Inclusión",
     descripcion: "Respeto, fair play y diversidad. El deporte une.",
     emoji: "🤝",
-    boton: "Ver valores 🤝",
+    boton: "Ver valores",
     color: "bg-success",
     textColor: "text-success-foreground",
     accentBg: "bg-white/20",
@@ -36,7 +37,7 @@ const CARDS = [  {
     titulo: "Arte y Creatividad",
     descripcion: "Pintamos, diseñamos y creamos juntos.",
     emoji: "🎨",
-    boton: "Ver arte y creatividad 🎨",
+    boton: "Ver arte y creatividad",
     color: "bg-creative",
     textColor: "text-creative-foreground",
     accentBg: "bg-white/20",
@@ -49,7 +50,7 @@ const CARDS = [  {
     titulo: "Actividades Adaptadas",
     descripcion: "Jugamos y nos movemos. El deporte es para todos.",
     emoji: "🏃",
-    boton: "Ver actividades 🏃",
+    boton: "Ver actividades",
     color: "bg-accent",
     textColor: "text-accent-foreground",
     accentBg: "bg-black/10",
@@ -62,7 +63,7 @@ const CARDS = [  {
     titulo: "Empleos del Mundial",
     descripcion: "¿Quién trabaja en un mundial? Lo descubrimos.",
     emoji: "💼",
-    boton: "Ver empleos 💼",
+    boton: "Ver empleos",
     color: "bg-foreground",
     textColor: "text-primary-foreground",
     accentBg: "bg-white/20",
@@ -198,7 +199,20 @@ function Carrusel() {
   )
 }
 
-function CountdownUnit({ value, label, emoji }: { value: number; label: string; emoji?: string }) {
+function PictogramaCard({ tipo }: { tipo: string }) {
+  if (tipo === "mundo") {
+    return (
+      <Image
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png"
+        alt="Mundo"
+        width={48}
+        height={48}
+        className="w-12 h-12 object-contain"
+      />
+    )
+  }
+  return <span className="text-4xl">{tipo}</span>
+}
   return (
     <div className="flex flex-col items-center rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm min-w-[90px]">
       {emoji && <span className="text-3xl mb-2" role="img">{emoji}</span>}
@@ -362,12 +376,10 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
                       alt={card.imageAlt}
                       className="w-full h-full object-cover"
                     />
-                    {/* Pictograma encima de la imagen */}
-                    <div className="absolute bottom-3 left-3 bg-white rounded-2xl px-3 py-2 shadow-lg flex items-center gap-2">
-                      <span className="text-4xl" role="img" aria-label={card.emoji}>
-                        {card.emoji}
-                      </span>
-                    </div>
+                  {/* Pictograma encima de la imagen */}
+                  <div className="absolute bottom-3 left-3 bg-white rounded-2xl px-3 py-2 shadow-lg flex items-center gap-2">
+                    <PictogramaCard tipo={card.pictograma || card.emoji} />
+                  </div>
                   </div>
 
                   {/* CONTENIDO */}
