@@ -85,13 +85,13 @@ export default function ArteSection() {
           {/* Contenido a la izquierda */}
           <div className="flex-1 flex items-start gap-4">
             <div className="w-24 h-24 flex-shrink-0">
-              <svg width="96" height="96" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="15" y="25" width="70" height="55" rx="5" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.1"/>
-                <circle cx="30" cy="40" r="10" fill="#FF6B6B"/>
-                <circle cx="70" cy="45" r="10" fill="#4ECDC4"/>
-                <circle cx="50" cy="65" r="10" fill="#FFE66D"/>
-                <path d="M20 85 L80 85" stroke="currentColor" strokeWidth="3"/>
-              </svg>
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creatividadara-V4THdSzv7JJWMQ88Zt5g1xj5qgxmSs.png"
+                alt="Ícono de Arte y Creatividad"
+                width={96}
+                height={96}
+                className="w-24 h-24 object-contain"
+              />
             </div>
             <div>
               <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Arte y Creatividad</h2>

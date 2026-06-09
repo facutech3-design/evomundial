@@ -37,6 +37,7 @@ const CARDS = [  {
     titulo: "Arte y Creatividad",
     descripcion: "Pintamos, diseñamos y creamos juntos.",
     emoji: "🎨",
+    pictograma: "arte",
     boton: "Ver arte y creatividad",
     color: "bg-creative",
     textColor: "text-creative-foreground",
@@ -205,6 +206,17 @@ function PictogramaCard({ tipo }: { tipo: string }) {
       <Image
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png"
         alt="Mundo"
+        width={48}
+        height={48}
+        className="w-12 h-12 object-contain"
+      />
+    )
+  }
+  if (tipo === "arte") {
+    return (
+      <Image
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creatividadara-V4THdSzv7JJWMQ88Zt5g1xj5qgxmSs.png"
+        alt="Arte y Creatividad"
         width={48}
         height={48}
         className="w-12 h-12 object-contain"
