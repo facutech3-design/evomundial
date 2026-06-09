@@ -114,7 +114,18 @@ export default function ValoresSection() {
 
         {/* Header */}
         <div className="mb-10">
-          <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Inclusión">🤝</p>
+          <div className="w-24 h-24 mb-4">
+            <svg width="96" height="96" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="35" cy="35" r="14" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
+              <circle cx="65" cy="35" r="14" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
+              <circle cx="50" cy="52" r="14" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity="0.2"/>
+              <path d="M48 68 L52 68 L55 82 L45 82 Z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+              <path d="M28 52 L38 52 L35 68 L25 68 Z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+              <path d="M62 52 L72 52 L75 68 L65 68 Z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
+              <line x1="35" y1="48" x2="50" y2="52" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="65" y1="48" x2="50" y2="52" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+          </div>
           <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Valores e Inclusión</h2>
           <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
             El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.

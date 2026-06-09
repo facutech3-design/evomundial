@@ -99,7 +99,15 @@ export default function EmpleosSection() {
 
         {/* Header con emoji al lado */}
         <div className="mb-10 flex items-start gap-4">
-          <p className="text-8xl leading-none flex-shrink-0" role="img" aria-label="Ícono de Empleos">💼</p>
+          <div className="w-24 h-24 flex-shrink-0">
+            <svg width="96" height="96" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="35" width="60" height="45" rx="3" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.1"/>
+              <rect x="20" y="25" width="60" height="15" rx="3" stroke="currentColor" strokeWidth="3" fill="currentColor" opacity="0.2"/>
+              <line x1="35" y1="35" x2="35" y2="80" stroke="currentColor" strokeWidth="2"/>
+              <line x1="50" y1="35" x2="50" y2="80" stroke="currentColor" strokeWidth="2"/>
+              <line x1="65" y1="35" x2="65" y2="80" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
           <div>
             <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Empleos del Mundial</h2>
             <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">

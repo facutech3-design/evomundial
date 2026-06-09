@@ -683,7 +683,15 @@ export default function PaisesSection() {
 
         {/* Header */}
         <div className="mb-10">
-          <p className="text-9xl leading-none mb-4" role="img" aria-label="Ícono de Países y Culturas">🌍</p>
+          <div className="w-24 h-24 mb-4">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png"
+              alt="Ícono de Países y Culturas"
+              width={96}
+              height={96}
+              className="w-24 h-24 object-contain"
+            />
+          </div>
           <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Países y Culturas</h2>
           <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
             Los 48 clasificados al Mundial 2026. Toca cada país para descubrir su cultura, comida, música y curiosidades.
@@ -898,7 +906,7 @@ export default function PaisesSection() {
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              { n: "1", txt: "Elegimos un pais del mundo", emoji: "🌍" },
+              { n: "1", txt: "Elegimos un pais del mundo", icon: <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png" alt="Mundo" width={32} height={32} className="w-8 h-8 object-contain" /> },
               { n: "2", txt: "Investigamos y dibujamos su bandera", emoji: "🤔" },
               { n: "3", txt: "Presentamos al grupo: somos sus embajadores", emoji: "👨‍🎓" },
             ].map((paso) => (
