@@ -7,55 +7,55 @@ import { cn } from "@/lib/utils"
 
 // Pictogramas ARASAAC como componentes SVG
 const PictogramasMundo = () => (
-  <div className="w-14 h-14 flex items-center justify-center">
+  <div className="w-28 h-28 flex items-center justify-center">
     <Image
       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mundo%20ara-yv1yDRf3xUA5iEGFNg2KtOCOTMRXWG.png"
       alt="Mundo"
-      width={56}
-      height={56}
-      className="w-14 h-14 object-contain"
+      width={112}
+      height={112}
+      className="w-28 h-28 object-contain"
     />
   </div>
 )
 
 const PictogramasPintura = () => (
-  <div className="w-14 h-14 flex items-center justify-center">
+  <div className="w-28 h-28 flex items-center justify-center">
     <Image
       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creatividadara-V4THdSzv7JJWMQ88Zt5g1xj5qgxmSs.png"
       alt="Arte y Creatividad"
-      width={56}
-      height={56}
-      className="w-14 h-14 object-contain"
+      width={112}
+      height={112}
+      className="w-28 h-28 object-contain"
     />
   </div>
 )
 
 const PictogramasDeporte = () => (
-  <div className="w-14 h-14 flex items-center justify-center">
+  <div className="w-28 h-28 flex items-center justify-center">
     <Image
       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baloncesto%20adaptado%20ara-SP5IbDXiqOzwg8ItiFEJfsI8R1inMG.png"
       alt="Actividades Adaptadas"
-      width={56}
-      height={56}
-      className="w-14 h-14 object-contain"
+      width={112}
+      height={112}
+      className="w-28 h-28 object-contain"
     />
   </div>
 )
 
 const PictogramasTrabajo = () => (
-  <div className="w-14 h-14 flex items-center justify-center">
+  <div className="w-28 h-28 flex items-center justify-center">
     <Image
       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%C2%BFcu%C3%A1l%20es%20tu%20trabajo-IHmNAAbnDlvy8F4P0zI3iN4bOakoFd.png"
       alt="Empleos del Mundial"
-      width={56}
-      height={56}
-      className="w-14 h-14 object-contain"
+      width={112}
+      height={112}
+      className="w-28 h-28 object-contain"
     />
   </div>
 )
 
 const PictogramasAmistad = () => (
-  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="112" height="112" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="35" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
     <circle cx="65" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
     <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
@@ -121,11 +121,16 @@ export default function Navbar({
         />
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-full items-center justify-between px-6 py-4 gap-6">
+        {/* Logo y Mundial - Lado izquierdo comprimido */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+
+        </div>
+
         {/* Logo - Botón de Inicio */}
         <button
           onClick={() => onNavigate("inicio")}
-          className="flex items-center gap-3 hover:opacity-80 transition-opacity active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent flex-shrink-0"
           aria-label="Ir al inicio"
         >
           <Image
@@ -135,21 +140,10 @@ export default function Navbar({
             height={40}
             className="rounded-lg object-contain bg-white p-0.5"
           />
-          <div className="flex flex-col items-start leading-none">
-            <span className="text-xl font-black tracking-tight text-white">
-              EVO<span className="text-accent">MUNDIAL</span>
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-white/50 mt-0.5">
-              Centro Dia Evolutiva
-            </span>
-          </div>
-          <span className="hidden md:block rounded-full bg-accent/20 px-2 py-0.5 text-xs font-bold text-accent">
-            2026
+          <span className="text-lg font-black tracking-tight text-white hidden sm:inline">
+            MUNDIAL
           </span>
         </button>
-
-        {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-1" role="list">
           {SECTIONS.map((s) => {
             const Icon = s.icon
             const isActive = active === s.id
@@ -159,9 +153,9 @@ export default function Navbar({
                   onClick={() => onNavigate(s.id)}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "flex items-center gap-3 rounded-full px-5 py-3 text-xl font-bold transition-all",
+                    "flex items-center gap-2 rounded-full px-4 py-2 text-base font-bold transition-all",
                     isActive
-                      ? cn(SECTION_ACCENT[s.id], "shadow-md scale-105")
+                      ? cn(SECTION_ACCENT[s.id], "shadow-md scale-100")
                       : "text-white/75 hover:bg-white/10 hover:text-white"
                   )}
                 >
