@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { Globe, Music, Utensils, Languages, X, ChevronLeft, ChevronRight, MapPin, ExternalLink } from "lucide-react"
-import { BotonLeer } from "@/components/boton-leer"
 
 const PAISES = [
   {
@@ -697,14 +696,6 @@ export default function PaisesSection() {
           <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
             Los 48 clasificados al Mundial 2026. Toca cada país para descubrir su cultura, comida, música y curiosidades.
           </p>
-          
-          {/* Botón para escuchar sección */}
-          <div className="mt-4">
-            <BotonLeer 
-              etiqueta="Escuchar sección"
-              texto="Países y Culturas. Viajamos por el mundo sin salir del centro. Conocemos los países que juegan el Mundial 2026."
-            />
-          </div>
         </div>
 
         {/* Contador de resultados */}
