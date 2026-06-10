@@ -130,19 +130,16 @@ export default function Navbar({
         {/* Logo - Botón de Inicio */}
         <button
           onClick={() => onNavigate("inicio")}
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent flex-shrink-0"
+          className="flex items-center hover:opacity-80 transition-opacity active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent flex-shrink-0"
           aria-label="Ir al inicio"
         >
           <Image
             src="/evolutiva.jpeg"
             alt="Logo Evolutiva"
-            width={40}
-            height={40}
-            className="rounded-lg object-contain bg-white p-0.5"
+            width={112}
+            height={112}
+            className="rounded-lg object-contain bg-white p-1 w-28 h-28"
           />
-          <span className="text-lg font-black tracking-tight text-white hidden sm:inline">
-            MUNDIAL
-          </span>
         </button>
           {SECTIONS.map((s) => {
             const Icon = s.icon
