@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import { Globe, Heart, Palette, Activity, Briefcase, ChevronRight, ChevronLeft } from "lucide-react"
-import BotonSonido from "@/components/boton-sonido"
+import SpeakButton from "@/components/speak-button"
 
 const CARDS = [  {
     id: "paises",
