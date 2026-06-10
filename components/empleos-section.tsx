@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Briefcase, Mic, Camera, Utensils, Stethoscope, Headphones, ChevronDown, ChevronUp } from "lucide-react"
+import { BotonLeer } from "@/components/boton-leer"
 
 const EMPLEOS = [
   {
@@ -113,6 +114,14 @@ export default function EmpleosSection() {
             <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
               Un Mundial no lo hacen solo los jugadores. Detrás del escenario trabajan miles de personas con los trabajos más variados. Descubrimos qué roles existen y cuáles nos interesan.
             </p>
+            
+            {/* Botón para escuchar sección */}
+            <div className="mt-4">
+              <BotonLeer 
+                etiqueta="Escuchar sección"
+                texto="Empleos del Mundial. ¿Quién trabaja en un mundial? Conocemos todos los roles más allá de los jugadores."
+              />
+            </div>
           </div>
         </div>
 
