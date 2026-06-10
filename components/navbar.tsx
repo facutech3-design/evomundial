@@ -122,11 +122,6 @@ export default function Navbar({
       </div>
 
       <div className="mx-auto flex max-w-full items-center justify-between px-6 py-4 gap-6">
-        {/* Logo y Mundial - Lado izquierdo comprimido */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-
-        </div>
-
         {/* Logo - Botón de Inicio */}
         <button
           onClick={() => onNavigate("inicio")}
@@ -141,6 +136,9 @@ export default function Navbar({
             className="rounded-lg object-contain bg-white p-1 w-28 h-28"
           />
         </button>
+
+        {/* Desktop nav - Centro espaciado */}
+        <ul className="hidden lg:flex items-center gap-2 flex-1 justify-center" role="list">
           {SECTIONS.map((s) => {
             const Icon = s.icon
             const isActive = active === s.id
