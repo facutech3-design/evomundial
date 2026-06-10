@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Palette, Shirt, Flag, Dog, Paintbrush } from "lucide-react"
+import { BotonSeccion } from "@/components/boton-seccion"
 
 const ACTIVIDADES_ARTE = [
   {
@@ -98,6 +99,13 @@ export default function ArteSection() {
               <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-2xl">
                 El arte no tiene reglas ni límites. Cada Mundial genera una explosión de colores, formas y expresión. Nos sumamos a esa fiesta creativa.
               </p>
+              
+              {/* Botón para escuchar sección */}
+              <div className="mt-4">
+                <BotonSeccion 
+                  texto="Arte y Creatividad. Diseñamos camisetas, banderas y mascotas. La creatividad no tiene límites."
+                />
+              </div>
             </div>
           </div>
 

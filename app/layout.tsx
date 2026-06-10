@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Atkinson_Hyperlegible } from 'next/font/google'
+import { LectorGlobal } from '@/components/lector-global'
 import './globals.css'
 
 const atkinson = Atkinson_Hyperlegible({
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${atkinson.variable} bg-background`} suppressHydrationWarning>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <LectorGlobal />
+      </body>
     </html>
   )
 }
