@@ -101,7 +101,7 @@ export default function EmpleosSection() {
         <div className="mb-10 flex items-start gap-4">
           <div className="w-24 h-24 flex-shrink-0">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/empleo-NMuG8qulE0uWGrMwrCbbjJedPwHYFB.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%C2%BFcu%C3%A1l%20es%20tu%20trabajo-IHmNAAbnDlvy8F4P0zI3iN4bOakoFd.png"
               alt="Ícono de Empleos del Mundial"
               width={96}
               height={96}

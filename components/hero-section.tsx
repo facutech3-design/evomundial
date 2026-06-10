@@ -239,7 +239,7 @@ function PictogramaCard({ tipo }: { tipo: string }) {
   if (tipo === "empleos") {
     return (
       <Image
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/empleo-NMuG8qulE0uWGrMwrCbbjJedPwHYFB.png"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%C2%BFcu%C3%A1l%20es%20tu%20trabajo-IHmNAAbnDlvy8F4P0zI3iN4bOakoFd.png"
         alt="Empleos del Mundial"
         width={48}
         height={48}
