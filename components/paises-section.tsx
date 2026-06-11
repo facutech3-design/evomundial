@@ -4,10 +4,12 @@ import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { Globe, Music, Utensils, Languages, X, ChevronLeft, ChevronRight, MapPin, ExternalLink } from "lucide-react"
 import { BotonSeccion } from "@/components/boton-seccion"
+import { Bandera } from "@/components/bandera"
 
 const PAISES = [
   {
     nombre: "Estados Unidos",
+    iso: "US",
     emoji: "🇺🇸",
     sede: true,
     continente: "CONCACAF",
@@ -21,6 +23,7 @@ const PAISES = [
   },
   {
     nombre: "Mexico",
+    iso: "MX",
     emoji: "🇲🇽",
     sede: true,
     continente: "CONCACAF",
@@ -34,6 +37,7 @@ const PAISES = [
   },
   {
     nombre: "Canada",
+    iso: "CA",
     emoji: "🇨🇦",
     sede: true,
     continente: "CONCACAF",
@@ -47,6 +51,7 @@ const PAISES = [
   },
   {
     nombre: "Panama",
+    iso: "PA",
     emoji: "🇵🇦",
     sede: false,
     continente: "CONCACAF",
@@ -60,6 +65,7 @@ const PAISES = [
   },
   {
     nombre: "Haiti",
+    iso: "HT",
     emoji: "🇭🇹",
     sede: false,
     continente: "CONCACAF",
@@ -72,7 +78,8 @@ const PAISES = [
     dato: "Vuelve en 2026",
   },
   {
-    nombre: "Curacao",
+    nombre: "Curazao",
+    iso: "CW",
     emoji: "🇨🇼",
     sede: false,
     continente: "CONCACAF",
@@ -86,6 +93,7 @@ const PAISES = [
   },
   {
     nombre: "Argentina",
+    iso: "AR",
     emoji: "🇦🇷",
     sede: false,
     continente: "CONMEBOL",
@@ -99,6 +107,7 @@ const PAISES = [
   },
   {
     nombre: "Brasil",
+    iso: "BR",
     emoji: "🇧🇷",
     sede: false,
     continente: "CONMEBOL",
@@ -112,6 +121,7 @@ const PAISES = [
   },
   {
     nombre: "Ecuador",
+    iso: "EC",
     emoji: "🇪🇨",
     sede: false,
     continente: "CONMEBOL",
@@ -125,6 +135,7 @@ const PAISES = [
   },
   {
     nombre: "Uruguay",
+    iso: "UY",
     emoji: "🇺🇾",
     sede: false,
     continente: "CONMEBOL",
@@ -138,6 +149,7 @@ const PAISES = [
   },
   {
     nombre: "Paraguay",
+    iso: "PY",
     emoji: "🇵🇾",
     sede: false,
     continente: "CONMEBOL",
@@ -151,6 +163,7 @@ const PAISES = [
   },
   {
     nombre: "Colombia",
+    iso: "CO",
     emoji: "🇨🇴",
     sede: false,
     continente: "CONMEBOL",
@@ -164,6 +177,7 @@ const PAISES = [
   },
   {
     nombre: "Francia",
+    iso: "FR",
     emoji: "🇫🇷",
     sede: false,
     continente: "UEFA",
@@ -177,6 +191,7 @@ const PAISES = [
   },
   {
     nombre: "Alemania",
+    iso: "DE",
     emoji: "🇩🇪",
     sede: false,
     continente: "UEFA",
@@ -190,6 +205,7 @@ const PAISES = [
   },
   {
     nombre: "Espana",
+    iso: "ES",
     emoji: "🇪🇸",
     sede: false,
     continente: "UEFA",
@@ -203,6 +219,7 @@ const PAISES = [
   },
   {
     nombre: "Portugal",
+    iso: "PT",
     emoji: "🇵🇹",
     sede: false,
     continente: "UEFA",
@@ -216,6 +233,7 @@ const PAISES = [
   },
   {
     nombre: "Inglaterra",
+    iso: "GB",
     emoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     sede: false,
     continente: "UEFA",
@@ -229,6 +247,7 @@ const PAISES = [
   },
   {
     nombre: "Paises Bajos",
+    iso: "NL",
     emoji: "🇳🇱",
     sede: false,
     continente: "UEFA",
@@ -242,6 +261,7 @@ const PAISES = [
   },
   {
     nombre: "Belgica",
+    iso: "BE",
     emoji: "🇧🇪",
     sede: false,
     continente: "UEFA",
@@ -255,6 +275,7 @@ const PAISES = [
   },
   {
     nombre: "Croacia",
+    iso: "HR",
     emoji: "🇭🇷",
     sede: false,
     continente: "UEFA",
@@ -268,6 +289,7 @@ const PAISES = [
   },
   {
     nombre: "Suiza",
+    iso: "CH",
     emoji: "🇨🇭",
     sede: false,
     continente: "UEFA",
@@ -281,6 +303,7 @@ const PAISES = [
   },
   {
     nombre: "Austria",
+    iso: "AT",
     emoji: "🇦🇹",
     sede: false,
     continente: "UEFA",
@@ -294,6 +317,7 @@ const PAISES = [
   },
   {
     nombre: "Escocia",
+    iso: "GB",
     emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
     sede: false,
     continente: "UEFA",
@@ -307,6 +331,7 @@ const PAISES = [
   },
   {
     nombre: "Noruega",
+    iso: "NO",
     emoji: "🇳🇴",
     sede: false,
     continente: "UEFA",
@@ -320,6 +345,7 @@ const PAISES = [
   },
   {
     nombre: "Turquia",
+    iso: "TR",
     emoji: "🇹🇷",
     sede: false,
     continente: "UEFA",
@@ -333,6 +359,7 @@ const PAISES = [
   },
   {
     nombre: "Suecia",
+    iso: "SE",
     emoji: "🇸🇪",
     sede: false,
     continente: "UEFA",
@@ -346,6 +373,7 @@ const PAISES = [
   },
   {
     nombre: "Bosnia y Herzegovina",
+    iso: "BA",
     emoji: "🇧🇦",
     sede: false,
     continente: "UEFA",
@@ -372,6 +400,7 @@ const PAISES = [
   },
   {
     nombre: "Marruecos",
+    iso: "MA",
     emoji: "🇲🇦",
     sede: false,
     continente: "CAF",
@@ -385,6 +414,7 @@ const PAISES = [
   },
   {
     nombre: "Senegal",
+    iso: "SN",
     emoji: "🇸🇳",
     sede: false,
     continente: "CAF",
@@ -398,6 +428,7 @@ const PAISES = [
   },
   {
     nombre: "Costa de Marfil",
+    iso: "CI",
     emoji: "🇨🇮",
     sede: false,
     continente: "CAF",
@@ -411,6 +442,7 @@ const PAISES = [
   },
   {
     nombre: "Ghana",
+    iso: "GH",
     emoji: "🇬🇭",
     sede: false,
     continente: "CAF",
@@ -424,6 +456,7 @@ const PAISES = [
   },
   {
     nombre: "Egipto",
+    iso: "EG",
     emoji: "🇪🇬",
     sede: false,
     continente: "CAF",
@@ -437,6 +470,7 @@ const PAISES = [
   },
   {
     nombre: "Argelia",
+    iso: "DZ",
     emoji: "🇩🇿",
     sede: false,
     continente: "CAF",
@@ -463,6 +497,7 @@ const PAISES = [
   },
   {
     nombre: "Sudafrica",
+    iso: "ZA",
     emoji: "🇿🇦",
     sede: false,
     continente: "CAF",
@@ -476,6 +511,7 @@ const PAISES = [
   },
   {
     nombre: "Cabo Verde",
+    iso: "CV",
     emoji: "🇨🇻",
     sede: false,
     continente: "CAF",
@@ -489,6 +525,7 @@ const PAISES = [
   },
   {
     nombre: "Republica del Congo",
+    iso: "CD",
     emoji: "🇨🇩",
     sede: false,
     continente: "CAF",
@@ -502,6 +539,7 @@ const PAISES = [
   },
   {
     nombre: "Japon",
+    iso: "JP",
     emoji: "🇯🇵",
     sede: false,
     continente: "AFC",
@@ -515,6 +553,7 @@ const PAISES = [
   },
   {
     nombre: "Iran",
+    iso: "IR",
     emoji: "🇮🇷",
     sede: false,
     continente: "AFC",
@@ -528,6 +567,7 @@ const PAISES = [
   },
   {
     nombre: "Corea del Sur",
+    iso: "KR",
     emoji: "🇰🇷",
     sede: false,
     continente: "AFC",
@@ -541,6 +581,7 @@ const PAISES = [
   },
   {
     nombre: "Australia",
+    iso: "AU",
     emoji: "🇦🇺",
     sede: false,
     continente: "AFC",
@@ -554,6 +595,7 @@ const PAISES = [
   },
   {
     nombre: "Arabia Saudita",
+    iso: "SA",
     emoji: "🇸🇦",
     sede: false,
     continente: "AFC",
@@ -567,6 +609,7 @@ const PAISES = [
   },
   {
     nombre: "Uzbekistan",
+    iso: "UZ",
     emoji: "🇺🇿",
     sede: false,
     continente: "AFC",
@@ -580,6 +623,7 @@ const PAISES = [
   },
   {
     nombre: "Jordania",
+    iso: "JO",
     emoji: "🇯🇴",
     sede: false,
     continente: "AFC",
@@ -593,6 +637,7 @@ const PAISES = [
   },
   {
     nombre: "Qatar",
+    iso: "QA",
     emoji: "🇶🇦",
     sede: false,
     continente: "AFC",
@@ -606,6 +651,7 @@ const PAISES = [
   },
   {
     nombre: "Irak",
+    iso: "IQ",
     emoji: "🇮🇶",
     sede: false,
     continente: "AFC",
@@ -619,6 +665,7 @@ const PAISES = [
   },
   {
     nombre: "Nueva Zelanda",
+    iso: "NZ",
     emoji: "🇳🇿",
     sede: false,
     continente: "OFC",
@@ -751,11 +798,11 @@ export default function PaisesSection() {
               }`}
             >
               <span
-                className="mb-2 text-8xl leading-none"
+                className="text-5xl leading-none drop-shadow-sm"
                 role="img"
                 aria-label={`Bandera de ${pais.nombre}`}
               >
-                {pais.emoji}
+                <Bandera codigoPais={pais.iso} nombre={pais.nombre} tamaño={64} />
               </span>
               <span className="text-xs font-bold text-foreground leading-tight">{pais.nombre}</span>
               {pais.sede && (
@@ -901,8 +948,8 @@ export default function PaisesSection() {
 
               {/* Panel derecho - Bandera prominente */}
               <div className="hidden lg:flex flex-col items-center justify-center max-w-xs">
-                <div className="text-8xl leading-none drop-shadow-lg overflow-hidden" role="img" aria-label={`Bandera de ${paisActual.nombre}`}>
-                  {paisActual.emoji}
+                <div className="drop-shadow-lg overflow-hidden" role="img" aria-label={`Bandera de ${paisActual.nombre}`}>
+                  <Bandera codigoPais={paisActual.iso} nombre={paisActual.nombre} tamaño={240} />
                 </div>
                 <p className="text-2xl font-black text-white mt-6 text-center">{paisActual.nombre}</p>
               </div>
