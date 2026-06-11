@@ -215,6 +215,15 @@ export default function EmpleosSection() {
                                 </span>
                               ))}
                             </div>
+                            
+                            {/* Botón de sonido para el rol */}
+                            {rolSeleccionado === rol.nombre && (
+                              <div className="mt-4 pt-4 border-t border-border">
+                                <BotonSeccion 
+                                  texto={`${rol.nombre}. Habilidades requeridas: ${rol.habilidades.join(', ')}.`}
+                                />
+                              </div>
+                            )}
                           </div>
                         </div>
                       ))}

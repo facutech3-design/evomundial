@@ -253,6 +253,13 @@ export default function ActividadesSection() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Botón de sonido para la actividad */}
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <BotonSeccion 
+                        texto={`${act.nombre}. ${act.descripcion}`}
+                      />
+                    </div>
                   </div>
                 )}
               </div>

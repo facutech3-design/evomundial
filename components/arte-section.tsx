@@ -263,6 +263,13 @@ export default function ArteSection() {
                 </div>
               )}
             </div>
+
+            {/* Botón de sonido para la actividad */}
+            <div className="mt-8 pt-6 border-t border-border">
+              <BotonSeccion 
+                texto={`${actividad.titulo}. ${actividad.descripcion}`}
+              />
+            </div>
           </div>
         )}
       </div>

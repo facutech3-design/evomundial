@@ -191,6 +191,13 @@ export default function ValoresSection() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* Botón de sonido para el valor */}
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <BotonSeccion 
+                        texto={`${valor.titulo}. ${valor.descripcion}`}
+                      />
+                    </div>
                   </div>
                 )}
               </div>
