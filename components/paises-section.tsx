@@ -387,6 +387,7 @@ const PAISES = [
   },
   {
     nombre: "Chequia",
+    iso: "CZ",
     emoji: "🇨🇿",
     sede: false,
     continente: "UEFA",
@@ -484,6 +485,7 @@ const PAISES = [
   },
   {
     nombre: "Tunez",
+    iso: "TN",
     emoji: "🇹🇳",
     sede: false,
     continente: "CAF",
