@@ -803,7 +803,12 @@ export default function PaisesSection() {
                   </div>
                 </div>
 
-                {/* Contenido */}
+                {/* Botón de sonido */}
+                <div className="bg-foreground/5 px-8 py-4 border-b border-foreground/10">
+                  <BotonSeccion 
+                    texto={`${paisActual.nombre}. Idioma: ${paisActual.idioma}. Comidas típicas: ${paisActual.comida}. Canción más escuchada: ${paisActual.cancion}.`}
+                  />
+                </div>
                 <div className="p-8 space-y-6">
                   <div className="flex gap-4">
                     <div className="shrink-0 rounded-xl bg-primary/10 p-4">
