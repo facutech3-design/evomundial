@@ -317,7 +317,7 @@ const PAISES = [
   },
   {
     nombre: "Escocia",
-    iso: "GB",
+    iso: "GB-SCT",
     emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
     sede: false,
     continente: "UEFA",
@@ -804,7 +804,7 @@ export default function PaisesSection() {
                 role="img"
                 aria-label={`Bandera de ${pais.nombre}`}
               >
-                <Bandera codigoPais={pais.iso} nombre={pais.nombre} tamaño={64} />
+                {pais.iso === "GB-SCT" ? pais.emoji : <Bandera codigoPais={pais.iso} nombre={pais.nombre} tamaño={64} />}
               </span>
               <span className="text-xs font-bold text-foreground leading-tight">{pais.nombre}</span>
               {pais.sede && (
@@ -951,7 +951,11 @@ export default function PaisesSection() {
               {/* Panel derecho - Bandera prominente */}
               <div className="hidden lg:flex flex-col items-center justify-center max-w-xs">
                 <div className="drop-shadow-lg overflow-hidden" role="img" aria-label={`Bandera de ${paisActual.nombre}`}>
-                  <Bandera codigoPais={paisActual.iso} nombre={paisActual.nombre} tamaño={240} />
+                  {paisActual.iso === "GB-SCT" ? (
+                    <span className="text-8xl leading-none">{paisActual.emoji}</span>
+                  ) : (
+                    <Bandera codigoPais={paisActual.iso} nombre={paisActual.nombre} tamaño={240} />
+                  )}
                 </div>
                 <p className="text-2xl font-black text-white mt-6 text-center">{paisActual.nombre}</p>
               </div>
