@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
 import { Globe, Music, Utensils, Languages, X, ChevronLeft, ChevronRight, MapPin, ExternalLink } from "lucide-react"
 import { BotonSeccion } from "@/components/boton-seccion"
@@ -816,17 +817,20 @@ export default function PaisesSection() {
           ))}
         </div>
 
-        {/* Modal con navegacion entre paises */}
-        {paisActual !== null && indiceModal !== null && (
+        {/* Modal con navegacion entre paises - Portal */}
+        {paisActual !== null && indiceModal !== null && typeof document !== 'undefined' && createPortal(
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
             onClick={cerrar}
             role="dialog"
             aria-modal="true"
             aria-label={`Informacion sobre ${paisActual.nombre}`}
           >
             {/* Container con dos paneles - Centrado en viewport */}
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex gap-8 items-center w-full max-w-5xl px-4 max-h-[90vh]">
+            <div 
+              className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 rounded-3xl flex-col lg:flex lg:flex-row lg:max-w-5xl lg:gap-8 lg:p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
               {/* Panel izquierdo - Contenido */}
               <div
                 className="relative flex-1 rounded-3xl bg-card shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
@@ -960,7 +964,8 @@ export default function PaisesSection() {
                 <p className="text-2xl font-black text-white mt-6 text-center">{paisActual.nombre}</p>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
         {/* Actividad grupal */}
