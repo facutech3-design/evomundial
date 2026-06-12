@@ -197,29 +197,15 @@ export default function ValoresSection() {
                           </ul>
                         </div>
 
-                    <div>
-                      <p className="text-sm font-bold uppercase tracking-wide text-muted-foreground mb-2">Ejemplos</p>
-                      <ul className="space-y-1">
-                        {valor.ejemplos.map((ej) => (
-                          <li key={ej} className="flex items-start gap-2 text-sm text-foreground">
-                            <span
-                              className={`mt-1 h-2 w-2 shrink-0 rounded-full ${valor.color}`}
-                              aria-hidden="true"
-                            />
-                            {ej}
-                          </li>
-                        ))}
-                      </ul>
+                        {/* Botón de sonido para el valor */}
+                        <div className="mt-6 pt-6 border-t border-border">
+                          <BotonSeccion 
+                            texto={`${valor.titulo}. ${valor.descripcion}`}
+                          />
+                        </div>
+                      </div>
                     </div>
-
-                    {/* Botón de sonido para el valor */}
-                    <div className="mt-6 pt-6 border-t border-border">
-                      <BotonSeccion 
-                        texto={`${valor.titulo}. ${valor.descripcion}`}
-                      />
-                    </div>
-                  </div>
-                )}
+                  )}
               </div>
             )
           })}
