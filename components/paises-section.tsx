@@ -790,29 +790,33 @@ export default function PaisesSection() {
           ))}
         </div>
 
-        {/* Grid de paises */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+        {/* Grid de paises - Diseño accesible con rectángulos horizontales */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {paisesFiltrados.map((pais, i) => (
             <button
               key={pais.nombre}
               onClick={() => setIndiceModal(i)}
-              className={`group flex flex-col items-center rounded-2xl border-2 bg-card p-4 text-center transition-all hover:border-primary hover:shadow-lg hover:scale-105 active:scale-95 ${
-                indiceModal === i ? "border-primary shadow-lg" : "border-border"
-              }`}
+              className="flex items-center gap-6 p-4 border rounded-xl shadow-md hover:bg-muted duration-200 cursor-pointer transition-all hover:shadow-lg active:scale-95"
             >
-              <span
-                className="text-5xl leading-none drop-shadow-sm"
-                role="img"
-                aria-label={`Bandera de ${pais.nombre}`}
-              >
-                {pais.iso === "GB-SCT" ? pais.emoji : <Bandera codigoPais={pais.iso} nombre={pais.nombre} tamaño={64} />}
-              </span>
-              <span className="text-xs font-bold text-foreground leading-tight">{pais.nombre}</span>
-              {pais.sede && (
-                <span className="mt-1.5 rounded-full bg-accent px-2 py-0.5 text-[10px] font-bold text-accent-foreground">
-                  Sede
-                </span>
-              )}
+              {/* Columna Izquierda - Bandera Grande */}
+              <div className="flex-shrink-0 flex items-center justify-center w-24 h-24 rounded-lg shadow overflow-hidden bg-white">
+                {pais.iso === "GB-SCT" ? (
+                  <span className="text-6xl leading-none">{pais.emoji}</span>
+                ) : (
+                  <Bandera codigoPais={pais.iso} nombre={pais.nombre} tamaño={96} />
+                )}
+              </div>
+
+              {/* Columna Derecha - Información */}
+              <div className="flex-1 text-left">
+                <h3 className="text-2xl font-black text-foreground mb-2">{pais.nombre}</h3>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">{pais.dato}</p>
+                {pais.sede && (
+                  <span className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+                    Sede 2026
+                  </span>
+                )}
+              </div>
             </button>
           ))}
         </div>
