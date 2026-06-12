@@ -229,6 +229,13 @@ export default function ValoresSection() {
                   <span className="h-2 w-2 rounded-full bg-success shrink-0" aria-hidden="true" />
                   {h.valor}
                 </div>
+                
+                {/* Botón de sonido para la historia */}
+                <div className="mt-4 pt-4 border-t border-border">
+                  <BotonSeccion 
+                    texto={`${h.nombre} de ${h.pais}. ${h.historia}`}
+                  />
+                </div>
               </div>
             ))}
           </div>
