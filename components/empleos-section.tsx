@@ -187,7 +187,7 @@ export default function EmpleosSection() {
                         >
                           {/* Imagen */}
                           <div 
-                            className="relative w-full h-64 overflow-hidden bg-black/10 cursor-pointer hover:opacity-80 transition-opacity"
+                            className="relative w-full h-80 overflow-hidden bg-black/10 cursor-pointer hover:opacity-80 transition-opacity"
                             onClick={(e) => {
                               e.stopPropagation()
                               setImagenAmpliada(rol.imagen)
@@ -203,13 +203,13 @@ export default function EmpleosSection() {
                           </div>
 
                           {/* Contenido */}
-                          <div className="p-6">
-                            <h4 className="mb-3 text-xl font-black text-foreground">{rol.nombre}</h4>
-                            <div className="flex flex-wrap gap-2">
+                          <div className="p-8">
+                            <h4 className="mb-4 text-2xl font-black text-foreground">{rol.nombre}</h4>
+                            <div className="flex flex-wrap gap-3">
                               {rol.habilidades.map((h) => (
                                 <span
                                   key={h}
-                                  className="rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary"
+                                  className="rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary"
                                 >
                                   {h}
                                 </span>

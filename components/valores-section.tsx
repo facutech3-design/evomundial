@@ -154,7 +154,7 @@ export default function ValoresSection() {
         </div>
 
         {/* Valores accordeon */}
-        <div className="mb-12 space-y-3">
+        <div className="mb-12 space-y-4">
           {VALORES.map((valor, i) => {
             const Icon = valor.icono
             const abierto = expandido === i
@@ -162,33 +162,40 @@ export default function ValoresSection() {
               <div key={valor.titulo} className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                 <button
                   onClick={() => setExpandido(abierto ? null : i)}
-                  className="flex w-full items-center gap-4 p-6 text-left transition-all hover:bg-muted/50"
-                  aria-expanded={abierto}
+                  className="w-full px-6 py-5 text-left font-semibold transition-colors hover:bg-accent/5 flex items-center justify-between gap-4"
                 >
-                  <div className={`rounded-xl p-3 ${valor.color} ${valor.textColor} shrink-0`}>
-                    <Icon size={24} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xl font-black text-foreground">{valor.titulo}</div>
-                    <div className="text-sm text-muted-foreground">{valor.subtitulo}</div>
+                  <div className="flex items-center gap-4 flex-1">
+                    <Icon className="h-7 w-7 flex-shrink-0 text-foreground" strokeWidth={1.5} />
+                    <div>
+                      <h3 className="text-lg font-black text-foreground mb-1">{valor.titulo}</h3>
+                      <p className="text-sm text-muted-foreground">{valor.descripcion}</p>
+                    </div>
                   </div>
                   {abierto ? (
-                    <ChevronUp size={20} className="text-muted-foreground shrink-0" />
+                    <ChevronUp className="h-6 w-6 flex-shrink-0 text-muted-foreground" />
                   ) : (
-                    <ChevronDown size={20} className="text-muted-foreground shrink-0" />
+                    <ChevronDown className="h-6 w-6 flex-shrink-0 text-muted-foreground" />
                   )}
                 </button>
 
-                {abierto && (
-                  <div className="border-t border-border px-6 pb-6 pt-4">
-                    <p className="text-accessible-base leading-relaxed text-foreground mb-4">{valor.descripcion}</p>
-
-                    <div className="mb-4 rounded-2xl bg-muted p-4">
-                      <p className="text-sm font-bold uppercase tracking-wide text-muted-foreground mb-2">
-                        Pregunta para reflexionar
-                      </p>
-                      <p className="text-base font-semibold text-foreground italic">{valor.pregunta}</p>
-                    </div>
+                  {abierto && (
+                    <div className="border-t border-border bg-background/50 px-6 py-5">
+                      <div className="space-y-4">
+                        <p className="text-base leading-relaxed text-foreground">{valor.reflexion}</p>
+                        <div>
+                          <p className="text-sm font-bold uppercase tracking-wide text-muted-foreground mb-3">Ejemplos</p>
+                          <ul className="space-y-2">
+                            {valor.ejemplos.map((ej) => (
+                              <li key={ej} className="flex items-start gap-3 text-base text-foreground">
+                                <span
+                                  className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${valor.color}`}
+                                  aria-hidden="true"
+                                />
+                                {ej}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
                     <div>
                       <p className="text-sm font-bold uppercase tracking-wide text-muted-foreground mb-2">Ejemplos</p>

@@ -172,39 +172,39 @@ export default function ActividadesSection() {
                       setImagenAmpliada(imagenesActividades[act.id])
                     }
                   }}
-                  className="flex w-full items-center gap-4 p-6 text-left transition-all hover:bg-black/5"
+                  className="flex w-full items-center gap-4 p-7 text-left transition-all hover:bg-black/5"
                   aria-expanded={abierto}
                 >
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-3 mb-1">
-                      <h3 className="text-xl font-black text-foreground">{act.nombre}</h3>
-                      <span className={`rounded-full px-3 py-0.5 text-xs font-bold ${act.badge}`}>
+                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                      <h3 className="text-2xl font-black text-foreground">{act.nombre}</h3>
+                      <span className={`rounded-full px-3 py-1 text-sm font-bold ${act.badge}`}>
                         {act.nivel}
                       </span>
                     </div>
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Users size={14} />
+                    <div className="flex flex-wrap gap-4 text-base text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <Users size={16} />
                         {act.participantes}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Clock size={14} />
+                      <span className="flex items-center gap-2">
+                        <Clock size={16} />
                         {act.duracion}
                       </span>
                     </div>
                   </div>
                   {abierto ? (
-                    <ChevronUp size={20} className="text-muted-foreground shrink-0" />
+                    <ChevronUp size={24} className="text-muted-foreground shrink-0" />
                   ) : (
-                    <ChevronDown size={20} className="text-muted-foreground shrink-0" />
+                    <ChevronDown size={24} className="text-muted-foreground shrink-0" />
                   )}
                 </button>
 
                 {abierto && (
-                  <div className="border-t border-border/50 px-6 pb-6 pt-4">
-                    <p className="mb-6 text-base leading-relaxed text-foreground">{act.descripcion}</p>
+                  <div className="border-t border-border/50 px-7 pb-7 pt-5">
+                    <p className="mb-8 text-lg leading-relaxed text-foreground">{act.descripcion}</p>
 
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                       {/* Materiales */}
                       <div>
                         <h4 className="mb-3 text-sm font-black uppercase tracking-wide text-muted-foreground">

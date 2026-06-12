@@ -163,16 +163,16 @@ export default function ArteSection() {
 
         {/* Detalle de actividad expandida */}
         {actividad && (
-          <div className="mb-10 rounded-3xl border-2 border-foreground bg-card p-8 shadow-xl section-enter">
-            <div className="flex items-start justify-between mb-6">
-              <h3 className="text-accessible-2xl font-black text-foreground">{actividad.titulo}</h3>
+          <div className="mb-10 rounded-3xl border-2 border-foreground bg-card p-10 shadow-xl section-enter">
+            <div className="flex items-start justify-between mb-8">
+              <h3 className="text-accessible-3xl font-black text-foreground">{actividad.titulo}</h3>
               <button
                 onClick={() => setActividadActiva(null)}
-                className="rounded-full bg-muted p-2 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all ml-4 shrink-0"
+                className="rounded-full bg-muted p-3 text-muted-foreground hover:bg-foreground hover:text-primary-foreground transition-all ml-4 shrink-0"
                 aria-label="Cerrar detalle"
               >
                 <span className="sr-only">Cerrar</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             </div>
             <div className="w-full">
