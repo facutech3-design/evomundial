@@ -825,8 +825,8 @@ export default function PaisesSection() {
             aria-modal="true"
             aria-label={`Informacion sobre ${paisActual.nombre}`}
           >
-            {/* Container con dos paneles */}
-            <div className="flex gap-8 items-center w-full max-w-5xl">
+            {/* Container con dos paneles - Centrado en viewport */}
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex gap-8 items-center w-full max-w-5xl px-4 max-h-[90vh]">
               {/* Panel izquierdo - Contenido */}
               <div
                 className="relative flex-1 rounded-3xl bg-card shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
