@@ -127,10 +127,23 @@ export default function ValoresSection() {
               <line x1="65" y1="48" x2="50" y2="52" stroke="currentColor" strokeWidth="1.5"/>
             </svg>
           </div>
-          <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Valores e Inclusión</h2>
-          <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
-            El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.
-          </p>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="hidden sm:block">
+              <Image
+                src="/integracion.png"
+                alt="Pictograma de inclusión"
+                width={80}
+                height={80}
+                className="w-20 h-20 object-contain"
+              />
+            </div>
+            <div>
+              <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Valores e Inclusión</h2>
+              <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
+                El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.
+              </p>
+            </div>
+          </div>
           
           {/* Botón para escuchar sección */}
           <div className="mt-4">

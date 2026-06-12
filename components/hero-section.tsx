@@ -24,6 +24,7 @@ const CARDS = [  {
     titulo: "Valores e Inclusión",
     descripcion: "Respeto, fair play y diversidad. El deporte une.",
     emoji: "🤝",
+    pictograma: "integracion",
     boton: "Ver valores",
     color: "bg-success",
     textColor: "text-success-foreground",
@@ -241,6 +242,17 @@ function PictogramaCard({ tipo }: { tipo: string }) {
       <Image
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%C2%BFcu%C3%A1l%20es%20tu%20trabajo-IHmNAAbnDlvy8F4P0zI3iN4bOakoFd.png"
         alt="Empleos del Mundial"
+        width={48}
+        height={48}
+        className="w-12 h-12 object-contain"
+      />
+    )
+  }
+  if (tipo === "integracion") {
+    return (
+      <Image
+        src="/integracion.png"
+        alt="Valores e Inclusión"
         width={48}
         height={48}
         className="w-12 h-12 object-contain"
