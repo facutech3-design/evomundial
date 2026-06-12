@@ -113,25 +113,6 @@ const PAISAJES = [
 // Fecha de inicio del Mundial 2026: 11 de junio de 2026
 const MUNDIAL_DATE = new Date("2026-06-11T00:00:00")
 
-function useCountdown(target: Date) {
-  const calc = () => {
-    const diff = target.getTime() - Date.now()
-    if (diff <= 0) return { dias: 0, horas: 0, minutos: 0, segundos: 0 }
-    return {
-      dias: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      horas: Math.floor((diff / (1000 * 60 * 60)) % 24),
-      minutos: Math.floor((diff / (1000 * 60)) % 60),
-      segundos: Math.floor((diff / 1000) % 60),
-    }
-  }
-  const [time, setTime] = useState(calc)
-  useEffect(() => {
-    const id = setInterval(() => setTime(calc()), 1000)
-    return () => clearInterval(id)
-  }, [])
-  return time
-}
-
 function Carrusel() {
   const [actual, setActual] = useState(0)
   const total = PAISAJES.length
@@ -262,21 +243,7 @@ function PictogramaCard({ tipo }: { tipo: string }) {
   return <span className="text-4xl">{tipo}</span>
 }
 
-function CountdownUnit({ value, label, emoji }: { value: number; label: string; emoji?: string }) {
-  return (
-    <div className="flex flex-col items-center rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm min-w-[90px]">
-      {emoji && <span className="text-3xl mb-2" role="img">{emoji}</span>}
-      <span className="text-3.5xl font-black text-accent leading-none tabular-nums" suppressHydrationWarning>
-        {String(value).padStart(2, "0")}
-      </span>
-      <span className="mt-2 text-sm font-bold uppercase tracking-widest text-white/80">{label}</span>
-    </div>
-  )
-}
-
 export default function HeroSection({ onNavigate }: { onNavigate: (id: string) => void }) {
-  const { dias, horas, minutos, segundos } = useCountdown(MUNDIAL_DATE)
-
   return (
     <section className="min-h-screen section-enter">
       {/* Hero con fondo Messi + copa */}
@@ -331,22 +298,6 @@ export default function HeroSection({ onNavigate }: { onNavigate: (id: string) =
               etiqueta="Escuchar presentación"
               texto="El Mundial es de todos. Un proyecto para explorar el Mundial 2026 desde la cultura, el arte, los valores y el movimiento. Porque el mundo del fútbol es mucho más que el fútbol."
             />
-          </div>
-
-          {/* Countdown */}
-          <div className="mb-8">
-            <p className="mb-6 text-accessible-xl font-black uppercase tracking-widest text-white text-center">
-              ⏳ Falta para el mundial 2026
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <CountdownUnit value={dias} label="Días" emoji="📅" />
-              <CountdownUnit value={horas} label="Horas" emoji="🕐" />
-              <CountdownUnit value={minutos} label="Minutos" emoji="⏱️" />
-              <CountdownUnit value={segundos} label="Segundos" emoji="⚡" />
-            </div>
-            <p className="mt-4 text-accessible-base text-white/80 font-semibold text-center">
-              Primer partido: 11 de junio de 2026
-            </p>
           </div>
 
           {/* Stats del torneo con emojis */}
