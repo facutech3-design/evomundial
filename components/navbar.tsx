@@ -55,14 +55,15 @@ const PictogramasTrabajo = () => (
 )
 
 const PictogramasAmistad = () => (
-  <svg width="112" height="112" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="35" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
-    <circle cx="65" cy="35" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
-    <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
-    <path d="M47 62 L53 62 L55 75 L45 75 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.2"/>
-    <path d="M30 47 L40 47 L38 62 L28 62 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.2"/>
-    <path d="M60 47 L70 47 L72 62 L62 62 Z" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.2"/>
-  </svg>
+  <div className="w-28 h-28 flex items-center justify-center">
+    <Image
+      src="/integracion.png"
+      alt="Valores e Inclusión"
+      width={112}
+      height={112}
+      className="w-28 h-28 object-contain"
+    />
+  </div>
 )
 
 const SECTIONS = [
