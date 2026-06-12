@@ -127,17 +127,17 @@ export default function ValoresSection() {
               <line x1="65" y1="48" x2="50" y2="52" stroke="currentColor" strokeWidth="1.5"/>
             </svg>
           </div>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="hidden sm:block">
+          <div className="flex items-center gap-6 mb-6 bg-success/10 rounded-2xl p-6">
+            <div className="flex-shrink-0">
               <Image
                 src="/integracion.png"
                 alt="Pictograma de inclusión"
-                width={80}
-                height={80}
-                className="w-20 h-20 object-contain"
+                width={100}
+                height={100}
+                className="w-24 h-24 object-contain"
               />
             </div>
-            <div>
+            <div className="flex-1">
               <h2 className="text-5xl font-black text-foreground md:text-6xl mb-3">Valores e Inclusión</h2>
               <p className="text-accessible-lg text-foreground/85 text-pretty leading-relaxed font-semibold max-w-3xl">
                 El fútbol es un espejo de la sociedad. Hablamos de lo que nos importa: el respeto, la inclusión y lo que nos hace mejores personas.
