@@ -256,12 +256,25 @@ export default function ValoresSection() {
 
         {/* Deporte Adaptado */}
         <div className="rounded-3xl bg-success p-8 text-success-foreground">
-          <h3 className="mb-3 text-2xl font-black">Deporte Adaptado y Paralimpismo</h3>
-          <p className="mb-6 text-lg text-success-foreground/85 leading-relaxed text-pretty">
-            Los Juegos Paralimpicos nacieron en 1960 en Roma. Hoy son el segundo evento deportivo mas grande del mundo,
-            despues de los Juegos Olimpicos. Cada 4 anos, atletas con distintas discapacidades compiten 
-            al maximo nivel. La pregunta no es &quot;pueden o no pueden&quot; — la pregunta es como lo hacen.
-          </p>
+          <div className="flex items-start gap-4 mb-6">
+            <div className="hidden sm:block flex-shrink-0">
+              <Image
+                src="/integracion.png"
+                alt="Pictograma de inclusión - Deporte adaptado"
+                width={80}
+                height={80}
+                className="w-20 h-20 object-contain"
+              />
+            </div>
+            <div className="flex-1">
+              <h3 className="mb-3 text-2xl font-black">Deporte Adaptado y Paralimpismo</h3>
+              <p className="mb-6 text-lg text-success-foreground/85 leading-relaxed text-pretty">
+                Los Juegos Paralimpicos nacieron en 1960 en Roma. Hoy son el segundo evento deportivo mas grande del mundo,
+                despues de los Juegos Olimpicos. Cada 4 anos, atletas con distintas discapacidades compiten 
+                al maximo nivel. La pregunta no es &quot;pueden o no pueden&quot; — la pregunta es como lo hacen.
+              </p>
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { num: "1960", desc: "Primer juego Paralimpico" },
